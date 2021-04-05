@@ -1,7 +1,16 @@
 {
-  "name": "root",
+  "name": "sd-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ZakiQi/leran.git",
+  "author": "huangiyongqi <860029955@qq.com>",
+  "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
+    "eslint": "^7.23.0",
     "lerna": "^4.0.0"
   }
 }

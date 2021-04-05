@@ -1,0 +1,10 @@
+{
+  "name": "wdm-lerna-demo-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "wdm-lerna-demo-core": "^1.0.0"
+  }
+}
