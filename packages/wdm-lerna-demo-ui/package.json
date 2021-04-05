@@ -4,11 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.21",
-    "wdm-lerna-demo-core": "^1.0.5"
+    "lodash": "^4.17.21"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "97eb9225681ee6d9708b84681ffe4970c94aa02b"
+  "gitHead": "66f4d5e5e7e952725f93542a8809f44a317baf85"
 }
