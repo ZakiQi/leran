@@ -1,6 +1,6 @@
 {
   "name": "wdm-lerna-demo-core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "license": "MIT",
   "gitHead": "8ac6ff077a839c395d6f67ef3bc57e74ba8bc077"
