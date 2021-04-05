@@ -1,6 +1,6 @@
 {
   "name": "@sd-data/sd-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "> TODO: description",
   "author": "huangiyongqi <860029955@qq.com>",
   "homepage": "https://github.com/ZakiQi/leran#readme",
@@ -25,5 +25,6 @@
   },
   "bugs": {
     "url": "https://github.com/ZakiQi/leran/issues"
-  }
+  },
+  "gitHead": "f5ea71c656164f54db35758f4a70d45fb580b370"
 }
