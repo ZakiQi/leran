@@ -1,7 +1,7 @@
 {
-  "name": "wdm-lerna-demo-core",
+  "name": "sd-data-core",
   "version": "1.0.5",
   "main": "index.js",
   "license": "MIT",
-  "gitHead": "8ac6ff077a839c395d6f67ef3bc57e74ba8bc077"
+  "gitHead": "d60ed2fe9f0cba6cc3f505e8ad60af94d4442c71"
 }
