@@ -1,6 +1,6 @@
 {
   "name": "@sd-data/sd-data-core",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "index.js",
   "license": "MIT",
   "gitHead": "d60ed2fe9f0cba6cc3f505e8ad60af94d4442c71"
