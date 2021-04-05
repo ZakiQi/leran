@@ -1,5 +1,5 @@
 {
-  "name": "sd-data-ui",
+  "name": "@sd-data/sd-data-ui",
   "version": "1.0.6",
   "main": "index.js",
   "license": "MIT",

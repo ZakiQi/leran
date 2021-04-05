@@ -1,5 +1,5 @@
 {
-  "name": "sd-data-core",
+  "name": "@sd-data/sd-data-core",
   "version": "1.0.6",
   "main": "index.js",
   "license": "MIT",
