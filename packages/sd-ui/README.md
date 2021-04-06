@@ -1,12 +1,14 @@
 # 时代组件库
 
+基于element-ui，项目上要装element-ui
+
 ## 依赖安装
 ```
 npm install
 ```
 
 ### 项目启动
-```
+``
 npm run serve
 ```
 
