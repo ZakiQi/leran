@@ -1,9 +1,9 @@
 {
-  "name": "sd-data",
+  "name": "sd-timesdataa",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:ZakiQi/leran.git",
-  "author": "huangiyongqi <860029955@qq.com>",
+  "author": "sd-timesdata",
   "license": "MIT",
   "private": true,
   "workspaces": [
