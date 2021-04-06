@@ -1,11 +1,18 @@
-# `@sd-data/sd-ui`
+# bbbbb
 
-> TODO: description
-
-## Usage
-
+## 依赖安装
 ```
-const sdUi = require('@sd-data/sd-ui');
-
-// TODO: DEMONSTRATE API
+npm install
 ```
+
+### 项目启动
+```
+npm run serve
+```
+
+### 构建
+```
+npm run lib
+发布npm包的时候用 npm run lib构建
+```
+

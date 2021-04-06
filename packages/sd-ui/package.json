@@ -1,30 +1,50 @@
 {
-  "name": "@sd-timesdata/sd-element-ui",
-  "version": "1.0.9",
-  "description": "> TODO: description",
+  "name": "sd-element-ui",
+  "description": "时代vue ui组件",
+  "version": "2.0.9",
   "author": "huangiyongqi <860029955@qq.com>",
-  "homepage": "https://github.com/ZakiQi/leran#readme",
   "license": "MIT",
-  "main": "lib/sd-ui.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZakiQi/leran.git"
-  },
+  "private": false,
+  "main": "dist/sd-element-ui.umd.min.js",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "lib": "vue-cli-service build --target lib --name sd-element-ui --dest dist packages/index.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "bugs": {
-    "url": "https://github.com/ZakiQi/leran/issues"
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "element-ui": "^2.15.1",
+    "vue": "^2.6.11"
   },
-  "gitHead": "8d99b847c4b04ab67e3eae820cba5bf5726f059d"
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
