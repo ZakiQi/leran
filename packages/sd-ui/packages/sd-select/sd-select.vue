@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .el-select{
   /deep/ input{
     background: #414F6F;
