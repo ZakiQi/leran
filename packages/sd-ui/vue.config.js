@@ -14,5 +14,16 @@ module.exports = {
       template: "public/index.html",
       filename: "index.html"
     }
+  },
+
+  // 配置全局
+  css: {
+    loaderOptions: {
+      scss: {
+        data: `
+          @import "./theme/global-default.scss";
+        `
+      }
+    }
   }
 }
