@@ -20,13 +20,17 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .sd-input{
   border: none;
 
   /deep/ input{
-    background: #414F6F;
+    background: $background-assist;
     color: #fff;
+  }
+
+  .el-input__inner{
+    border: 1px solid none;
   }
 
   // 焦点时候外框颜色
