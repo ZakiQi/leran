@@ -7,12 +7,13 @@
 </template>
 
 <script>
-
-// console.log(previewUI, 'previewUI')
 export default {
   name: "App",
   components: {
-    // sjButton
+  },
+
+  mounted () {
+    this.$theme()
   }
 }
 </script>

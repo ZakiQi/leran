@@ -4,9 +4,12 @@ import App from './App.vue'
 import '../element';
 import previewUI from '../packages/index'
 
+import '../packages/common/theme-change'
+
 // import sjButton from '../packages/index'
 
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+import '../theme/index.scss'
 
 Vue.use(previewUI)
 
@@ -16,3 +19,9 @@ new Vue({
   el: '#app',
   render: h => h(App)
 })
+
+// console.log(a.changeTheme('gray'), this)
+
+// 修改主题色
+// let theme = new Theme()
+// theme.themeChange('gray')

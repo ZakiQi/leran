@@ -1,3 +1,4 @@
+import '../packages/common/theme-change'
 import sjButton from './sj-button/index'
 
 const components = [
