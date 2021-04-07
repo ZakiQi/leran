@@ -27,6 +27,12 @@ export default {
       }, {
         value: '选项3',
         label: '蚵仔煎'
+      }, {
+        value: '选项4',
+        label: '蚵仔煎'
+      }, {
+        value: '选项5',
+        label: '蚵仔煎'
       }]
     }
   },

@@ -31,7 +31,7 @@ export default {
 
   // 焦点时候外框颜色
   /deep/ .el-input__inner:focus {
-    border: 1px solid #409EFF;
+    border: 1px solid $color-primary;
   }
 }
 </style>
