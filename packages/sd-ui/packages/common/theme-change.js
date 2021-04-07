@@ -5,7 +5,11 @@
 */
 import Vue from 'vue'
 
+// 主题
 Vue.prototype.$theme = (type = 'default') => {
-  const dom = document.getElementById('app')
-  dom.setAttribute('class', type)
+  const domInfo = document.querySelectorAll("body > div")
+  
+  domInfo.forEach(e => {
+    e && e.setAttribute('class', type)
+ })
 }
