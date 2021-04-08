@@ -44,10 +44,10 @@ export default {
     color: #fff;
   }
 
-  // // 焦点时候外框颜色
-  // /deep/ .el-input__inner {
-  //   border: 1px solid #414F6F;
-  // }
+  // 焦点时候外框颜色
+  /deep/ .el-input__inner {
+    border: 1px solid $secondary-background !important;
+  }
 }
 /deep/ .el-select-dropdown{
   background: red;

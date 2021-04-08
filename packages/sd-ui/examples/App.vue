@@ -4,7 +4,7 @@
       文字
     </sj-button>
 
-    <sd-input v-model="inputValue" style=" width: 100px;margin-top: 10px;" size="small" placeholder="请输入内容"></sd-input>
+    <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="small" placeholder="请输入内容"></sd-input>
 
     <sd-select v-model="selectValue" size="small" :options="selectOptions"></sd-select>
   </div>
@@ -70,7 +70,7 @@ html, body{
   height: 100%;
   width: 100%;
   padding: 10px;
-  background: rgba(0,0,0,0.2);
+  background: $primary-background;
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;

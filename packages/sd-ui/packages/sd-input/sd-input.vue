@@ -29,8 +29,8 @@ export default {
     color: #fff;
   }
 
-  .el-input__inner{
-    border: 1px solid none;
+  /deep/ .el-input__inner{
+    border: 1px solid $secondary-background !important;
   }
 
   // 焦点时候外框颜色
