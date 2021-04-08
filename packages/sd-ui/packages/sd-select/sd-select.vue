@@ -47,6 +47,7 @@ export default {
   // 焦点时候外框颜色
   /deep/ .el-input__inner {
     border: 1px solid $secondary-background !important;
+    font-size: 12px;
   }
 }
 /deep/ .el-select-dropdown{
@@ -74,6 +75,8 @@ export default {
 
 .el-select-dropdown__item{
   color: $primary-text !important;
+  font-size: 12px !important;
+  font-weight: 100;
 }
 
 // 三角

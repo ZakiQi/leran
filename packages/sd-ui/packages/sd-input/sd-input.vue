@@ -31,6 +31,7 @@ export default {
 
   /deep/ .el-input__inner{
     border: 1px solid $secondary-background !important;
+    font-size: 12px;
   }
 
   // 焦点时候外框颜色
