@@ -33,13 +33,26 @@ export default {
 </style>
 
 <style lang="scss">
-.el-date-table td.available:hover{
-  background: $color-orther;
+.el-month-table td.in-range div, .el-date-table td.in-range div, .el-month-table td.in-range div:hover{
+  background-color: $color-orther !important;
 }
-.el-date-picker__header-label, .el-date-table th, .el-picker-panel__icon-btn, .el-picker-panel{
+.el-month-table td .cell:hover{
+  color: $color-primary !important;
+}
+.el-date-table td.available:hover{
+  & > div{
+    background: $color-orther;
+  }
+}
+.el-date-picker__header-label,
+.el-date-table th, 
+.el-picker-panel__icon-btn,
+.el-picker-panel, 
+.el-month-table td .cell,
+.gray .el-date-editor .el-range-input{
   color: $primary-text !important;
 }
-.el-picker-panel{
+.el-picker-panel, .el-input__inner, .el-range-input{
   background: $background-assist !important;
   border: 1px solid $secondary-background !important;
 }

@@ -8,11 +8,15 @@
 
     <sd-select v-model="selectValue" size="small" :options="selectOptions"></sd-select>
 
-    <sd-date-picker type="date"
-      size="small"
-      value-format="yyyy-MM-dd"
-      style="width: 126px;margin-left: 10px;"
-      placeholder="选择日期">
+    <sd-date-picker
+      v-model="monthValue"
+      type="monthrange"
+      range-separator="——"
+      size="mini"
+      style="width:205px;"
+      value-format="yyyy-MM"
+      start-placeholder="开始月份"
+      end-placeholder="结束月份">
     </sd-date-picker>
   </div>
 </template>
@@ -25,6 +29,7 @@ export default {
     return {
       inputValue: '',
       selectValue: '',
+      monthValue: '',
       selectOptions: [{
         value: '选项1',
         label: '黄金糕'
