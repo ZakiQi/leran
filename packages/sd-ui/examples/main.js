@@ -11,7 +11,7 @@ import '../packages/common/theme-change'
 import 'element-ui/lib/theme-chalk/index.css';
 import '../theme/index.scss'
 // import '../theme/global-default.scss'
-
+console.log(previewUI)
 Vue.use(previewUI)
 
 Vue.config.productionTip = false;

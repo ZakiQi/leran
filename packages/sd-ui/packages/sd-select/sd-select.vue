@@ -80,4 +80,8 @@ export default {
 .el-popper[x-placement^=bottom] .popper__arrow::after{
   border-bottom-color: $color-orther !important;
 }
+
+.el-popper[x-placement^=bottom] .popper__arrow{
+  border-bottom-color: $color-orther !important;
+}
 </style>
