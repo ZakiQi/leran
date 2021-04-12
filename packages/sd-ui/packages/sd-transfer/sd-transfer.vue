@@ -5,7 +5,7 @@
       <sd-input v-model="inputVal" size="mini" @focus="expansion($event, true)"></sd-input>
     </div>
     
-    <i class="el-icon-delete clearable" @click="clearableOperate" style="line-height:30px;" v-if="!!inputVal"></i>
+    <i class="el-icon-delete clearable" @click="clearableOperate" style="line-height:28px;" v-if="!!inputVal"></i>
     <i :class="['el-icon-arrow-down', isExpansion && 'icon-expansion']" @click="expansion"></i>
 
     <!-- 下拉框内容 -->
@@ -174,9 +174,9 @@ export default {
   color: #fff;
   width: 100%;
   border-radius: 3px;
-  border: 1px solid $secondary-background;
+  // border: 1px solid $secondary-background;
   background: $secondary-background;
-  min-height: 30px;
+  // min-height: 27px;
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -185,6 +185,11 @@ export default {
   
   .transfer-contents{
     width: calc(100% - 40px);
+
+    /deep/ .el-input__inner{
+      height: 28px;
+      line-height: 27px;
+    }
   }
 
   
@@ -212,7 +217,7 @@ export default {
 
   .el-icon-arrow-down{
     width: 30px;
-    height: 30px;
+    // height: 30px;
     color:$primary-text;
     display: flex;
     align-items: center;

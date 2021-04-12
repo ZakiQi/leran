@@ -4,9 +4,9 @@
       文字
     </sd-button>
 
-    <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="small" placeholder="请输入内容"></sd-input>
+    <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input>
 
-    <sd-select v-model="selectValue" size="small" :options="selectOptions"></sd-select>
+    <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>
 
     <sd-date-picker
       v-model="monthValue"
@@ -19,7 +19,7 @@
       end-placeholder="结束月份">
     </sd-date-picker>
 
-    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px auto;width: 200px;"></sd-transfer>
+    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px auto;width: 200px;display: inline-flex;"></sd-transfer>
   </div>
 </template>
 
