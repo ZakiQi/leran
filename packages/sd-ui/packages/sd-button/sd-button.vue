@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'sjButton',
+  name: 'sdButton',
 
   data () {
     return {

@@ -1,14 +1,16 @@
 import '../packages/common/theme-change'
-import sjButton from './sj-button/index'
+import sdButton from './sd-button/index'
 import sdInput from './sd-input'
 import sdSelect from './sd-select'
 import sdDatePicker from './sd-date-picker'
+import sdTransfer from './sd-transfer'
 
 const components = [
-  sjButton,
+  sdButton,
   sdInput,
   sdSelect,
-  sdDatePicker
+  sdDatePicker,
+  sdTransfer
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -28,5 +30,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  sjButton
+  ...components
 }

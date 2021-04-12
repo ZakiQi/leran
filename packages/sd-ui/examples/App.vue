@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <sj-button :type="'primary'" :title="'文字'" size="small">
+    <sd-button :type="'primary'" :title="'文字'" size="small">
       文字
-    </sj-button>
+    </sd-button>
 
     <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="small" placeholder="请输入内容"></sd-input>
 
@@ -18,6 +18,8 @@
       start-placeholder="开始月份"
       end-placeholder="结束月份">
     </sd-date-picker>
+
+    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px auto;width: 200px;"></sd-transfer>
   </div>
 </template>
 
@@ -27,6 +29,7 @@ export default {
 
   data () {
     return {
+      val: ['选项1', '选项2'],
       inputValue: '',
       selectValue: '',
       monthValue: '',
@@ -38,18 +41,42 @@ export default {
         label: '双皮奶'
       }, {
         value: '选项3',
-        label: '蚵仔煎'
+        label: '蚵仔煎蚵仔煎蚵仔煎蚵仔煎'
       }, {
         value: '选项4',
         label: '蚵仔煎'
       }, {
         value: '选项5',
         label: '蚵仔煎'
+      }, {
+        value: '选项6',
+        label: '蚵仔'
+      }, {
+        value: '选项7',
+        label: '蚵仔煎2'
+      }, {
+        value: '选项8',
+        label: '蚵仔煎3'
+      }, {
+        value: '选项9',
+        label: '蚵仔煎4'
+      }, {
+        value: '选项39',
+        label: '蚵仔煎4'
+      }, {
+        value: '选项59',
+        label: '蚵仔煎4'
+      }, {
+        value: '选项29',
+        label: '蚵仔煎4'
       }]
     }
   },
 
   watch: {
+    val (val) {
+      console.log(val, '1231231')
+    },
     selectValue (val) {
       console.log(val, 'val')
     },
@@ -63,7 +90,8 @@ export default {
   },
 
   mounted () {
-    this.$theme('gray')
+    this.$theme()
+    console.log(this)
   }
 }
 </script>
