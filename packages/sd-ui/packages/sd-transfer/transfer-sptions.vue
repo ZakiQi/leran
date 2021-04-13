@@ -184,9 +184,8 @@ export default {
   },
 
   mounted () {
-    this.setPosition()
-    
     this.$nextTick( () => {
+      this.setPosition()
       // 下拉dom要放在body上，防止外层div写了overflow：auto/hidden等属性
       document.body.insertBefore(this.$el, document.body.firstChild)
     })
