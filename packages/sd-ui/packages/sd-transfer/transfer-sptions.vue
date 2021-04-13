@@ -109,14 +109,21 @@ export default {
     // 定位
     setPosition () {
       let parentDom = this.$el.parentElement
-
-      let _top = parentDom.getBoundingClientRect().top + 50
-      let _left = parentDom.getBoundingClientRect().left
+      let _top = this.getOffset(parentDom, 'top') + 50
+      let _left = this.getOffset(parentDom, 'left')
       this.transferStyle = {
         top: _top + 'px',
         left: _left + 'px'
-    }
+      }
     },
+
+    // 项目中可能会有父组件，要把父组件的距离加上
+    getOffset (e, type) {
+      var offset = type === 'top' ? e.offsetTop : e.offsetLeft;;
+      if (e.offsetParent !== null) offset += this.getOffset(e.offsetParent, type);
+      return offset;
+    },
+
     
     // 取消
     cancel () {
