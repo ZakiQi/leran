@@ -109,6 +109,7 @@ export default {
     // 定位
     setPosition () {
       let parentDom = this.$el.parentElement
+      console.log(parentDom, 'parentDom')
       let _top = this.getOffset(parentDom, 'top') + 50
       let _left = this.getOffset(parentDom, 'left')
       this.transferStyle = {
@@ -157,7 +158,6 @@ export default {
 
     // 搜索
     filterTarget (val) {
-      console.log(val, 'val')
       this.options.forEach(e => {
         if (e.label.indexOf(val) !== -1) {
           this.$delete(e, 'hide')
@@ -321,10 +321,6 @@ export default {
     border-radius: 0px;
     color: #fff;
   }
-}
-
-.cancel-btn{
-  margin-right: 10px;
 }
 
 .select-wrap, .seledted-wrap{
