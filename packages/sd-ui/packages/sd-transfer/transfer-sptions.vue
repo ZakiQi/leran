@@ -117,7 +117,7 @@ export default {
       console.log(this.parentDom, 'parentDom')
       
       // let _top = this.getOffset(this.parentDom, 'top') + 50
-      let _top = his.parentDom.getBoundingClientRect().y + 50
+      let _top = this.parentDom.getBoundingClientRect().y + 50
       
       let _left = this.parentDom.getBoundingClientRect().x
 
