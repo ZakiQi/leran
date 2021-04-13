@@ -195,10 +195,10 @@ export default {
   height: 250px;
   background: $secondary-background;
   border-radius: 3px;
-  // border: 1px solid $secondary-background;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 999;
   box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.32);
 
   .el-checkbox__input {
