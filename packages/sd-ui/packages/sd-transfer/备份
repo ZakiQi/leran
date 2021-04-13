@@ -1,0 +1,51 @@
+<div :class="['sd-transfer-select', isExpansion && 'select-show']">
+      <div class="triangle"></div>
+      <!-- 选项内容 -->
+      <div class="sd-transfer-select-wrap">
+        <div class="transfer-left-content">
+          <!-- 搜索框 -->
+          <div class="select-wrap">
+            <el-input size="mini" class="transfer-search-input" v-model="searchVal">
+              <i slot="suffix" class="el-input__icon el-icon-search"></i>
+            </el-input>
+          </div>
+
+          <!-- 条件框 -->
+          <div class="original-data-wrap">
+            <div class="tag-contents">
+              <div class="tag-wrap" v-for="(e, i) in options" :key="i">
+                <el-checkbox v-model="e.checked" :label="e.value" @change="optinsSelecting(e)">
+                  <div class="checkbox-text">{{e.label}}</div>
+                </el-checkbox>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="transfer-right-content">
+          <!-- 已选择条件 -->
+          <div class="seledted-wrap">
+            已选择(
+            <span class="selected-num">{{selectedArr.length || 0}}</span>
+            )
+          </div>
+
+          <!-- 已选择标签 -->
+          <div class="selected-data-wrap">
+            <div class="select-content">
+              <div>
+                <div class="selected-tag" v-for="(e, i) in selectedArr" :key="i">
+                  <span @click="delSelected(e.value, i)">{{e.label}}</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- footer 操作栏 -->
+            <div class="sd-transfer-footer">
+              <el-button class="cancel-btn" size="mini" @click="cancel">取消</el-button>
+              <el-button type="primary" size="mini" @click="confirm">确定</el-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
