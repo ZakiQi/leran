@@ -116,16 +116,13 @@ export default {
     setPosition () {
       console.log(this.parentDom, 'parentDom')
 
-      let _top = this.getOffset(this.parentDom, 'top') + 50
-      let _left = this.getOffset(this.parentDom, 'left')
-
-      console.log(_top, _left, '-=-=-=-=-')
+      let _top = this.parentDom.getBoundingClientRect().y + 50
+      let _left = this.parentDom.getBoundingClientRect().x
 
       this.transferStyle = {
         top: _top + 'px',
         left: _left + 'px'
       }
-      console.log(this.transferStyle, 'transferStyle')
     },
 
     // 项目中可能会有父组件，要把父组件的距离加上
