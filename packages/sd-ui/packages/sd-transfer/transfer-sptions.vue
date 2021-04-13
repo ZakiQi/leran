@@ -116,11 +116,10 @@ export default {
     setPosition () {
       console.log(this.parentDom, 'parentDom')
       
-      let _top = this.parentDom.offsetTop + 50
+      let _top = this.getOffset(this.parentDom, 'top') + 50
       let _left = this.parentDom.getBoundingClientRect().x
 
       console.log(this.parentDom.getBoundingClientRect().y, _top, _left, '----')
-
 
       this.transferStyle = {
         top: _top + 'px',
