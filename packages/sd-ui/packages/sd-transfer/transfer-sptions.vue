@@ -109,7 +109,8 @@ export default {
     // 定位
     setPosition () {
       let parentDom = this.$el.parentElement.getBoundingClientRect()
-      
+      console.log(this.$el.parentElement, this.$el.parentElement.getBoundingClientRect())
+
       let _top = parentDom.y + 50
       let _left = parentDom.x
       this.transferStyle = {
