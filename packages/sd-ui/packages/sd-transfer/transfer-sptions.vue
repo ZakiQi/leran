@@ -88,11 +88,16 @@ export default {
       transferStyle: {},
       searchVal: '',
       selectedArr: [],
-      all: false
+      all: false,
+      parentDom: {}
     }
   },
 
   watch: {
+    show (val) {
+      val && this.setPosition()
+    },
+
     parent: {
       handler (data) {
       },
@@ -106,22 +111,26 @@ export default {
   },
 
   methods: {
+    
     // 定位
     setPosition () {
-      let parentDom = this.$el.parentElement.getBoundingClientRect()
-      console.log(this.$el.parentElement, this.$el.parentElement.getBoundingClientRect())
+      console.log(this.parentDom, 'parentDom')
 
-      let _top = parentDom.y + 50
-      let _left = parentDom.x
+      let _top = this.getOffset(this.parentDom, 'top') + 50
+      let _left = this.getOffset(this.parentDom, 'left')
+
+      console.log(_top, _left, '-=-=-=-=-')
+
       this.transferStyle = {
         top: _top + 'px',
         left: _left + 'px'
       }
+      console.log(this.transferStyle, 'transferStyle')
     },
 
     // 项目中可能会有父组件，要把父组件的距离加上
     getOffset (e, type) {
-      var offset = type === 'top' ? e.offsetTop : e.offsetLeft;;
+      var offset = type === 'top' ? e.offsetTop : e.offsetLeft
       if (e.offsetParent !== null) offset += this.getOffset(e.offsetParent, type);
       return offset;
     },
@@ -184,6 +193,8 @@ export default {
   },
 
   mounted () {
+    this.parentDom = this.$el.parentElement
+
     this.$nextTick( () => {
       this.setPosition()
       // 下拉dom要放在body上，防止外层div写了overflow：auto/hidden等属性

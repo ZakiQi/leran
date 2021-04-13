@@ -74,12 +74,10 @@ export default {
 
   methods: {
     PositionCalc (data) {
-      console.log(data, 'data')
     },
 
     expansion (event, status) {
       this.isExpansion = status ?? !this.isExpansion
-      console.log(this.isExpansion, 'isExpansion')
     },
 
     cancel () {
