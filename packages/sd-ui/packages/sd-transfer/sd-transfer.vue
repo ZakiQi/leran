@@ -2,7 +2,7 @@
 <template>
   <div class="sd-transfer">
     <div class="transfer-contents" :title="inputVal" @click="PositionCalc($event)">
-      <sd-input v-model="inputVal" size="mini" @focus="expansion($event, true)"></sd-input>
+      <sd-input v-model="inputVal" size="mini" :placeholder="placeholder" @focus="expansion($event, true)"></sd-input>
     </div>
     
     <i class="el-icon-delete clearable" @click="clearableOperate" style="line-height:28px;" v-if="!!inputVal"></i>
@@ -13,6 +13,7 @@
       :options="options"
       :show="isExpansion"
       :parent="parentEle"
+      :placeholder="placeholder"
       @updateSelectInfo="updateSelectInfo"
       @cancel="cancel"
       @confirm="confirm"
@@ -39,6 +40,11 @@ export default {
     defaultOption: {
       type: Array,
       default: () => []
+    },
+
+    placeholder: {
+      type: String,
+      default: '请选择'
     }
   },
 

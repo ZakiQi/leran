@@ -340,7 +340,7 @@ export default {
 
 .selected-num{
   margin: 0 3px;
-  color: $color-primary;
+  // color: $color-primary;
 }
 
 .original-data-wrap, .selected-data-wrap{
