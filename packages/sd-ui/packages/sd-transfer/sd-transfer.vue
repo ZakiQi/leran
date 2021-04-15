@@ -78,6 +78,7 @@ export default {
 
     expansion (event, status) {
       this.isExpansion = status ?? !this.isExpansion
+      this.$emit('switch', this.isExpansion)
     },
 
     cancel () {
