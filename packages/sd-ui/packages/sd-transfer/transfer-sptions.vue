@@ -130,7 +130,6 @@ export default {
       return offset;
     },
 
-    
     // 取消
     cancel () {
       this.$emit('cancel')
@@ -180,6 +179,8 @@ export default {
       } else {
         this.options.forEach(e => this.$set(e, 'checked', false))
       }
+      this.selectedArr = this.options.filter(e => e.checked)
+      this.$emit('updateSelectInfo', this.selectedArr)
     }
   },
 

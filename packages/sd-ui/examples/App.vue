@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <sd-button :type="'primary'" :title="'文字'" size="small">
+    <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
       文字
-    </sd-button>
+    </sd-button> -->
 
-    <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input>
+    <!-- <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input> -->
 
-    <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>
+    <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
 
     <sd-date-picker
       v-model="monthValue"
       type="monthrange"
-      range-separator="——"
+      :range-separator="separator"
+      size="mini"
+      style="width:205px;"
+      value-format="yyyy-MM"
+      start-placeholder="开始月份"
+      end-placeholder="结束月份">
+    </sd-date-picker>
+
+    <sd-date-picker
+      v-model="value1"
+      type="daterange"
+      range-separator="-"
       size="mini"
       style="width:205px;"
       value-format="yyyy-MM"
@@ -29,46 +40,51 @@ export default {
 
   data () {
     return {
-      val: ['选项1', '选项2'],
+      val: [],
+      separator: '-',
       inputValue: '',
       selectValue: '',
       monthValue: '',
+      value1: '',
       selectOptions: [{
-        value: '选项1',
-        label: '黄金糕'
+        value: '从化',
+        label: '从化'
       }, {
-        value: '选项2',
-        label: '双皮奶'
+        value: '天河',
+        label: '天河'
       }, {
-        value: '选项3',
-        label: '蚵仔煎蚵仔煎蚵仔煎蚵仔煎'
+        value: '黄埔',
+        label: '黄埔'
       }, {
-        value: '选项4',
-        label: '蚵仔煎'
+        value: '海珠',
+        label: '海珠'
       }, {
-        value: '选项5',
-        label: '蚵仔煎'
+        value: '越秀',
+        label: '越秀'
       }, {
-        value: '选项6',
-        label: '蚵仔'
+        value: '南沙',
+        label: '南沙'
       }, {
-        value: '选项7',
-        label: '蚵仔煎2'
+        value: '荔湾',
+        label: '荔湾'
       }, {
-        value: '选项8',
-        label: '蚵仔煎3'
+        value: '白云',
+        label: '白云'
       }, {
-        value: '选项9',
-        label: '蚵仔煎4'
+        value: '增城',
+        label: '增城'
       }, {
-        value: '选项39',
-        label: '蚵仔煎4'
+        value: '东山',
+        label: '东山'
       }, {
-        value: '选项59',
-        label: '蚵仔煎4'
+        value: '花都',
+        label: '花都'
       }, {
-        value: '选项29',
-        label: '蚵仔煎4'
+        value: '番禺',
+        label: '番禺'
+      }, {
+        value: '其它',
+        label: '其它'
       }]
     }
   },
@@ -87,6 +103,9 @@ export default {
   },
 
   components: {
+  },
+
+  methods: {
   },
 
   mounted () {

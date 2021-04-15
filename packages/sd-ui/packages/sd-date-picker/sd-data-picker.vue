@@ -1,5 +1,5 @@
 <template>
-    <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners"></el-date-picker>
+  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners"></el-date-picker>
 </template>
 
 <script>
@@ -55,5 +55,45 @@ export default {
 .el-picker-panel, .el-input__inner, .el-range-input{
   background: $background-assist !important;
   border: 1px solid $secondary-background !important;
+}
+
+.el-range-input, .el-date-range-picker__header div, .el-month-table, .el-year-table, .el-date-table{
+  font-size: $primary-text-size !important;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 22px;
+  text-shadow: 0px 12px 48px rgba(0, 0, 0, 0.03);
+}
+.el-date-range-picker__header div{
+  font-family:  PingFangSC-Medium, PingFang SC;
+}
+.el-range-separator, .el-range-input{
+  color: #FFFFFF !important;
+}
+.el-date-editor .el-range__icon{
+  display: none !important;
+}
+.el-picker-panel{
+  box-shadow: 0px 12px 48px 16px rgba(0, 0, 0, 0.03), 0px 9px 28px 8px rgba(0, 0, 0, 0.05), 0px 6px 16px 0px rgba(0, 0, 0, 0.19), 0px 3px 6px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.el-date-range-picker__content.is-left{
+  border-right: 1px solid rgba(255,255,255, 0.2) !important;
+}
+.el-date-table th{
+  border-bottom: 1px solid rgba(255,255,255, 0.2) !important;
+}
+
+.el-date-editor ::-webkit-input-placeholder {
+    color: rgba(255,255,255, 0.4) !important;
+}
+
+// 下拉内容样式
+.el-month-table td .cell{
+  width: 71px !important;
+}
+.el-month-table td div{
+  height: 36px !important;
+  padding: 0 !important;
 }
 </style>
