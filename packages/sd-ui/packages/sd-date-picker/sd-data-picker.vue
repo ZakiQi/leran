@@ -24,6 +24,7 @@ export default {
 /deep/ .el-input__inner{
   background-color: $background-assist;
   border: 1px solid $secondary-background !important;
+  padding-left: 10px !important;
 }
 
 // 焦点时候外框颜色
@@ -57,10 +58,17 @@ export default {
   border: 1px solid $secondary-background !important;
 }
 
+.el-input--prefix .el-input__inner{
+  padding-left: 10px !important;
+  font-size: $primary-text-size !important;
+  color: $primary-text !important;
+}
+
+
 .el-range-input, .el-date-range-picker__header div, .el-month-table, .el-year-table, .el-date-table{
   font-size: $primary-text-size !important;
-  font-family: PingFangSC-Semibold, PingFang SC;
-  font-weight: 600;
+  font-family:  PingFangSC-Medium, PingFang SC !important;
+  font-weight: 500;
   color: #FFFFFF;
   line-height: 22px;
   text-shadow: 0px 12px 48px rgba(0, 0, 0, 0.03);
@@ -85,7 +93,10 @@ export default {
 }
 
 .el-date-editor ::-webkit-input-placeholder {
-    color: rgba(255,255,255, 0.4) !important;
+  color: rgba(255,255,255, 0.4) !important;
+}
+.el-date-editor .el-range-input, .el-date-editor .el-range-separator{
+  text-align: left !important;
 }
 
 // 下拉内容样式
@@ -95,5 +106,8 @@ export default {
 .el-month-table td div{
   height: 36px !important;
   padding: 0 !important;
+}
+.el-input__prefix{
+  display: none;
 }
 </style>

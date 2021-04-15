@@ -13,7 +13,7 @@
       type="monthrange"
       :range-separator="separator"
       size="mini"
-      style="width:205px;"
+      style="width:231px;"
       value-format="yyyy-MM"
       start-placeholder="开始月份"
       end-placeholder="结束月份">
@@ -24,11 +24,18 @@
       type="daterange"
       range-separator="-"
       size="mini"
-      style="width:205px;"
+      style="width:231px;"
       value-format="yyyy-MM"
       start-placeholder="开始月份"
       end-placeholder="结束月份">
     </sd-date-picker>
+
+    <el-date-picker
+      v-model="value2"
+      type="date"
+      size="mini"
+      placeholder="选择日期">
+    </el-date-picker>
 
     <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px auto;width: 200px;display: inline-flex;"></sd-transfer>
   </div>
@@ -41,6 +48,7 @@ export default {
   data () {
     return {
       val: [],
+      value2: '',
       separator: '-',
       inputValue: '',
       selectValue: '',
