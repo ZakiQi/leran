@@ -1,32 +1,36 @@
 <!-- 下拉穿梭框 -->
 <template>
   <div class="sd-transfer">
-    <div class="transfer-contents" :title="inputVal" @click="PositionCalc($event)">
+    <div class="transfer-contents not-to-away" :title="inputVal" @click="PositionCalc($event)">
       <sd-input v-model="inputVal" size="mini" :placeholder="placeholder" @focus="expansion($event, true)"></sd-input>
     </div>
     
-    <i class="el-icon-delete clearable" @click="clearableOperate" style="line-height:28px;" v-if="!!inputVal"></i>
-    <i :class="['el-icon-arrow-down', isExpansion && 'icon-expansion']" @click="expansion($event)"></i>
+    <i class="el-icon-delete not-to-away clearable" @click="clearableOperate" style="line-height:28px;" v-if="!!inputVal"></i>
+    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" @click="expansion($event)"></i>
 
     <!-- 下拉框内容 -->
     <transfer-sptions
+      v-on-clickaway="away"
       :options="options"
       :show="isExpansion"
       :parent="parentEle"
       :placeholder="placeholder"
+      ref="transferSptions"
       @updateSelectInfo="updateSelectInfo"
       @cancel="cancel"
-      @confirm="confirm"
-      >
+      @confirm="confirm">
     </transfer-sptions>
   </div>
 </template>
 
 <script>
 import transferSptions from './transfer-sptions'
+import { mixin as clickaway } from 'vue-clickaway';
 
 export default {
   name: 'sdTransfer',
+
+  mixins: [ clickaway ],
 
   props: {
     value: {
@@ -75,10 +79,23 @@ export default {
     inputVal: {
       handler (val) {
       }
+    },
+
+    expansion (val) {
     }
   },
 
   methods: {
+    away ($event) {
+      let className = $event.target.className
+      // 结构千万不能改
+      let name = className !== 'el-input__inner' ? className : $event.target?.parentNode?.parentNode.className
+
+      if (name.indexOf('not-to-away') === -1) {
+        this.cancel()
+      }
+    },
+    
     PositionCalc (data) {
     },
 
@@ -89,6 +106,7 @@ export default {
 
     cancel () {
       this.initSelectedInfo()
+      this.$refs.transferSptions.initSelectedInfo()
       this.expansion('', false)
     },
 
