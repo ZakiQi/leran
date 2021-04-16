@@ -96,8 +96,8 @@ export default {
     },
 
     loading: {
-       type: Boolean,
-       default: false
+      type: Boolean,
+      default: false
     }
   },
 

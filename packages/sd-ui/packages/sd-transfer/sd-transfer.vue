@@ -16,6 +16,7 @@
       :show="isExpansion"
       :parent="parentEle"
       :placeholder="placeholder"
+      :loading="loading"
       ref="transferSptions"
       @updateSelectInfo="updateSelectInfo"
       @cancel="cancel"
@@ -50,6 +51,11 @@ export default {
     placeholder: {
       type: String,
       default: '请选择'
+    },
+
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
 
