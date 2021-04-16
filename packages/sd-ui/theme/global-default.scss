@@ -23,7 +23,12 @@ $background-assist: #33425F;
 /** Font Color **/
 // 重要/主标题文字
 $primary-text: #FFFFFF;
+$primary-text-opacity-6: rgba(255, 255, 255, 0.6);
+$primary-text-opacity-4: rgba(255, 255, 255, 0.4);
+
+/** 字号 **/ 
 $primary-text-size: 14px;
+$primary-text-12: 12px;
 
 
 /** font family **/

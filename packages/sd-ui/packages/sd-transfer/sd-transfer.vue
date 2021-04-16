@@ -2,10 +2,11 @@
 <template>
   <div class="sd-transfer">
     <div class="transfer-contents not-to-away" :title="inputVal" @click="PositionCalc($event)">
-      <sd-input v-model="inputVal" size="mini" :placeholder="placeholder" @focus="expansion($event, true)"></sd-input>
+      <div class="transfer-mask" @click.stop="expansion($event)"></div>
+      <sd-input v-model="inputVal" size="mini" :placeholder="placeholder"></sd-input>
     </div>
     
-    <i class="el-icon-delete not-to-away clearable" @click="clearableOperate" style="line-height:28px;" v-if="!!inputVal"></i>
+    <i class="iconfont not-to-away clearable" style="line-height:28px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
     <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" @click="expansion($event)"></i>
 
     <!-- 下拉框内容 -->
@@ -121,6 +122,7 @@ export default {
       })
       
       this.selectedArr = []
+      this.$refs.transferSptions.initSelectedInfo()
       this.inputVal = ''
       this.$emit('update:value', [])
       this.expansion('', false)
@@ -152,6 +154,7 @@ export default {
 
 <style lang="scss" scoped>
 .sd-transfer{
+  user-select: none;
   font-size: 12px;
   color: #fff;
   width: 100%;
@@ -162,19 +165,31 @@ export default {
   justify-content: space-between;
   cursor: pointer;
   position: relative;
+
+  .transfer-mask{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 160px;
+    height: 100%;
+    z-index: 99;
+  }
   
   .transfer-contents{
+    position: relative;
     width: calc(100% - 40px);
 
     /deep/ .el-input__inner{
       height: 28px;
       line-height: 27px;
+      padding: 0 0 0 10px;
     }
   }
 
   
   .clearable{
     display: none;
+    color: rgba(255, 255, 255, 0.4);
   }
 
   &:hover{

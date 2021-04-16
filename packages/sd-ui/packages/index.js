@@ -5,6 +5,10 @@ import sdSelect from './sd-select'
 import sdDatePicker from './sd-date-picker'
 import sdTransfer from './sd-transfer'
 
+// iconfont
+import '../assets/iconfont/iconfont.css'
+import '../assets/iconfont/iconfont.js'
+
 const components = [
   sdButton,
   sdInput,

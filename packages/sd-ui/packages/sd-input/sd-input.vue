@@ -27,6 +27,9 @@ export default {
   /deep/ input{
     background: $background-assist;
     color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   /deep/ .el-input__inner{

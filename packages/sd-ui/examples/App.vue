@@ -13,7 +13,7 @@
       type="monthrange"
       :range-separator="separator"
       size="mini"
-      style="width:231px;"
+      style="width:231px;margin-left: 10px;"
       value-format="yyyy-MM"
       start-placeholder="开始月份"
       end-placeholder="结束月份">
@@ -24,7 +24,7 @@
       type="daterange"
       range-separator="-"
       size="mini"
-      style="width:231px;"
+      style="width:231px;margin-left: 10px;"
       value-format="yyyy-MM"
       start-placeholder="开始月份"
       end-placeholder="结束月份">
@@ -34,10 +34,11 @@
       v-model="value2"
       type="date"
       size="mini"
+      style="margin-left: 10px;"
       placeholder="选择日期">
     </el-date-picker>
 
-    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px auto;width: 200px;display: inline-flex;"></sd-transfer>
+    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
   </div>
 </template>
 
@@ -99,7 +100,6 @@ export default {
 
   watch: {
     val (val) {
-      console.log(val, '1231231')
     },
     selectValue (val) {
       console.log(val, 'val')

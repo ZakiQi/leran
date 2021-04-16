@@ -7,20 +7,23 @@
     <div class="transfer-left-content">
       <!-- 搜索框 -->
       <div class="select-wrap">
+        <i class="el-input__icon el-icon-search transfer-search"></i>
         <el-input size="mini" class="transfer-search-input" v-model="searchVal">
-          <i slot="suffix" class="el-input__icon el-icon-search"></i>
         </el-input>
       </div>
 
       <!-- 条件框 -->
       <div class="original-data-wrap">
-        <div class="original-tag-wrap">
+        <div class="original-tag-wrap" v-loading="loading">
           <div class="tag-contents">
-            <div class="tag-wrap" v-for="(e, i) in options" :key="i" v-show="!e.hide">
+            <div :class="['tag-wrap', e.checked && 'item-checked']" v-for="(e, i) in options" :key="i" v-show="!e.hide">
               <el-checkbox v-model="e.checked" :label="e.value" @change="optinsSelecting(e)">
                 <div class="checkbox-text">
-                  <i class="el-icon-check transfer-check" v-show="e.checked"></i>
+                  <i class="iconfont transfer-check" v-show="e.checked">&#xe609;</i>
                   <span>{{e.label}}</span>
+                  <svg :class="['icon', 'options-add']" aria-hidden="true">
+                    <use xlink:href="#sd-icx2Ferjitubiaox2Fzengjia"></use>
+                  </svg>
                 </div>
               </el-checkbox>
             </div>
@@ -28,15 +31,17 @@
         </div>
 
         <div class="select-all-wrap">
-          <span class="select-all" @click="selectAll">全选</span>
+          <el-checkbox v-model="all" border size="mini" @change="selectAll">
+            <span class="select-all">全选</span>
+          </el-checkbox>
         </div>
       </div>
 
     </div>
     <div class="transfer-right-content">
       <!-- 已选择条件 -->
-      <div class="seledted-wrap">
-        已选择(
+      <div :class="['seledted-wrap', selectedArr.length && 'seledted-num']">
+        已添加 (
         <span class="selected-num">{{selectedArr.length || 0}}</span>
         )
       </div>
@@ -44,17 +49,25 @@
       <!-- 已选择标签 -->
       <div class="selected-data-wrap">
         <div class="select-content">
-          <div>
+          <div v-if="selectedArr.length">
             <div class="selected-tag" v-for="(e, i) in selectedArr" :key="i">
               <span class="selected-item">{{e.label}}</span>
-              <i class="el-icon-delete" @click="delSelected(e.value, i)"></i>
+              <!-- 删除选中 -->
+              <i class="iconfont icon-delete" @click="delSelected(e.value, i)">&#xe602;</i>
+            </div>
+          </div>
+
+          <!-- 控状态 -->
+          <div class="empty-wrap" v-else>
+            <div class="empty-status">
+              <div class="empty-svg"></div>
+              <div class="empty-text">请从列表筛选添加</div>
             </div>
           </div>
         </div>
       
         <!-- footer 操作栏 -->
         <div class="sd-transfer-footer">
-          <!-- <span class="select-all">全选</span> -->
           <el-button class="transfer-btn transfer-cancel cancel-btn" size="mini" @click="cancel">取消</el-button>
           <el-button class="transfer-btn transfer-confirm" type="primary" size="mini" @click="confirm">确定</el-button>
         </div>
@@ -80,6 +93,11 @@ export default {
     options: {
       type: Array,
       immediate: true
+    },
+
+    loading: {
+       type: Boolean,
+       default: false
     }
   },
 
@@ -111,10 +129,9 @@ export default {
   },
 
   methods: {
-    
     // 定位
     setPosition () {
-      let _top = this.parentDom.getBoundingClientRect().y + 50
+      let _top = this.parentDom.getBoundingClientRect().y + 45
       let _left = this.parentDom.getBoundingClientRect().x
 
       this.transferStyle = {
@@ -142,9 +159,15 @@ export default {
 
     // 选项选择
     optinsSelecting (row) {
-      this.$set(row, 'checked', row.checked)
       this.selectedArr = this.options.filter(e => e.checked)
       this.$emit('updateSelectInfo', this.selectedArr)
+
+      // 全选状态处理
+      if (row.checked) {
+        !this.options.find(e => !e.checked) && (this.all = true)
+      } else {
+        this.all = false
+      }
     },
 
     // 删除选择
@@ -173,7 +196,6 @@ export default {
 
     // 全选
     selectAll () {
-      this.all = !this.all
       if (this.all) {
         this.options.forEach(e => this.$set(e, 'checked', true))
       } else {
@@ -201,13 +223,19 @@ export default {
 </script>
 
 <style lang="scss">
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .sd-transfer-select{
-  font-size: 12px;
+  font-size: $primary-text-size;
   color: $primary-text;
   display: none;
   position: relative;
-  width: 300px;
-  height: 250px;
+  width: 304px;
+  height: 350px;
   background: $secondary-background;
   border-radius: 3px;
   position: absolute;
@@ -264,13 +292,27 @@ export default {
   }
 }
 
+.transfer-search{
+  line-height: 32px !important;
+  color: $primary-text-opacity-4;
+  text-align: left !important;
+}
+
 .transfer-right-content, .transfer-left-content{
-  width: 50%;
   overflow: hidden;
   float: left;
   height: 100%;
   box-sizing: border-box;
 }
+
+.transfer-left-content{
+  width: calc(50% + 4px);
+}
+
+.transfer-right-content{
+  width: calc(50% - 4px);
+}
+
 
 .sd-transfer-footer{
   width: 100%;
@@ -288,7 +330,7 @@ export default {
   box-sizing: border-box;
   overflow: auto;
   
-  .el-icon-delete {
+  .icon-delete {
     display: none;
     line-height: 30px;
     cursor: pointer;
@@ -296,6 +338,32 @@ export default {
     &:hover{
       color: #0077FF;
     }
+  }
+}
+
+.empty-wrap{
+    display: flex;
+    align-items: center;
+    height: calc(100% - 30px);
+    justify-content: center;
+
+  .empty-status{
+    text-align: center;
+  }
+
+  .empty-svg{
+    width: 100px;
+    height: 80px;
+    background-image: url('../../assets/svg/empty.svg');
+    background-repeat:no-repeat;
+  }
+
+  .empty-text{
+    font-size: $primary-text-12;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: $primary-text-opacity-4;
+    margin-top: 10px;
   }
 }
 
@@ -319,27 +387,38 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-left: 14px;
+  padding-left: 16px;
 }
 
 .transfer-search-input{
   /deep/ .el-input__inner{
     padding: 0;
     border-radius: 0px;
-    color: #fff;
+    color: $primary-text-opacity-4;
   }
 }
 
 .select-wrap, .seledted-wrap{
-  padding: 0 5px;
+  font-size: $primary-text-12;
+  color: $primary-text-opacity-6;
+  padding: 0 10px;
   height: 30px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #5f6673;
 }
 
+.select-wrap{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.seledted-num{
+  color: $primary-text;
+}
+
+
 .selected-num{
-  margin: 0 3px;
+  // margin: 0 3px;
   // color: $color-primary;
 }
 
@@ -354,19 +433,50 @@ export default {
   overflow-y: auto;
   box-sizing: border-box;
   overflow-x: hidden;
+
+  .el-loading-mask{
+    background: none; 
+  }
 }
 
 .select-all-wrap{
+  padding-left: 10px;
   user-select: none;
   height: 30px;
   box-shadow: 0px -6px 4px -1px rgba(0, 0, 0, 0.21);
+  font-size: $primary-text-12;
   
   .select-all{
-    line-height: 30px;
-    margin-left: 25px;
+    line-height: 25px;
+    color: $primary-text-opacity-6;
+    font-size: $primary-text-12;
+  }
 
+  .el-checkbox__input{
+    display: inline-block !important;
+  }
+  .is-bordered {
+    border: none !important;
+  }
+  .el-checkbox__label{
+    padding-left: 8px !important;
+  }
+  .el-checkbox.is-bordered.el-checkbox--mini{
+    padding: 4px 0 !important;
+  }
+  .el-checkbox__inner{
+    border: 1px solid $primary-text-opacity-4;
+    background: transparent;
+  }
+
+  .el-checkbox{
     &:hover{
-      color: #0077FF;
+      .el-checkbox__inner{
+        border: 1px solid #0077FF;      
+      }
+      .select-all{
+        color: #0077FF;
+      }
     }
   }
 }
@@ -382,46 +492,72 @@ export default {
 
 .tag-wrap{
   text-align: left;
-  max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 30px;
 
-  /deep/ .el-checkbox{
-    width: 100%;
+  .el-checkbox{
+    display: inline-block;
+    width: 100% !important;
   }
 
-  /deep/ .el-checkbox__label{
-    width: calc(100% - 25px);
+  .el-checkbox__label{
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   &:hover{
     background: #202C44;
+
+    & .checkbox-text {
+      color: $primary-text;
+    }
+
+    & .options-add{
+      display: inline-block;
+    }
   }
 }
 
 .checkbox-text{
-  font-size: 12px;
-  color: #FFFFFF;
-  padding-left: 16px;
+  color: $primary-text-opacity-4;
+  padding-left: 20px;
   height: 100%;
   line-height: 30px;
+  position: relative;
 
   & span{
     display: block;
-    width: 100%;
+    width: calc(100% - 30px);
     white-space: nowrap;
     text-overflow: ellipsis;
     position: relative;
     overflow: hidden;
   }
+
+  .transfer-check{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 12px;
+  }
 }
 
-.transfer-check{
+.item-checked{
+ .checkbox-text{
+   color: $primary-text;
+ } 
+}
+
+.options-add{
   position: absolute;
-  top: 9px;
-  left: 8px;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  display: none;
 }
 
 /deep/ .el-checkbox{
