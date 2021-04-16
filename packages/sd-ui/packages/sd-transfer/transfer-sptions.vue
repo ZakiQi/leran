@@ -259,6 +259,10 @@ export default {
 .transfer-cancel{
   background: transparent !important;
   border: 1px solid rgba(255,255,255, 0.2) !important;
+
+  &:hover{
+    border: 1px solid #409EFF !important;
+  }
 }
 
 .transfer-confirm{
@@ -331,7 +335,6 @@ export default {
   overflow: auto;
   
   .icon-delete {
-    display: none;
     line-height: 30px;
     cursor: pointer;
 
@@ -371,10 +374,6 @@ export default {
   height: 30px;
   float: left;
   width: 100%;
-
-  &:hover > i{
-    display: block;
-  }
 }
 
 .selected-item{
@@ -551,7 +550,7 @@ export default {
  } 
 }
 
-.options-add{
+.checkbox-text .options-add{
   position: absolute;
   top: 5px;
   right: 5px;

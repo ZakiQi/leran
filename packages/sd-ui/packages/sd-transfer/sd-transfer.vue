@@ -1,13 +1,13 @@
 <!-- 下拉穿梭框 -->
 <template>
   <div class="sd-transfer">
-    <div class="transfer-contents not-to-away" :title="inputVal" @click="PositionCalc($event)">
+    <div class="transfer-contents not-to-away" :title="inputVal">
       <div class="transfer-mask" @click.stop="expansion($event)"></div>
       <sd-input v-model="inputVal" size="mini" :placeholder="placeholder"></sd-input>
     </div>
     
     <i class="iconfont not-to-away clearable" style="line-height:28px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
-    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" @click="expansion($event)"></i>
+    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion($event)"></i>
 
     <!-- 下拉框内容 -->
     <transfer-sptions
@@ -102,9 +102,6 @@ export default {
         this.cancel()
       }
     },
-    
-    PositionCalc (data) {
-    },
 
     expansion (event, status) {
       this.isExpansion = status ?? !this.isExpansion
@@ -183,7 +180,7 @@ export default {
   
   .transfer-contents{
     position: relative;
-    width: calc(100% - 40px);
+    width: calc(100% - 30px);
 
     /deep/ .el-input__inner{
       height: 28px;
@@ -194,15 +191,16 @@ export default {
 
   
   .clearable{
-    display: none;
+    margin: 0 10px;
+    // display: none;
     color: rgba(255, 255, 255, 0.4);
   }
 
-  &:hover{
-    .clearable{
-      display: inline-block;
-    }
-  }
+  // &:hover{
+  //   .clearable{
+  //     display: inline-block;
+  //   }
+  // }
 
   .el-icon-arrow-down{
     width: 30px;
