@@ -39,6 +39,7 @@
     </el-date-picker>
 
     <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
+    <sd-transfer :value.sync="val1" :options="selectOptions1" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
   </div>
 </template>
 
@@ -49,6 +50,7 @@ export default {
   data () {
     return {
       val: [],
+      val1: [],
       value2: '',
       separator: '-',
       inputValue: '',
@@ -56,6 +58,46 @@ export default {
       monthValue: '',
       value1: '',
       selectOptions: [{
+        value: '从化',
+        label: '从化'
+      }, {
+        value: '天河',
+        label: '天河'
+      }, {
+        value: '黄埔',
+        label: '黄埔'
+      }, {
+        value: '海珠',
+        label: '海珠'
+      }, {
+        value: '越秀',
+        label: '越秀'
+      }, {
+        value: '南沙',
+        label: '南沙'
+      }, {
+        value: '荔湾',
+        label: '荔湾'
+      }, {
+        value: '白云',
+        label: '白云'
+      }, {
+        value: '增城',
+        label: '增城'
+      }, {
+        value: '东山',
+        label: '东山'
+      }, {
+        value: '花都',
+        label: '花都'
+      }, {
+        value: '番禺',
+        label: '番禺'
+      }, {
+        value: '其它',
+        label: '其它'
+      }],
+      selectOptions1: [{
         value: '从化',
         label: '从化'
       }, {

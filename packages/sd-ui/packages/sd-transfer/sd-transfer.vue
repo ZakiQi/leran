@@ -2,12 +2,12 @@
 <template>
   <div class="sd-transfer">
     <div class="transfer-contents not-to-away" :title="inputVal">
-      <div class="transfer-mask" @click.stop="expansion($event)"></div>
+      <div class="transfer-mask" @click.stop="selectClick"></div>
       <sd-input v-model="inputVal" size="mini" :placeholder="placeholder"></sd-input>
     </div>
     
     <i class="iconfont not-to-away clearable" style="line-height:28px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
-    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion($event)"></i>
+    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion"></i>
 
     <!-- 下拉框内容 -->
     <transfer-sptions
@@ -28,6 +28,7 @@
 <script>
 import transferSptions from './transfer-sptions'
 import { mixin as clickaway } from 'vue-clickaway';
+import Bus from '../../assets/js/bus'
 
 export default {
   name: 'sdTransfer',
@@ -70,7 +71,8 @@ export default {
       selectedArr: [],
       selectNum: 3,
       isExpansion: false,
-      parentEle: {}
+      parentEle: {},
+      uid: ''
     }
   },
 
@@ -88,13 +90,17 @@ export default {
       }
     },
 
-    expansion (val) {
+    options: {
+      handler : function () {
+      },
+      immediate: true
     }
   },
 
   methods: {
     away ($event) {
       let className = $event.target.className
+
       // 结构千万不能改
       let name = className !== 'el-input__inner' ? className : $event.target?.parentNode?.parentNode.className
 
@@ -103,7 +109,12 @@ export default {
       }
     },
 
-    expansion (event, status) {
+    selectClick () {
+      Bus.$emit('cancelDialog', this._uid)
+      this.expansion()
+    },
+
+    expansion (status) {
       this.isExpansion = status ?? !this.isExpansion
       this.$emit('switch', this.isExpansion)
     },
@@ -111,15 +122,17 @@ export default {
     cancel () {
       this.initSelectedInfo()
       this.$refs.transferSptions.initSelectedInfo()
-      this.expansion('', false)
+      this.expansion(false)
     },
 
     confirm () {
       this.$emit('update:value', this.options.filter(e => e.checked).map(e => e.value))
-      this.expansion('', false)
+      this.expansion(false)
     },
 
     clearableOperate () {
+      Bus.$emit('cancelDialog', this._uid)
+
       this.options.filter(e => e.checked).forEach(e => {
         this.$set(e, 'checked', false)
       })
@@ -128,7 +141,7 @@ export default {
       this.$refs.transferSptions.initSelectedInfo()
       this.inputVal = ''
       this.$emit('update:value', [])
-      this.expansion('', false)
+      this.expansion(false)
     },
 
     // 更新选中数据
@@ -147,6 +160,14 @@ export default {
   },
 
   created () {
+    let ts = this
+
+    // 多个穿梭框显示，需要关闭其他穿梭困高
+    Bus.$on('cancelDialog', function (e) {
+      if (ts.uid !== e) {
+        ts.cancel()
+      }
+    })
   },
 
   mounted () {
