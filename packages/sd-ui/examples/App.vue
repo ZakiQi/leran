@@ -17,7 +17,7 @@
       placeholder="月份">
     </el-date-picker>
 
-    <sd-date-picker
+    <!-- <sd-date-picker
       v-model="monthValue"
       type="monthrange"
       :range-separator="separator"
@@ -37,7 +37,7 @@
       value-format="yyyy-MM"
       start-placeholder="开始月份"
       end-placeholder="结束月份">
-    </sd-date-picker>
+    </sd-date-picker> -->
 
     <el-date-picker
       v-model="value2"
@@ -48,7 +48,6 @@
     </el-date-picker>
 
     <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
-    <sd-transfer :value.sync="val1" :options="selectOptions1" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
   </div>
 </template>
 

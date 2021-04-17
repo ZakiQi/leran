@@ -6,7 +6,7 @@
       <sd-input v-model="inputVal" size="mini" :placeholder="placeholder"></sd-input>
     </div>
     
-    <i class="iconfont not-to-away clearable" style="line-height:28px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
+    <i class="iconfont not-to-away clearable" style="line-height:26px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
     <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion"></i>
 
     <!-- 下拉框内容 -->
@@ -204,8 +204,8 @@ export default {
     width: calc(100% - 30px);
 
     /deep/ .el-input__inner{
-      height: 28px;
-      line-height: 27px;
+      height: 26px;
+      line-height: 26px;
       padding: 0 0 0 10px;
     }
   }

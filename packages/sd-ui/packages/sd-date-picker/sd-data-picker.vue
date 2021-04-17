@@ -62,6 +62,9 @@ export default {
   padding-left: 10px !important;
   font-size: $primary-text-size !important;
   color: $primary-text !important;
+
+  height: 26px !important;
+  line-height: 26px !important;
 }
 
 
