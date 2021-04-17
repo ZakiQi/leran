@@ -88,13 +88,18 @@ export default {
 .el-date-range-picker__content.is-left{
   border-right: 1px solid rgba(255,255,255, 0.2) !important;
 }
-.el-date-table th{
+.el-date-table th, .el-date-picker__header--bordered{
   border-bottom: 1px solid rgba(255,255,255, 0.2) !important;
 }
 
 .el-date-editor ::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.4) !important;
 }
+
+.el-month-table td.current:not(.disabled) .cell{
+  color: #409eff !important;
+}
+
 .el-date-editor .el-range-input, .el-date-editor .el-range-separator{
   text-align: left !important;
 }

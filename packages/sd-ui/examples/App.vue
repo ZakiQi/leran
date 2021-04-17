@@ -8,6 +8,15 @@
 
     <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
 
+    <el-date-picker
+      v-model="endMonth"
+      type="month"
+      size="mini"
+      value-format="yyyy-MM"
+      style="width: 134px;margin-top: 5px;height: 26px;"
+      placeholder="月份">
+    </el-date-picker>
+
     <sd-date-picker
       v-model="monthValue"
       type="monthrange"
@@ -57,6 +66,7 @@ export default {
       selectValue: '',
       monthValue: '',
       value1: '',
+      endMonth: '',
       selectOptions: [{
         value: '从化',
         label: '从化'
