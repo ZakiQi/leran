@@ -15,7 +15,7 @@
       <!-- 条件框 -->
       <div class="original-data-wrap">
         <div class="original-tag-wrap" ref="scrollWrap" v-loading="loading">
-          <div class="tag-contents">
+          <div class="tag-contents" ref="tagContents" v-if="options.length">
             <div :class="['tag-wrap', e.checked && 'item-checked']" v-for="(e, i) in options" :key="i" v-show="!e.hide">
               <el-checkbox v-model="e.checked" :label="e.value" @change="optinsSelecting(e)">
                 <div class="checkbox-text">
@@ -92,7 +92,8 @@ export default {
 
     options: {
       type: Array,
-      immediate: true
+      immediate: true,
+      default: () => []
     },
 
     loading: {
@@ -127,6 +128,17 @@ export default {
 
     searchVal (val) {
       this.filterTarget(val)
+    },
+
+    options: {
+      handler (data) {
+        // 选项大于10显示阴影，后面会改成判断高度
+        if (data.length >= 10) {
+          this.showDown = true
+        }
+      },
+
+      immediate: true
     }
   },
 
@@ -151,6 +163,7 @@ export default {
 
     // 取消
     cancel () {
+      this.all = false
       this.$emit('cancel')
     },
 
@@ -205,6 +218,14 @@ export default {
       }
       this.selectedArr = this.options.filter(e => e.checked)
       this.$emit('updateSelectInfo', this.selectedArr)
+    },
+
+    showDownStyle () {
+      let ph = this.$refs.scrollWrap?.offsetHeight || 290
+      let ch = this.$refs.tagContents?.offsetHeight || 0
+      console.log(ph, ch)
+
+      this.showDown = ph < ch
     }
   },
 
@@ -219,11 +240,6 @@ export default {
       this.setPosition()
       // 下拉dom要放在body上，防止外层div写了overflow：auto/hidden等属性
       document.body.insertBefore(this.$el, document.body.firstChild)
-    })
-
-    // 原数据框滚动阴影
-    this.$refs.scrollWrap.addEventListener('scroll', e => {
-      this.showDown = !!e.target.scrollTop
     })
   }
 }

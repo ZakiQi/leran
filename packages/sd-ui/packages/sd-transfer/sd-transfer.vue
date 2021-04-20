@@ -7,7 +7,7 @@
     </div>
     
     <i class="iconfont not-to-away clearable" style="line-height:26px;" v-show="!!inputVal" @click="clearableOperate">&#xe605;</i>
-    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion"></i>
+    <i :class="['el-icon-arrow-down', 'not-to-away', isExpansion && 'icon-expansion']" v-show="!inputVal" @click="expansion()"></i>
 
     <!-- 下拉框内容 -->
     <transfer-sptions
@@ -164,7 +164,7 @@ export default {
 
     // 多个穿梭框显示，需要关闭其他穿梭困高
     Bus.$on('cancelDialog', function (e) {
-      if (ts.uid !== e) {
+      if (ts._uid !== e) {
         ts.cancel()
       }
     })
