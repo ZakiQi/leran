@@ -201,7 +201,7 @@ export default {
   
   .transfer-contents{
     position: relative;
-    width: calc(100% - 30px);
+    width: calc(100% - 10px);
 
     /deep/ .el-input__inner{
       height: 26px;
@@ -213,15 +213,15 @@ export default {
   
   .clearable{
     margin: 0 10px;
-    // display: none;
+    display: none;
     color: rgba(255, 255, 255, 0.4);
   }
 
-  // &:hover{
-  //   .clearable{
-  //     display: inline-block;
-  //   }
-  // }
+  &:hover{
+    .clearable{
+      display: inline-block;
+    }
+  }
 
   .el-icon-arrow-down{
     width: 30px;
