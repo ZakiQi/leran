@@ -139,6 +139,7 @@ export default {
       
       this.selectedArr = []
       this.$refs.transferSptions.initSelectedInfo()
+      this.$refs.transferSptions.all = false
       this.inputVal = ''
       this.$emit('update:value', [])
       this.expansion(false)
