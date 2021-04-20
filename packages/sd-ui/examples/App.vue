@@ -160,7 +160,6 @@ export default {
     },
 
     inputValue (val) {
-      console.log(val)
     }
   },
 
