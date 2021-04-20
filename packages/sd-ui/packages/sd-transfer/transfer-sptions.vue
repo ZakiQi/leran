@@ -132,6 +132,9 @@ export default {
 
     searchVal (val) {
       this.filterTarget(val)
+
+      
+      this.checkedContrast()
     },
 
     options: {
@@ -147,6 +150,10 @@ export default {
   },
 
   methods: {
+    checkedContrast () {
+      let filterInfo = this.options.filter(e => !e.hide)
+      this.all = filterInfo.length && !filterInfo.find(e => !e.checked)
+    },
     // 定位
     setPosition () {
       let _top = this.parentDom.getBoundingClientRect().y + 45
@@ -183,7 +190,7 @@ export default {
 
       // 全选状态处理
       if (row.checked) {
-        !this.options.find(e => !e.checked) && (this.all = true)
+        !this.options.filter(e => !e.hide).find(e => !e.checked) && (this.all = true)
       } else {
         this.all = false
       }
@@ -194,6 +201,7 @@ export default {
       let target = this.options.find(e => e.value === val)
       this.$set(target, 'checked', false)
       this.selectedArr.splice(index, 1)
+      this.checkedContrast()
       this.$emit('updateSelectInfo', this.selectedArr)
     },
 
@@ -216,9 +224,9 @@ export default {
     // 全选
     selectAll () {
       if (this.all) {
-        this.options.forEach(e => this.$set(e, 'checked', true))
+        this.options.filter(e => !e.hide).forEach(e => this.$set(e, 'checked', true))
       } else {
-        this.options.forEach(e => this.$set(e, 'checked', false))
+        this.options.filter(e => !e.hide).forEach(e => this.$set(e, 'checked', false))
       }
       this.selectedArr = this.options.filter(e => e.checked)
       // this.$emit('updateSelectInfo', this.selectedArr)
