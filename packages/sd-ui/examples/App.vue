@@ -13,6 +13,7 @@
       type="month"
       size="mini"
       value-format="yyyy-MM"
+      :editable="false"
       style="width: 134px;margin-top: 5px;height: 26px;"
       placeholder="月份">
     </el-date-picker>
@@ -43,6 +44,7 @@
       v-model="value2"
       type="date"
       size="mini"
+      :editable="false"
       style="margin-left: 10px;"
       placeholder="选择日期">
     </el-date-picker>

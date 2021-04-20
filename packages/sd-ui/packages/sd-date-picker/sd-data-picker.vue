@@ -123,5 +123,6 @@ export default {
   color: rgba(255, 255, 255, 0.25) !important;
   text-shadow: 0px 12px 48px rgba(0, 0, 0, 3%) !important;
   font-weight: 400;
+  font-family: PingFangSC-Regular, PingFang SC;
 }
 </style>
