@@ -1,5 +1,5 @@
 <template>
-  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners"></el-date-picker>
+  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners" clear-icon="el-icon-share"></el-date-picker>
 </template>
 
 <script>
@@ -125,4 +125,23 @@ export default {
   font-weight: 400;
   font-family: PingFangSC-Regular, PingFang SC;
 }
+
+// 更改时间选择器默认清空icon
+.el-input__suffix-inner .el-icon-circle-close::before{
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e605' !important;
+}
+
+// .el-input__suffix-inner .el-icon-circle-close::after{
+//   color: red !important;
+// }
+
+// .el-input__suffix-inner .el-icon-circle-close{
+//   color: red !important;
+// }
 </style>
