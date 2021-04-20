@@ -14,7 +14,7 @@
 
       <!-- 条件框 -->
       <div class="original-data-wrap">
-        <div class="original-tag-wrap" v-loading="loading">
+        <div class="original-tag-wrap" ref="scrollWrap" v-loading="loading">
           <div class="tag-contents">
             <div :class="['tag-wrap', e.checked && 'item-checked']" v-for="(e, i) in options" :key="i" v-show="!e.hide">
               <el-checkbox v-model="e.checked" :label="e.value" @change="optinsSelecting(e)">
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="select-all-wrap">
+        <div :class="[showDown && 'scroll-wrap-shadow', 'select-all-wrap']">
           <el-checkbox v-model="all" border size="mini" @change="selectAll">
             <span class="select-all">全选</span>
           </el-checkbox>
@@ -107,7 +107,9 @@ export default {
       searchVal: '',
       selectedArr: [],
       all: false,
-      parentDom: {}
+      parentDom: {},
+      // 是否显示阴影
+      showDown: false
     }
   },
 
@@ -217,6 +219,11 @@ export default {
       this.setPosition()
       // 下拉dom要放在body上，防止外层div写了overflow：auto/hidden等属性
       document.body.insertBefore(this.$el, document.body.firstChild)
+    })
+
+    // 原数据框滚动阴影
+    this.$refs.scrollWrap.addEventListener('scroll', e => {
+      this.showDown = !!e.target.scrollTop
     })
   }
 }
@@ -438,12 +445,15 @@ export default {
   }
 }
 
+
+
 .select-all-wrap{
   padding-left: 10px;
   user-select: none;
   height: 30px;
-  box-shadow: 0px -6px 4px -1px rgba(0, 0, 0, 0.21);
   font-size: $primary-text-12;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
   
   .select-all{
     line-height: 25px;
@@ -478,6 +488,11 @@ export default {
       }
     }
   }
+}
+
+.scroll-wrap-shadow{
+  box-shadow: 0px -6px 4px -1px rgba(0, 0, 0, 0.21);
+  border-top: 1px solid transparent;
 }
 
 .tag-contents{
