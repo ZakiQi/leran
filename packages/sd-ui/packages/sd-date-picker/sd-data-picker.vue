@@ -118,4 +118,10 @@ export default {
 .el-input__prefix{
   display: none;
 }
+
+.el-date-table td.next-month, .el-date-table td.prev-month{
+  color: rgba(255, 255, 255, 0.25) !important;
+  text-shadow: 0px 12px 48px rgba(0, 0, 0, 3%) !important;
+  font-weight: 400;
+}
 </style>

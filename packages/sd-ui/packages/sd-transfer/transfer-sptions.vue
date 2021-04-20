@@ -7,8 +7,8 @@
     <div class="transfer-left-content">
       <!-- 搜索框 -->
       <div class="select-wrap">
-        <i class="el-input__icon el-icon-search transfer-search"></i>
-        <el-input size="mini" class="transfer-search-input" v-model="searchVal">
+        <i class="el-input__icon el-icon-search transfer-search" style="width: 20px;"></i>
+        <el-input size="mini" class="transfer-search-input" placeholder="请输入名称搜索" v-model="searchVal">
         </el-input>
       </div>
 
@@ -116,7 +116,11 @@ export default {
 
   watch: {
     show (val) {
-      val && this.setPosition()
+      if (!val) {
+        this.setPosition()
+      } else {
+        this.searchVal = ''
+      }
     },
 
     parent: {
@@ -416,7 +420,7 @@ export default {
   /deep/ .el-input__inner{
     padding: 0;
     border-radius: 0px;
-    color: $primary-text-opacity-4;
+    color: $primary-text;
   }
 }
 
