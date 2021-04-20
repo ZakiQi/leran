@@ -154,6 +154,7 @@ export default {
 
   watch: {
     val (val) {
+      console.log(val)
     },
     selectValue (val) {
       console.log(val, 'val')
