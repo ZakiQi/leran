@@ -1,5 +1,5 @@
 <template>
-  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners" clear-icon="el-icon-share"></el-date-picker>
+  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners"></el-date-picker>
 </template>
 
 <script>
