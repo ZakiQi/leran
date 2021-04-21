@@ -8,7 +8,7 @@
 
     <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
 
-    <el-date-picker
+    <sd-date-picker
       v-model="endMonth"
       type="month"
       size="mini"
@@ -16,7 +16,7 @@
       :editable="false"
       style="width: 134px;margin-top: 5px;height: 26px;"
       placeholder="月份">
-    </el-date-picker>
+    </sd-date-picker>
 
     <!-- <sd-date-picker
       v-model="monthValue"
@@ -40,14 +40,14 @@
       end-placeholder="结束月份">
     </sd-date-picker> -->
 
-    <el-date-picker
+    <sd-date-picker
       v-model="value2"
       type="date"
       size="mini"
       :editable="false"
       style="margin-left: 10px;"
       placeholder="选择日期">
-    </el-date-picker>
+    </sd-date-picker>
 
     <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
     <!-- <sd-transfer :value.sync="val1·" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->

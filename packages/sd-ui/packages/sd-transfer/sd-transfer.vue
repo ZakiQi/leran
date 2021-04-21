@@ -183,7 +183,7 @@ export default {
   font-size: 12px;
   color: #fff;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 2px;
   background: $secondary-background;
   display: flex;
   align-content: center;
@@ -208,6 +208,7 @@ export default {
       height: 26px;
       line-height: 26px;
       padding: 0 0 0 10px;
+      font-size: $primary-text-12;
     }
   }
 

@@ -81,10 +81,10 @@ export default {
 
 // 三角
 .el-popper[x-placement^=bottom] .popper__arrow::after{
-  border-bottom-color: $color-orther !important;
+  border-bottom-color: $secondary-background !important;
 }
 
 .el-popper[x-placement^=bottom] .popper__arrow{
-  border-bottom-color: $color-orther !important;
+  border-bottom-color: $secondary-background !important;
 }
 </style>

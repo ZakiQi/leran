@@ -25,6 +25,7 @@ export default {
   background-color: $background-assist;
   border: 1px solid $secondary-background !important;
   padding-left: 10px !important;
+  border-radius: 2px;
 }
 
 // 焦点时候外框颜色
@@ -60,13 +61,12 @@ export default {
 
 .el-input--prefix .el-input__inner{
   padding-left: 10px !important;
-  font-size: $primary-text-size !important;
+  font-size: $primary-text-12 !important;
   color: $primary-text !important;
 
   height: 26px !important;
   line-height: 26px !important;
 }
-
 
 .el-range-input, .el-date-range-picker__header div, .el-month-table, .el-year-table, .el-date-table{
   font-size: $primary-text-size !important;
