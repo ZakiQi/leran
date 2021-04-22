@@ -157,7 +157,6 @@ export default {
       console.log(val)
     },
     selectValue (val) {
-      console.log(val, 'val')
     },
 
     inputValue (val) {
