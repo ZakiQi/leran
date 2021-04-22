@@ -425,7 +425,7 @@ export default {
 }
 
 .transfer-search-input{
-  /deep/ .el-input__inner{
+  .el-input__inner{
     padding: 0;
     border-radius: 0px;
     color: $primary-text !important;
