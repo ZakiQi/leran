@@ -7,7 +7,8 @@
     <div class="transfer-left-content">
       <!-- 搜索框 -->
       <div class="select-wrap">
-        <i class="el-input__icon el-icon-search transfer-search" style="width: 20px;"></i>
+        <!-- <i class="el-input__icon el-icon-search transfer-search" style="width: 20px;"></i> -->
+        <i class="iconfont  transfer-search">&#xe614;</i>
         <el-input size="mini" class="transfer-search-input" placeholder="请输入名称搜索" v-model="searchVal">
         </el-input>
       </div>
@@ -329,12 +330,11 @@ export default {
       border-right: 1px solid #5f6673;
     }
   }
-}
 
-.transfer-search{
-  line-height: 32px !important;
-  color: $primary-text-opacity-4;
-  text-align: left !important;
+  ::-webkit-input-placeholder {
+    font-family: PingFangSC-Regular, PingFang SC !important;
+    font-weight: 400 !important;
+  }
 }
 
 .transfer-right-content, .transfer-left-content{
@@ -444,6 +444,12 @@ export default {
 
 .select-wrap{
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  .transfer-search{
+    font-size: $primary-text-size;
+    line-height: 32px !important;
+    color: $primary-text-opacity-4;
+    text-align: left !important;
+  }
 }
 
 .seledted-num{

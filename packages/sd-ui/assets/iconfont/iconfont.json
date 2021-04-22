@@ -6,11 +6,39 @@
   "description": "explore-vue重构",
   "glyphs": [
     {
-      "icon_id": "21050059",
+      "icon_id": "21178296",
       "name": "二级图标_查询",
-      "font_class": "erjitubiao_chaxun",
+      "font_class": "erjitubiao_chaxun2",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "21175939",
+      "name": "一级图标_导出",
+      "font_class": "yijitubiao_daochu",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "21175898",
+      "name": "一级图标_导出长图",
+      "font_class": "yijitubiao_daochuchangtu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "21160889",
+      "name": "down",
+      "font_class": "down",
       "unicode": "e611",
       "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "21160867",
+      "name": "on",
+      "font_class": "on",
+      "unicode": "e603",
+      "unicode_decimal": 58883
     },
     {
       "icon_id": "21049140",
@@ -48,25 +76,11 @@
       "unicode_decimal": 58920
     },
     {
-      "icon_id": "20966709",
-      "name": "导出16px-ic",
-      "font_class": "export-excel",
-      "unicode": "e624",
-      "unicode_decimal": 58916
-    },
-    {
       "icon_id": "20966710",
       "name": "刷新-icon",
       "font_class": "refresh",
       "unicode": "e625",
       "unicode_decimal": 58917
-    },
-    {
-      "icon_id": "20966711",
-      "name": "导出长图16px-ic",
-      "font_class": "export-image",
-      "unicode": "e626",
-      "unicode_decimal": 58918
     },
     {
       "icon_id": "20966712",
