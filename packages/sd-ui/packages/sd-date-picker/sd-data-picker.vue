@@ -120,7 +120,7 @@ export default {
 }
 
 .el-date-table td.next-month, .el-date-table td.prev-month{
-  color: rgba(255, 255, 255, 0.25) !important;
+  color: rgba(255, 255, 255, 0.2) !important;
   text-shadow: 0px 12px 48px rgba(0, 0, 0, 3%) !important;
   font-weight: 400;
   font-family: PingFangSC-Regular, PingFang SC;
