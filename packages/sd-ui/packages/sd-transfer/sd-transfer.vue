@@ -26,14 +26,16 @@
 </template>
 
 <script>
+
 import transferSptions from './transfer-sptions'
 import { mixin as clickaway } from 'vue-clickaway';
 import Bus from '../../assets/js/bus'
+import mask from '../mixins/mask-mixins'
 
 export default {
   name: 'sdTransfer',
 
-  mixins: [ clickaway ],
+  mixins: [ clickaway, mask ],
 
   props: {
     value: {
@@ -94,6 +96,10 @@ export default {
       handler : function () {
       },
       immediate: true
+    },
+
+    isExpansion (val) {
+      this.maskWrap(val)
     }
   },
 
