@@ -1,9 +1,6 @@
 <!-- 时间选择器组件 -->
 <template>
-  <div class="sd-picker">
-    <el-date-picker style="width: 100%;" :value.sync="value" v-bind="$attrs" v-on="$listeners" @blur="pickerBlur" @focus="pickerFocus"></el-date-picker>
-    <!-- <div class="pick-mask" :style="{display: show ? 'block' : 'none'}"></div> -->
-  </div>
+  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners" @blur="pickerBlur" @focus="pickerFocus"></el-date-picker>
 </template>
 
 <script>
@@ -54,11 +51,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sd-picker{
-  overflow: hidden;
-  display: inline-block;
-}
-
 /deep/ .el-input__inner{
   background-color: $background-assist;
   border: 1px solid $secondary-background !important;
