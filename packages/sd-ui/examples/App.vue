@@ -1,56 +1,58 @@
 <template>
   <div id="app">
-    <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
-      文字
-    </sd-button> -->
+    <div style="height: 1000px;">
+      <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
+        文字
+      </sd-button> -->
 
-    <!-- <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input> -->
+      <!-- <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input> -->
 
-    <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
+      <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
 
-    <sd-date-picker
-      v-model="endMonth"
-      type="month"
-      size="mini"
-      value-format="yyyy-MM"
-      :editable="false"
-      style="width: 134px;margin-top: 5px;height: 26px;"
-      placeholder="月份">
-    </sd-date-picker>
+      <sd-date-picker
+        v-model="endMonth"
+        type="month"
+        size="mini"
+        value-format="yyyy-MM"
+        :editable="false"
+        style="width: 134px;margin-top: 5px;height: 26px;"
+        placeholder="月份">
+      </sd-date-picker>
 
-    <!-- <sd-date-picker
-      v-model="monthValue"
-      type="monthrange"
-      :range-separator="separator"
-      size="mini"
-      style="width:231px;margin-left: 10px;"
-      value-format="yyyy-MM"
-      start-placeholder="开始月份"
-      end-placeholder="结束月份">
-    </sd-date-picker>
+      <!-- <sd-date-picker
+        v-model="monthValue"
+        type="monthrange"
+        :range-separator="separator"
+        size="mini"
+        style="width:231px;margin-left: 10px;"
+        value-format="yyyy-MM"
+        start-placeholder="开始月份"
+        end-placeholder="结束月份">
+      </sd-date-picker>
 
-    <sd-date-picker
-      v-model="value1"
-      type="daterange"
-      range-separator="-"
-      size="mini"
-      style="width:231px;margin-left: 10px;"
-      value-format="yyyy-MM"
-      start-placeholder="开始月份"
-      end-placeholder="结束月份">
-    </sd-date-picker> -->
+      <sd-date-picker
+        v-model="value1"
+        type="daterange"
+        range-separator="-"
+        size="mini"
+        style="width:231px;margin-left: 10px;"
+        value-format="yyyy-MM"
+        start-placeholder="开始月份"
+        end-placeholder="结束月份">
+      </sd-date-picker> -->
 
-    <sd-date-picker
-      v-model="value2"
-      type="date"
-      size="mini"
-      :editable="false"
-      style="margin-left: 10px;"
-      placeholder="选择日期">
-    </sd-date-picker>
+      <sd-date-picker
+        v-model="value2"
+        type="date"
+        size="mini"
+        :editable="false"
+        style="margin-left: 10px;"
+        placeholder="选择日期">
+      </sd-date-picker>
 
-    <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
-    <!-- <sd-transfer :value.sync="val1·" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
+      <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
+      <!-- <sd-transfer :value.sync="val1·" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
+    </div>
   </div>
 </template>
 
@@ -190,6 +192,8 @@ html, body{
   height: 100%;
   width: 100%;
   padding: 10px;
+  overflow: auto;
+  box-sizing: border-box;
   background: $primary-background;
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   font-family: $font-family;

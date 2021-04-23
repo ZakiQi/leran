@@ -21,7 +21,7 @@
               <el-checkbox v-model="e.checked" :label="e.value" @change="optinsSelecting(e)">
                 <div class="checkbox-text">
                   <i class="iconfont transfer-check" v-show="e.checked">&#xe609;</i>
-                  <span>{{e.label}}</span>
+                  <span :title="e.label">{{e.label}}</span>
                   <svg :class="['icon', 'options-add']" aria-hidden="true">
                     <use xlink:href="#sd-icx2Ferjitubiaox2Fzengjia"></use>
                   </svg>

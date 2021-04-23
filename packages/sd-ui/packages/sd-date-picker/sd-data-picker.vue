@@ -1,5 +1,8 @@
 <template>
-  <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners"></el-date-picker>
+  <div style="display: inline;">
+    <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners" @blur="pickerBlur" @focus="pickerFocus"></el-date-picker>
+    <div class="pick-mask" :style="{display: show ? 'block' : 'none'}"></div>
+  </div>
 </template>
 
 <script>
@@ -12,10 +15,24 @@ export default {
 
   data () {
     return  {
+      top: 0,
+      wrapHg: 0,
+      show: false
     }
   },
 
   methods: {
+    pickerFocus (e) {
+      this.show = true
+    },
+
+    // // 弹窗消失的时候
+    pickerBlur (e) {
+      this.show = false
+    }
+  },
+
+  created () {
   }
 }
 </script>
@@ -31,6 +48,17 @@ export default {
 // 焦点时候外框颜色
 /deep/ .el-input__inner:focus {
   border: 1px solid $color-primary;
+}
+
+.pick-mask{
+  position: fixed;
+  z-index: 9;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  left: 0;
+  display: none;
 }
 </style>
 
