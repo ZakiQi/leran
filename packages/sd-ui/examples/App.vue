@@ -15,7 +15,7 @@
         size="mini"
         value-format="yyyy-MM"
         :editable="false"
-        style="width: 134px;margin-top: 5px;height: 26px;"
+        style="width: 150px;margin-top: 5px;height: 26px;margin-right: 20px"
         placeholder="月份">
       </sd-date-picker>
 
@@ -46,7 +46,7 @@
         type="date"
         size="mini"
         :editable="false"
-        style="margin-left: 10px;"
+        style="margin-left: 10px;margin-right: 20px;"
         placeholder="选择日期">
       </sd-date-picker>
 

@@ -1,7 +1,8 @@
+<!-- 时间选择器组件 -->
 <template>
-  <div style="display: inline;">
-    <el-date-picker :value.sync="value" v-bind="$attrs" v-on="$listeners" @blur="pickerBlur" @focus="pickerFocus"></el-date-picker>
-    <div class="pick-mask" :style="{display: show ? 'block' : 'none'}"></div>
+  <div class="sd-picker">
+    <el-date-picker style="width: 100%;" :value.sync="value" v-bind="$attrs" v-on="$listeners" @blur="pickerBlur" @focus="pickerFocus"></el-date-picker>
+    <!-- <div class="pick-mask" :style="{display: show ? 'block' : 'none'}"></div> -->
   </div>
 </template>
 
@@ -22,13 +23,28 @@ export default {
   },
 
   methods: {
+    // 下拉内容出现要阻止滚动，思路是创建一个body下的mask，下拉的时候吧display设置为block，收回的时候设置为none
+    // 为了避免每个时间选择器都产生一个新dom，会使用第一次创建的dom，重复利用
     pickerFocus (e) {
+      let maskDom = document.getElementById('sd-picker-mask')
+      if (maskDom) {
+        maskDom.style.display = 'block'
+      } else {
+        let _div = document.createElement('div')
+        _div.id = 'sd-picker-mask'
+        _div.className = 'pick-mask'
+        document.body.appendChild(_div);
+      }
       this.show = true
     },
 
     // // 弹窗消失的时候
     pickerBlur (e) {
       this.show = false
+      let maskDom = document.getElementById('sd-picker-mask')
+      if (maskDom) {
+        maskDom.style.display = 'none'
+      }
     }
   },
 
@@ -38,6 +54,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sd-picker{
+  overflow: hidden;
+  display: inline-block;
+}
+
 /deep/ .el-input__inner{
   background-color: $background-assist;
   border: 1px solid $secondary-background !important;
@@ -48,17 +69,6 @@ export default {
 // 焦点时候外框颜色
 /deep/ .el-input__inner:focus {
   border: 1px solid $color-primary;
-}
-
-.pick-mask{
-  position: fixed;
-  z-index: 9;
-  height: 100%;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.05);
-  left: 0;
-  display: none;
 }
 </style>
 
@@ -172,4 +182,14 @@ export default {
 // .el-input__suffix-inner .el-icon-circle-close{
 //   color: red !important;
 // }
+.pick-mask{
+  position: fixed;
+  z-index: 9;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  left: 0;
+  display: block;
+}
 </style>
