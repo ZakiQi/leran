@@ -90,6 +90,11 @@ export default {
 .gray .el-date-editor .el-range-input{
   color: $primary-text !important;
 }
+.el-date-table th{
+  color: $primary-text-opacity-2 !important;
+  font-family: PingFangSC-Regular, PingFang SC !important;
+  line-height: 20px;
+}
 .el-picker-panel, .el-input__inner, .el-range-input{
   background: $background-assist !important;
   border: 1px solid $secondary-background !important;
@@ -128,7 +133,8 @@ export default {
   border-right: 1px solid rgba(255,255,255, 0.2) !important;
 }
 .el-date-table th, .el-date-picker__header--bordered{
-  border-bottom: 1px solid rgba(255,255,255, 0.2) !important;
+  // border-bottom: 1px solid rgba(255,255,255, 0.2) !important;
+  border-bottom: none !important;
 }
 
 .el-date-editor ::-webkit-input-placeholder {
