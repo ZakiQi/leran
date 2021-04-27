@@ -133,7 +133,6 @@ export default {
   border-right: 1px solid rgba(255,255,255, 0.2) !important;
 }
 .el-date-table th, .el-date-picker__header--bordered{
-  // border-bottom: 1px solid rgba(255,255,255, 0.2) !important;
   border-bottom: none !important;
 }
 

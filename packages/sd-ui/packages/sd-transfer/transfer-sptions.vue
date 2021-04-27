@@ -157,7 +157,15 @@ export default {
     },
     // 定位
     setPosition () {
-      let _top = this.parentDom.getBoundingClientRect().y + 45
+      // 内容部分高度360px
+      // 判断距离底部的距离，如果小于360px，需要减去超出部分
+      let parentDomBottomY = this.parentDom.getBoundingClientRect().y + 40
+      let replenish = 0 // 需要向上补充的距离
+      // 获取屏幕可视区域大小，减去dom底部距离 则为剩余空间大小
+      let residueHg = window.innerHeight - parentDomBottomY
+      if (residueHg < 360)  replenish = 360 - residueHg
+
+      let _top = this.parentDom.getBoundingClientRect().y + 45 - replenish
       let _left = this.parentDom.getBoundingClientRect().x
 
       this.transferStyle = {
