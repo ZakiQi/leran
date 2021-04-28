@@ -1,4 +1,10 @@
-<!-- 下拉穿梭框 -->
+<!--
+ * @Author: YQ
+ * @Date: 2021-04-08 20:44:31
+ * @LastEditTime: 2021-04-28 10:25:15
+ * @Description: 自定义穿梭框组件
+ * @FilePath: /lerna/packages/sd-ui/packages/sd-transfer/sd-transfer.vue
+-->
 <template>
   <div class="sd-transfer">
     <div class="transfer-contents not-to-away" :title="inputVal">

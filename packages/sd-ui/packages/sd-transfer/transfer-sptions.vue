@@ -201,7 +201,6 @@ export default {
     // 选项选择
     optinsSelecting (row) {
       this.selectedArr = this.options.filter(e => e.checked)
-      // this.$emit('updateSelectInfo', this.selectedArr)
 
       // 全选状态处理
       if (row.checked) {
@@ -244,7 +243,6 @@ export default {
         this.options.filter(e => !e.hide).forEach(e => this.$set(e, 'checked', false))
       }
       this.selectedArr = this.options.filter(e => e.checked)
-      // this.$emit('updateSelectInfo', this.selectedArr)
     },
 
     showDownStyle () {
