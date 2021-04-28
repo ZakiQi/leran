@@ -1,7 +1,7 @@
 <!-- 穿梭框下拉内容 -->
 <template>
 <div :class="['sd-transfer-select', show && 'select-show']" :style="transferStyle" v-show="show">
-  <div class="triangle"></div>
+  <div class="triangle" v-show="showTriangle"></div>
   <!-- 选项内容 -->
   <div class="sd-transfer-select-wrap">
     <div class="transfer-left-content">
@@ -111,7 +111,8 @@ export default {
       all: false,
       parentDom: {},
       // 是否显示阴影
-      showDown: false
+      showDown: false,
+      showTriangle: true
     }
   },
 
@@ -163,7 +164,12 @@ export default {
       let replenish = 0 // 需要向上补充的距离
       // 获取屏幕可视区域大小，减去dom底部距离 则为剩余空间大小
       let residueHg = window.innerHeight - parentDomBottomY
-      if (residueHg < 360)  replenish = 360 - residueHg
+      if (residueHg < 360)  {
+        replenish = 360 - residueHg
+        this.showTriangle = false
+      } else {
+        this.showTriangle = true
+      }
 
       let _top = this.parentDom.getBoundingClientRect().y + 45 - replenish
       let _left = this.parentDom.getBoundingClientRect().x
@@ -252,6 +258,11 @@ export default {
 
   created () {
     this.initSelectedInfo()
+
+    // 浏览器窗口发生变化时 改变内容定位
+    window.onresize = () => {
+      this.setPosition()
+    }
   },
 
   mounted () {
