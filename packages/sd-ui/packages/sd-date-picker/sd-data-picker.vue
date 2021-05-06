@@ -87,6 +87,7 @@ export default {
 .el-picker-panel__icon-btn,
 .el-picker-panel, 
 .el-month-table td .cell,
+.el-year-table td .cell,
 .gray .el-date-editor .el-range-input{
   color: $primary-text !important;
 }

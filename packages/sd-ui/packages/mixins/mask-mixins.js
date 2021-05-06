@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-04-23 15:39:51
- * @LastEditTime: 2021-04-28 10:32:28
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /lerna/packages/sd-ui/packages/mixins/mask-mixins.js
- */
 // 蒙层【有下拉内容的组件，显示下拉内容猴禁止滚动】
 export default {
   data () {
