@@ -49,9 +49,6 @@ export default {
       //   maskDom.style.display = 'none'
       // }
     }
-  },
-
-  created () {
   }
 }
 </script>
