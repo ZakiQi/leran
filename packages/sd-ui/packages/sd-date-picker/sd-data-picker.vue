@@ -26,7 +26,7 @@ export default {
   methods: {
     // 下拉内容出现要阻止滚动，思路是创建一个body下的mask，下拉的时候吧display设置为block，收回的时候设置为none
     // 为了避免每个时间选择器都产生一个新dom，会使用第一次创建的dom，重复利用
-    pickerFocus (e) {
+    pickerFocus () {
       this.maskWrap(true)
       // let maskDom = document.getElementById('sd-picker-mask')
       // if (maskDom) {
@@ -41,7 +41,7 @@ export default {
     },
 
     // // 弹窗消失的时候
-    pickerBlur (e) {
+    pickerBlur () {
       this.maskWrap(false)
       // this.show = false
       // let maskDom = document.getElementById('sd-picker-mask')

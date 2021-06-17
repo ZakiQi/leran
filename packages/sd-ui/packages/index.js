@@ -4,7 +4,7 @@ import sdInput from './sd-input'
 import sdSelect from './sd-select'
 import sdDatePicker from './sd-date-picker'
 import sdTransfer from './sd-transfer'
-
+import sdCascadeTip from './sd-cascade-tip'
 // iconfont
 import '../assets/iconfont/iconfont.css'
 import '../assets/iconfont/iconfont.js'
@@ -14,7 +14,8 @@ const components = [
   sdInput,
   sdSelect,
   sdDatePicker,
-  sdTransfer
+  sdTransfer,
+  sdCascadeTip
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册

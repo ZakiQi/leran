@@ -8,8 +8,12 @@
       <!-- <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input> -->
 
       <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
-
-      <sd-date-picker
+      <!-- <div class="test"> -->
+        <sd-cascade-tip
+          :options="cascadeTipData"
+        ></sd-cascade-tip>
+      <!-- </div> -->
+      <!-- <sd-date-picker
         v-model="endMonth"
         type="month"
         size="mini"
@@ -17,7 +21,7 @@
         :editable="false"
         style="width: 150px;margin-top: 5px;height: 26px;margin-right: 20px"
         placeholder="月份">
-      </sd-date-picker>
+      </sd-date-picker> -->
 
       <!-- <sd-date-picker
         v-model="monthValue"
@@ -41,16 +45,16 @@
         end-placeholder="结束月份">
       </sd-date-picker> -->
 
-      <sd-date-picker
+      <!-- <sd-date-picker
         v-model="value2"
         type="date"
         size="mini"
         :editable="false"
         style="margin-left: 10px;margin-right: 20px;"
         placeholder="选择日期">
-      </sd-date-picker>
+      </sd-date-picker> -->
 
-      <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
+      <!-- <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
       <!-- <sd-transfer :value.sync="val1·" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
     </div>
   </div>
@@ -150,7 +154,69 @@ export default {
       }, {
         value: '其它',
         label: '其它'
-      }]
+      }],
+      cascadeTipData: [
+        {
+          name: '电信00123',
+          msg: ['描述111111111111111', '描述222222222', '描述333333333333']
+        },
+        {
+          name: '电信00232',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信003',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信004',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信00532232323',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信006',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信007',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信008',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信009',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信010',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信011',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信012',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信013',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信014',
+          msg: ['描述1', '描述2', '描述3']
+        },
+        {
+          name: '电信015撒测试的从是东方V大夫被覆盖把电饭锅把电饭锅',
+          msg: ['描述1', '描述2', '描述3']
+        }
+      ]
     }
   },
 
@@ -201,5 +267,9 @@ html, body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.test {
+  width: 700px;
 }
 </style>
