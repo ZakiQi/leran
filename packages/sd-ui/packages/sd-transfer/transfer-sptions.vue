@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <div :class="[showDown && 'scroll-wrap-shadow', 'select-all-wrap']">
+        <div :class="[showDown && '-wrap-shadow', 'select-all-wrap']">
           <el-checkbox v-model="all" border size="mini" @change="selectAll">
             <span class="select-all">全选</span>
           </el-checkbox>

@@ -11,9 +11,9 @@
         popper-class="draw_share_atooltip"
       > 
         <!-- item的tooltip的展示内容 -->
-        <div slot="content" class="tip-content">
+        <div slot="content" class="tip-content test test-5">
           <div class="tip-content-titile">{{item.name}}</div>
-          <div class="tip-content-item" v-for="(tipContent, tipContentIndex) in item.msg" :key="tipContentIndex">
+          <div class="tip-content-item scrollbar" v-for="(tipContent, tipContentIndex) in item.msg" :key="tipContentIndex">
             <div class="tip-content-text">{{tipContent}}</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default {
 
     // 传入的内容展示宽度
     contentWidth: {
-      type: Number
+      type: Number,
     },
   },
 
@@ -101,14 +101,12 @@ export default {
       handler : function () {
         this.splitList()
       },
-      immediate: true
     },
 
     contentWidth: {
       handler : function () {
         // this.getContentWidth(true)
-      },
-      immediate: true
+      }
     },
   },
 
@@ -123,8 +121,9 @@ export default {
 
     // 获取内容展示区宽度
     getContentWidth(isWatch) {
+      console.log(1234568789);
       // 如果用户传入了内容展示宽度，则按照自定义宽度来计算，否则取当前组件的宽度
-      this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.clientWidth)
+      this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.parentElement.clientWidth)
       this.calcAllowDisItemNum()
     },
 
@@ -145,7 +144,7 @@ export default {
 
     // 鼠标离开更多列表区域，则收起
     hideMoreList() {
-      // this.isShowMoreList = false
+      this.isShowMoreList = false
     }
   }
 };
@@ -178,6 +177,10 @@ export default {
   // tooltip的展示样式
   .tip-content {
     font-family: PingFangSC-Regular, PingFang SC;
+    overflow: scroll;
+    max-height: 300px;
+    width: auto;
+    max-width: 500px;
 
     .tip-content-titile {
       color: rgba(255, 255, 255, 0.8);
@@ -281,4 +284,24 @@ export default {
     clear: both;
   }
 
+  // ::-webkit-scrollbar {
+  //   /*滚动条整体样式*/
+  //   width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+  //   height: 10px;
+  // }
+  // ::-webkit-scrollbar-thumb {
+  //   /*滚动条里面小方块*/
+  //   border-radius: 10px;
+  //   background-color: #57637e;
+  // }
+  // ::-webkit-scrollbar-track {
+  //   /*滚动条里面轨道*/
+  //   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  //   border-radius: 10px;
+  // }
+
+  // ::-webkit-scrollbar-corner {
+  //   /*滚动条里面轨道交汇处*/
+  //   background: transparent;
+  // }
 </style>
