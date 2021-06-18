@@ -123,7 +123,6 @@ export default {
 
     // 获取内容展示区宽度
     getContentWidth(isWatch) {
-      console.log(1234568789);
       // 如果用户传入了内容展示宽度，则按照自定义宽度来计算，否则取当前组件的宽度
       this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.clientWidth)
       this.calcAllowDisItemNum()
