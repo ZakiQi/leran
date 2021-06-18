@@ -125,17 +125,9 @@ export default {
       }
     },
 
-    parent: {
-      handler (data) {
-      },
-
-      immediate: true
-    },
-
     searchVal (val) {
       this.filterTarget(val)
 
-      
       this.checkedContrast()
     },
 
