@@ -93,7 +93,19 @@ export default {
     this.getContentWidth()
   },
 
-  watch: {},
+  watch: {
+    options: {
+      handler : function () {
+      },
+      immediate: true
+    },
+
+    contentWidth: {
+      handler : function () {
+      },
+      immediate: true
+    },
+  },
 
   methods: {
     // 切割默认展示及更多列表的数据
