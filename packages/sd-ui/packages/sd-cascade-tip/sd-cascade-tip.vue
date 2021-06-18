@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="width:100%">
     <!-- 横向列表 -->
-    <div v-if="crosswiseList.length">
+    <div v-if="crosswiseList.length" ref="crosswiseList">
       <el-tooltip 
         v-for="(item, index) in crosswiseList"
         :key="index"
@@ -27,7 +27,7 @@
       <!-- 更多按钮 -->
       <div class="more-btn" @click="handleShowMoreList">更多>></div>
       <!-- 更多列表 -->
-      <div class="more-list" v-show="isShowMoreList">
+      <div class="more-list" v-show="isShowMoreList"  :style="positionLeft">
         <el-tooltip 
           v-for="(item, index) in moreList"
           :key="index"
@@ -74,7 +74,8 @@ export default {
       // 更多模块展示的控制开关
       isShowMoreBtn: false,
       // 更多列表展示的控制开关
-      isShowMoreList: false
+      isShowMoreList: false,
+      positionLeft: 0,
     }
   },
 
@@ -105,7 +106,7 @@ export default {
 
     contentWidth: {
       handler : function () {
-        this.getContentWidth(true)
+        // this.getContentWidth(true)
       },
       immediate: true
     },
@@ -122,6 +123,7 @@ export default {
 
     // 获取内容展示区宽度
     getContentWidth(isWatch) {
+      console.log(1234568789);
       // 如果用户传入了内容展示宽度，则按照自定义宽度来计算，否则取当前组件的宽度
       this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.clientWidth)
       this.calcAllowDisItemNum()
@@ -131,19 +133,20 @@ export default {
     calcAllowDisItemNum() {
       // 按照每个Item最大的宽度88px + 外边距8px来计算默认可展示的个数
       // 由于需要预留更多按钮及更多列表的展示空间因此需要在计算结果的基础上减二
-      const itemNum = Math.floor(this.currContentWidth / 96) - 2
+      const itemNum = Math.floor(this.currContentWidth / 96) >= 2 ? Math.floor(this.currContentWidth / 96) - 2 : Math.floor(this.currContentWidth / 96) - 1
       this.displayItemNum = itemNum
       this.splitList()
     },
 
     // 控制更多列表展示
-    handleShowMoreList() {
+    handleShowMoreList(e) {
+      !this.isShowMoreList && (this.positionLeft = `left:${e.target.offsetLeft + e.target.offsetWidth + 8}px`)
       this.isShowMoreList = !this.isShowMoreList
     },
 
     // 鼠标离开更多列表区域，则收起
     hideMoreList() {
-      this.isShowMoreList = false
+      // this.isShowMoreList = false
     }
   }
 };
@@ -242,7 +245,7 @@ export default {
 
     // 更多列表样式
     .more-list {
-      float: left;
+      position: absolute;
       background: #303B55;
       box-shadow: 0px 2px 8px 0px #00002E;
       padding: 12.28px 0px 11px 10px;
