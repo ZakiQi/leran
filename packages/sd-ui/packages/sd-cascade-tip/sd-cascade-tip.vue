@@ -1,9 +1,10 @@
 <template>
   <div>
     <!-- 横向列表 -->
-    <div>
+    <div v-if="crosswiseList.length">
       <el-tooltip 
-        v-for="item in crosswiseList"
+        v-for="(item, index) in crosswiseList"
+        :key="index"
         class="item tip-box"
         effect="dark"
         placement="bottom"
@@ -12,7 +13,7 @@
         <!-- item的tooltip的展示内容 -->
         <div slot="content" class="tip-content">
           <div class="tip-content-titile">{{item.name}}</div>
-          <div class="tip-content-item" v-for="tipContent in item.msg">
+          <div class="tip-content-item" v-for="(tipContent, tipContentIndex) in item.msg" :key="tipContentIndex">
             <div class="tip-content-text">{{tipContent}}</div>
           </div>
         </div>
@@ -28,7 +29,8 @@
       <!-- 更多列表 -->
       <div class="more-list" v-show="isShowMoreList">
         <el-tooltip 
-          v-for="item in moreList"
+          v-for="(item, index) in moreList"
+          :key="index"
           class="item tip-box display-block"
           effect="dark"
           placement="right"
@@ -37,7 +39,7 @@
           <!-- item的tooltip的展示内容 -->
           <div slot="content" class="tip-content">
             <div class="tip-content-titile">{{item.name}}</div>
-            <div class="tip-content-item" v-for="tipContent in item.msg">
+            <div class="tip-content-item" v-for="(tipContent, tipContentIndex) in item.msg" :key="tipContentIndex">
               <div class="tip-content-text">{{tipContent}}</div>
             </div>
           </div>
@@ -96,12 +98,14 @@ export default {
   watch: {
     options: {
       handler : function () {
+        this.splitList()
       },
       immediate: true
     },
 
     contentWidth: {
       handler : function () {
+        this.getContentWidth(true)
       },
       immediate: true
     },
@@ -117,9 +121,9 @@ export default {
     },
 
     // 获取内容展示区宽度
-    getContentWidth() {
+    getContentWidth(isWatch) {
       // 如果用户传入了内容展示宽度，则按照自定义宽度来计算，否则取当前组件的宽度
-      this.currContentWidth = this.contentWidth ? this.contentWidth : this.$el.clientWidth
+      this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.clientWidth)
       this.calcAllowDisItemNum()
     },
 
@@ -129,7 +133,6 @@ export default {
       // 由于需要预留更多按钮及更多列表的展示空间因此需要在计算结果的基础上减二
       const itemNum = Math.floor(this.currContentWidth / 96) - 2
       this.displayItemNum = itemNum
-      console.log('>>>>>>>>>>>>>', itemNum)
       this.splitList()
     },
 
