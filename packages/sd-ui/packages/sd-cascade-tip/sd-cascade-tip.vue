@@ -172,7 +172,6 @@ export default {
     text-overflow:ellipsis;
     white-space: nowrap;
   }
-
   // tooltip的展示样式
   .tip-content {
     font-family: PingFangSC-Regular, PingFang SC;
