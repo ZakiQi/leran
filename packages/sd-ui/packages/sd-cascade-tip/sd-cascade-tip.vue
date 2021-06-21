@@ -121,7 +121,6 @@ export default {
 
     // 获取内容展示区宽度
     getContentWidth(isWatch) {
-      console.log(1234568789);
       // 如果用户传入了内容展示宽度，则按照自定义宽度来计算，否则取当前组件的宽度
       this.currContentWidth = isWatch ? this.contentWidth : (this.contentWidth ? this.contentWidth : this.$el.parentElement.clientWidth)
       this.calcAllowDisItemNum()
@@ -177,7 +176,8 @@ export default {
   // tooltip的展示样式
   .tip-content {
     font-family: PingFangSC-Regular, PingFang SC;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 300px;
     width: auto;
     max-width: 500px;
