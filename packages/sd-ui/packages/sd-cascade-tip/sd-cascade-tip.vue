@@ -158,14 +158,14 @@ export default {
   }
   // item展示块样式
   .tip-btn {
-    max-width: 88px;
+    max-width: 86px;
     height: 22px;
     padding: 0 8px;
     font-size: 12px;
     line-height: 20px;
     background: rgba(24, 144, 255, 0.05);
     border-radius: 4px;
-    border: 1px solid rgba(24, 144, 255, 0.35);;
+    border: 1px solid rgba(24, 144, 255, 0.35);
     color: #1890FF;
     box-sizing: border-box;
     overflow: hidden;
