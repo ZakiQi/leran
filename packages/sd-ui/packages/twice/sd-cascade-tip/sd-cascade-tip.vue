@@ -28,7 +28,7 @@
       <div class="more-btn" @click="handleShowMoreList">更多>></div>
       <!-- 更多列表 -->
       <div class="more-list" v-show="isShowMoreList"  :style="positionLeft">
-        <el-tooltip 
+        <el-tooltip
           v-for="(item, index) in moreList"
           :key="index"
           class="item tip-box display-block"

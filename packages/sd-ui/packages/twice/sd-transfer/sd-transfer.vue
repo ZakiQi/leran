@@ -35,7 +35,7 @@
 
 import transferSptions from './transfer-sptions'
 import { mixin as clickaway } from 'vue-clickaway';
-import Bus from '../../assets/js/bus'
+import Bus from '../../../assets/js/bus'
 import mask from '../mixins/mask-mixins'
 
 export default {

@@ -1,10 +1,12 @@
-import '../packages/common/theme-change'
-import sdButton from './sd-button/index'
-import sdInput from './sd-input'
-import sdSelect from './sd-select'
-import sdDatePicker from './sd-date-picker'
-import sdTransfer from './sd-transfer'
-import sdCascadeTip from './sd-cascade-tip'
+import '../packages/twice/common/theme-change'
+// import sdButton from './custom-ui/sd-button/index.js/index'
+import sdInput from './twice/sd-input'
+import sdSelect from './twice/sd-select'
+import sdDatePicker from './twice/sd-date-picker'
+import sdTransfer from './twice/sd-transfer'
+import sdCascadeTip from './twice/sd-cascade-tip'
+import sdButton from './custom-ui/sd-button'
+
 // iconfont
 import '../assets/iconfont/iconfont.css'
 import '../assets/iconfont/iconfont.js'
@@ -27,6 +29,7 @@ const install = function (Vue) {
     Vue.component(component.name, component);
   })
 }
+console.log(install, 'install')
 
 // 判断是否是直接引入文件
 if (typeof window !== 'undefined' && window.Vue) {

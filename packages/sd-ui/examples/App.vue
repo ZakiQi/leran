@@ -12,8 +12,32 @@
         <sd-cascade-tip
           :options="cascadeTipData"
         ></sd-cascade-tip>
+
+        <!-- <el-button size="mini" @click="sideDialogVisible = !sideDialogVisible">分享</el-button> -->
+        <!-- 侧边栏 -->
+        <!-- <sd-side-dialog  :visible.sync="sideDialogVisible" :direction="'right'" :width="400" :title="'分享'">
+        </sd-side-dialog> -->
+
+        <sd-button>
+          22222
+        </sd-button>
+
+      <!--
+        <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
+        <el-dialog
+          title="提示"
+          :visible.sync="dialogVisible"
+          :fullscreen="true"
+          width="30%"
+          :before-close="handleClose">
+          <span>这是一段信息</span>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          </span>
+        </el-dialog> -->
       <!-- </div> -->
-      <!-- <sd-date-picker
+      <sd-date-picker
         v-model="endMonth"
         type="month"
         size="mini"
@@ -21,7 +45,7 @@
         :editable="false"
         style="width: 150px;margin-top: 5px;height: 26px;margin-right: 20px"
         placeholder="月份">
-      </sd-date-picker> -->
+      </sd-date-picker>
 
       <!-- <sd-date-picker
         v-model="monthValue"
@@ -61,6 +85,8 @@
 </template>
 
 <script>
+// import SdButton from '../packages/sd-button/sd-button.vue'
+// import SdSideDialog from '../packages/sd-side-dialog/sd-side-dialog.vue'
 export default {
   name: "App",
 
@@ -75,6 +101,7 @@ export default {
       monthValue: '',
       value1: '',
       endMonth: '',
+      sideDialogVisible: false,
       selectOptions: [{
         value: '从化',
         label: '从化'
@@ -216,13 +243,15 @@ export default {
           name: '电信015撒测试的从是东方V大夫被覆盖把电饭锅把电饭锅',
           msg: ['描述1', '描述2', '描述3']
         }
-      ]
+      ],
+      dialogVisible: false,
+      flag : false,
+      flag2 : false,
     }
   },
 
   watch: {
     val (val) {
-      console.log(val)
     },
     selectValue (val) {
     },
@@ -232,14 +261,22 @@ export default {
   },
 
   components: {
+    // SdSideDialog,
+    // SdButton
   },
 
   methods: {
+    handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(()=> {
+            done();
+          })
+          .catch(()=> {});
+      }
   },
 
   mounted () {
     this.$theme()
-    console.log(this)
   }
 }
 </script>
@@ -260,7 +297,7 @@ html, body{
   padding: 10px;
   overflow: auto;
   box-sizing: border-box;
-  background: $primary-background;
+  // background: $primary-background;
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;
@@ -272,4 +309,32 @@ html, body{
 .test {
   width: 700px;
 }
+
+.default .el-dialog.is-fullscreen{
+  width: 300px !important;
+}
+</style>
+
+ <style>
+    /*v-enter 是进入之前，元素的起始状态*/
+    /*v-leave-to 离开之后动画的终止状态*/
+    .v-enter,.v-leave-to{
+        opacity:  0;/*透明度*/
+        transform: translateX(150px);
+    }
+      /*入场(离场)动画的时间段   */
+    .v-enter-active,.v-leave-active{
+        transition: all 0.8s ease;
+
+    }
+
+
+    .my-enter,.my-leave-to{
+        opacity:  0;/*透明度*/
+        transform: translateY(70px);
+    }
+    .my-enter-active,.my-leave-active{
+        transition: all 0.8s ease;
+
+    }
 </style>

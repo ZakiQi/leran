@@ -401,7 +401,7 @@ export default {
   .empty-svg{
     width: 100px;
     height: 80px;
-    background-image: url('../../assets/svg/empty.svg');
+    background-image: url('../../../assets/svg/empty.svg');
     background-repeat:no-repeat;
   }
 
