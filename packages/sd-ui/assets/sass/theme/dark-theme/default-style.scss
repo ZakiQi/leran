@@ -1,0 +1,72 @@
+// Color 色彩-暗模式
+@import '../common-var.scss';
+
+/* Primary/Blue
+数据平台 品牌色，应用于需要强调视觉重量的界面元素
+-------------------------- */
+$--color-general: #0077FF !default; // 文字主色/线性图形/面性图形 hover
+$--color-general-10: mix($--color-white, $--color-general, 95%)  !default; // #F2F8FF 白色面性图形hover
+$--color-general-11: mix($--color-white, $--color-general, 80%)  !default; // #CCE3FF 面性图形的浅色填充色
+$--color-general-20: mix($--color-white, $--color-general, 60%)  !default; // #99C8FF 线性图形的浅色填充色hover
+$--color-general-21: mix($--color-white, $--color-general, 30%)  !default; // #66ADFF 线性图形的浅色填充色active
+$--color-general-30: mix($--color-white, $--color-general, 20%)  !default; // #3392FF 文字hover/面性图形主色hover
+$--color-general-50: mix($--color-black, $--color-general, 10%)  !default; // #006AE5 文字 hover/线性图形 hover/面性图形 active
+$--color-general-51: mix($--color-black, $--color-general, 30%)  !default; // #0053B2 大面积面性图形背景色
+$--color-general-60: mix($--color-black, $--color-general, 50%)  !default; // #003B7F 大面积深色面性图形背景色
+
+
+/* Neutral Gray
+灰色/常用于界面背景和文本
+-------------------------- */
+$--color-neutral: #000000 !default;  // 纯黑background
+$--color-neutral-00: mix($--color-white, $--color-neutral, 100%)  !default; // #FFFFFF 浅灰background
+$--color-neutral-10: mix($--color-white, $--color-neutral, 97%)  !default; // #F7F7F7 分隔线（浅）
+$--color-neutral-20: mix($--color-white, $--color-neutral, 94%)  !default; // #F0F0F0 分隔线（深）
+$--color-neutral-30: mix($--color-white, $--color-neutral, 90%)  !default; // #E5E5E5 可交互组件的描边色，如 input
+$--color-neutral-40: mix($--color-white, $--color-neutral, 85%)  !default; // #D9D9D9 占位文字、禁用状态文字。对应 T4 文字类型
+$--color-neutral-50: mix($--color-white, $--color-neutral, 75%)  !default; // #BFBFBF 辅助文字。对应 T3 文字类型
+$--color-neutral-60: mix($--color-white, $--color-neutral, 55%)  !default; // #8C8C8C 正文文字。对应 T2 文字类型
+$--color-neutral-70: mix($--color-white, $--color-neutral, 35%)  !default; // #595959 标题/正文文字。对应 T1 文字类型
+$--color-neutral-80: mix($--color-white, $--color-neutral, 15%)  !default; // #595959 标题/正文文字。对应 T1 文字类型
+
+
+/* Green
+传达成功、积极的含义
+-------------------------- */
+$--color-success: #15AD31 !default;
+$--color-success-10: mix($--color-white, $--color-success, 95%)  !default; // #F3FAF4
+$--color-success-11: mix($--color-white, $--color-success, 80%)  !default; // #D0EED5
+$--color-success-20: mix($--color-white, $--color-success, 60%)  !default; // #A1DEAC
+$--color-success-21: mix($--color-white, $--color-success, 40%)  !default; // #72CD83
+$--color-success-30: mix($--color-white, $--color-success, 20%)  !default; // #43BD5A
+$--color-success-50: mix($--color-black, $--color-success, 10%)  !default; // #129B2C
+$--color-success-60: mix($--color-black, $--color-success, 30%)  !default; // #0E7822
+$--color-success-70: mix($--color-black, $--color-success, 50%)  !default; // #0A5618
+
+
+/* Amber
+传达一级警告的含义
+-------------------------- */
+$--color-amber: #FAD414 !default;
+$--color-amber-10: mix($--color-white, $--color-amber, 95%)  !default; // #FEFCF3
+$--color-amber-11: mix($--color-white, $--color-amber, 80%)  !default; // #FEF6D0
+$--color-amber-20: mix($--color-white, $--color-amber, 60%)  !default; // #FDEDA1
+$--color-amber-21: mix($--color-white, $--color-amber, 40%)  !default; // #FCE572
+$--color-amber-30: mix($--color-white, $--color-amber, 20%)  !default; // #FBDC43
+$--color-amber-50: mix($--color-black, $--color-amber, 10%)  !default; // #E0BE11
+$--color-amber-60: mix($--color-black, $--color-amber, 30%)  !default; // #AE930D
+$--color-amber-70: mix($--color-black, $--color-amber, 50%)  !default; // #7C6909
+
+
+/* Red
+传达危险、失败的含义
+-------------------------- */
+$--color-danger: #E62412 !default;
+$--color-danger-10: mix($--color-white, $--color-danger, 95%)  !default; // #FDF3F2
+$--color-danger-11: mix($--color-white, $--color-danger, 80%)  !default; // #FAD3CF
+$--color-danger-20: mix($--color-white, $--color-danger, 60%)  !default; // #F5A7A0
+$--color-danger-21: mix($--color-white, $--color-danger, 40%)  !default; // #F07B70
+$--color-danger-30: mix($--color-white, $--color-danger, 20%)  !default; // #EB4F41
+$--color-danger-50: mix($--color-black, $--color-danger, 10%)  !default; // #CE2010
+$--color-danger-60: mix($--color-black, $--color-danger, 30%)  !default; // #A0190C
+$--color-danger-70: mix($--color-black, $--color-danger, 50%)  !default; // #721108

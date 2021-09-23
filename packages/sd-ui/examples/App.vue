@@ -1,27 +1,18 @@
 <template>
   <div id="app">
-    <div style="height: 1000px;">
-      <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
-        文字
-      </sd-button> -->
-
-      <!-- <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input> -->
-
-      <!-- <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select> -->
+    <demo :nowThemeInfo="nowThemeInfo" @themeChange="themeChange"></demo>
+    <!-- <div style="height: 1000px;"> -->
       <!-- <div class="test"> -->
-        <sd-cascade-tip
+        <!-- <sd-cascade-tip
           :options="cascadeTipData"
-        ></sd-cascade-tip>
+        ></sd-cascade-tip> -->
 
         <!-- <el-button size="mini" @click="sideDialogVisible = !sideDialogVisible">分享</el-button> -->
         <!-- 侧边栏 -->
         <!-- <sd-side-dialog  :visible.sync="sideDialogVisible" :direction="'right'" :width="400" :title="'分享'">
         </sd-side-dialog> -->
 
-        <sd-button>
-          22222
-        </sd-button>
-
+        
       <!--
         <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
         <el-dialog
@@ -37,37 +28,9 @@
           </span>
         </el-dialog> -->
       <!-- </div> -->
-      <sd-date-picker
-        v-model="endMonth"
-        type="month"
-        size="mini"
-        value-format="yyyy-MM"
-        :editable="false"
-        style="width: 150px;margin-top: 5px;height: 26px;margin-right: 20px"
-        placeholder="月份">
-      </sd-date-picker>
+      <!--  -->
 
-      <!-- <sd-date-picker
-        v-model="monthValue"
-        type="monthrange"
-        :range-separator="separator"
-        size="mini"
-        style="width:231px;margin-left: 10px;"
-        value-format="yyyy-MM"
-        start-placeholder="开始月份"
-        end-placeholder="结束月份">
-      </sd-date-picker>
-
-      <sd-date-picker
-        v-model="value1"
-        type="daterange"
-        range-separator="-"
-        size="mini"
-        style="width:231px;margin-left: 10px;"
-        value-format="yyyy-MM"
-        start-placeholder="开始月份"
-        end-placeholder="结束月份">
-      </sd-date-picker> -->
+      <!--  -->
 
       <!-- <sd-date-picker
         v-model="value2"
@@ -78,15 +41,16 @@
         placeholder="选择日期">
       </sd-date-picker> -->
 
-      <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer>
+      <!-- <sd-transfer :value.sync="val" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
       <!-- <sd-transfer :value.sync="val1·" :options="selectOptions" style="margin: 10px 10px;width: 200px;display: inline-flex;"></sd-transfer> -->
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 // import SdButton from '../packages/sd-button/sd-button.vue'
 // import SdSideDialog from '../packages/sd-side-dialog/sd-side-dialog.vue'
+import demo from './components/demo.vue'
 export default {
   name: "App",
 
@@ -102,46 +66,6 @@ export default {
       value1: '',
       endMonth: '',
       sideDialogVisible: false,
-      selectOptions: [{
-        value: '从化',
-        label: '从化'
-      }, {
-        value: '天河',
-        label: '天河'
-      }, {
-        value: '黄埔',
-        label: '黄埔'
-      }, {
-        value: '海珠',
-        label: '海珠'
-      }, {
-        value: '越秀',
-        label: '越秀'
-      }, {
-        value: '南沙',
-        label: '南沙'
-      }, {
-        value: '荔湾',
-        label: '荔湾'
-      }, {
-        value: '白云',
-        label: '白云'
-      }, {
-        value: '增城',
-        label: '增城'
-      }, {
-        value: '东山',
-        label: '东山'
-      }, {
-        value: '花都',
-        label: '花都'
-      }, {
-        value: '番禺',
-        label: '番禺'
-      }, {
-        value: '其它',
-        label: '其它'
-      }],
       selectOptions1: [{
         value: '从化',
         label: '从化'
@@ -247,46 +171,54 @@ export default {
       dialogVisible: false,
       flag : false,
       flag2 : false,
+      nowThemeInfo: 'linght-theme'
     }
   },
 
   watch: {
-    val (val) {
-    },
-    selectValue (val) {
-    },
-
-    inputValue (val) {
-    }
   },
 
   components: {
+    demo
     // SdSideDialog,
     // SdButton
   },
 
   methods: {
     handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(()=> {
-            done();
-          })
-          .catch(()=> {});
-      }
+      this.$confirm('确认关闭？')
+        .then(()=> {
+          done();
+        })
+        .catch(()=> {});
+    },
+
+    themeChange () {
+      this.nowThemeInfo = this.nowThemeInfo === 'linght-theme' ? 'dark-theme' : 'linght-theme'
+      this.setBodyAttr()
+    },
+
+    setBodyAttr() {
+      document.body.setAttribute( "data-theme", this.nowThemeInfo)
+    }
   },
 
   mounted () {
-    this.$theme()
+    this.setBodyAttr()
   }
 }
 </script>
 
 <style lang="scss">
+@import '../assets/sass/theme/theme.scss';
+
 html, body{
   height: 100%;
   width: 100%;
   margin: 0;
   font-family: $font-family;
+  @include setAttr('background', 'bg-color');
+
   input, button{
     font-family: $font-family;
   }
@@ -294,16 +226,14 @@ html, body{
 #app {
   height: 100%;
   width: 100%;
-  padding: 10px;
   overflow: auto;
   box-sizing: border-box;
-  // background: $primary-background;
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
 }
 
 .test {
@@ -316,25 +246,25 @@ html, body{
 </style>
 
  <style>
-    /*v-enter 是进入之前，元素的起始状态*/
-    /*v-leave-to 离开之后动画的终止状态*/
-    .v-enter,.v-leave-to{
-        opacity:  0;/*透明度*/
-        transform: translateX(150px);
-    }
-      /*入场(离场)动画的时间段   */
-    .v-enter-active,.v-leave-active{
-        transition: all 0.8s ease;
+/*v-enter 是进入之前，元素的起始状态*/
+/*v-leave-to 离开之后动画的终止状态*/
+.v-enter,.v-leave-to{
+    opacity:  0;/*透明度*/
+    transform: translateX(150px);
+}
+  /*入场(离场)动画的时间段   */
+.v-enter-active,.v-leave-active{
+    transition: all 0.8s ease;
 
-    }
+}
 
 
-    .my-enter,.my-leave-to{
-        opacity:  0;/*透明度*/
-        transform: translateY(70px);
-    }
-    .my-enter-active,.my-leave-active{
-        transition: all 0.8s ease;
+.my-enter,.my-leave-to{
+    opacity:  0;/*透明度*/
+    transform: translateY(70px);
+}
+.my-enter-active,.my-leave-active{
+    transition: all 0.8s ease;
 
-    }
+}
 </style>

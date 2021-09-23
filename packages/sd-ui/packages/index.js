@@ -29,7 +29,6 @@ const install = function (Vue) {
     Vue.component(component.name, component);
   })
 }
-console.log(install, 'install')
 
 // 判断是否是直接引入文件
 if (typeof window !== 'undefined' && window.Vue) {

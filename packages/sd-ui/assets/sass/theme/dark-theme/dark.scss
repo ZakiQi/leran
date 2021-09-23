@@ -1,0 +1,21 @@
+/* 绿色主题 */
+$dark-theme : (
+  base-color: green,
+  border-color: blue,
+  bg-color: rgb(16, 143, 16),
+  hover-color: rgba(47, 108, 168, 0.35),
+  active-color: rgb(15, 204, 15),
+  default-color: #d5fcd5,
+  cont-color: #f9f9f9,
+  // 上面是demo，下面是项目中实际用到的属性
+  thumb-color: #57637e, // 滚动条颜色
+  input-bg: #33425F, // input 背景
+  text-color: #fff, //  文字颜色
+  base-border: $secondary-background, // 基础边框
+  input-placeholder: rgba(255,255,255, 0.4), // input提示
+  select-triangle: #33425f, // 三角
+  select-hover: #202C44,
+  select-text: #fff,
+  select-active: #202C44,
+  border-style: 'solid', // 下拉框三角边框
+);

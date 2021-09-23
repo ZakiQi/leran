@@ -25,16 +25,20 @@ export default {
   border: none;
 
   /deep/ input{
-    background: $background-assist;
-    color: #fff;
+    @include setAttr('background', 'input-bg');
+    @include setAttr('color', 'text-color');
+
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   /deep/ .el-input__inner{
-    border: 1px solid $secondary-background !important;
-    font-size: $primary-text-size;
+    @include themeify {
+      border: 1px solid themed('base-border') !important;
+    }
+    
+    font-size: $font-size-14;
     font-weight: 500;
   }
 
@@ -44,15 +48,13 @@ export default {
   }
 }
 
-// ::-webkit-input-placeholder{
-//   // color: rgba(255,255,255, 0.4) !important;
-//   color: red !important;
-// }
 </style>
 
 <style lang="scss">
 ::-webkit-input-placeholder{
-  color: rgba(255,255,255, 0.4) !important;
+  @include themeify {
+    color: themed('input-placeholder') !important;
+  }
   font-family:  PingFangSC-Medium, PingFang SC !important;
   font-weight: 500;
 }

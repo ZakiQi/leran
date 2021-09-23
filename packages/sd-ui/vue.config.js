@@ -21,6 +21,7 @@ module.exports = {
       scss: {
         data: `
           @import "./theme/global-default.scss";
+          @import "./assets/sass/theme/theme.scss";
         `
       }
     }

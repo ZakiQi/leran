@@ -40,51 +40,68 @@ export default {
 <style lang="scss" scoped>
 .el-select{
   /deep/ input{
-    background: $background-assist;
-    color: #fff;
+    @include setAttr('background', 'input-bg');
+    @include setAttr('color', 'text-color');
   }
 
   // 焦点时候外框颜色
   /deep/ .el-input__inner {
-    border: 1px solid $secondary-background !important;
+    @include themeify {
+      border: 1px solid themed('base-border') !important;
+    }
     font-size: 12px;
   }
 }
-/deep/ .el-select-dropdown{
-  background: red;
-}
+// /deep/ .el-select-dropdown{
+//   background: red;
+// }
 </style>
 
 <style lang="scss">
 .el-select-dropdown{
-  background: $color-orther !important;
+  @include themeify {
+    background: themed('input-bg') !important;
+  }
 }
 
 .el-select-dropdown{
-  // border: 1px solid $color-primary !important;;
+  // border: 1px solid $color-primary !important;
   border: none !important;
 }
 
 .el-select-dropdown__list .selected{
-  background: $background-assist !important;
+  @include themeify {
+    background: themed('select-active') !important;
+  }
 }
 
 .el-select-dropdown__list .hover{
-  background: $background-assist !important;
+  @include themeify {
+    background: themed('select-hover') !important;
+  }
 }
 
 .el-select-dropdown__item{
-  color: $primary-text !important;
+  @include themeify {
+    color: themed('text-color') !important;
+  }
+
   font-size: 12px !important;
   font-weight: 100;
 }
 
 // 三角
 .el-popper[x-placement^=bottom] .popper__arrow::after{
-  border-bottom-color: $secondary-background !important;
+  @include themeify {
+    border-bottom-color: themed('select-triangle') !important;
+    border-style: themed('border-style');
+  }
+
 }
 
 .el-popper[x-placement^=bottom] .popper__arrow{
-  border-bottom-color: $secondary-background !important;
+  @include themeify {
+    border-bottom-color: themed('select-triangle') !important;
+  }
 }
 </style>

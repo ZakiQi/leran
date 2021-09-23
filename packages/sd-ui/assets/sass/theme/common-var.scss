@@ -1,0 +1,38 @@
+/* scss公共变量 */
+
+/* Colors
+-------------------------- */
+$--color-white: #fff !default;
+$--color-black: #000 !default;
+
+/* 字体 苹方-简
+-------------------------- */
+$font-family-p: 'PingFang SC', 'Microsoft YaHei', -apple-system,
+BlinkMacSystemFont, Roboto, 'Helvetica Neue', Helvetica, Arial,
+'Hiragino Sans GB', 'Source Han Sans', 'Noto Sans CJK Sc',
+'Microsoft Jhenghei', sans-serif;
+
+/* 字体 微软雅黑
+-------------------------- */
+$font-family-w: Helvetica, 'PingFang SC', 'Microsoft YaHei', -apple-system,
+BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial,
+'Hiragino Sans GB', 'Source Han Sans', 'Noto Sans CJK Sc',
+'Microsoft Jhenghei', sans-serif;
+
+/* 字号
+-------------------------- */
+
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+
+
+/* 字重 Font Weight
+常规体常用于正文阅读场景，请勿在正文场景大量使用中黑体及细体。
+-------------------------- */
+$font-weight-medium: 500; // 中等
+$font-weight-Regular: 400; // 常规
+$font-weight-Light: 300; // 细体

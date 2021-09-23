@@ -1,0 +1,45 @@
+/* 字体 苹方-简
+-------------------------- */
+$font-family-p: 'PingFang SC', 'Microsoft YaHei', -apple-system,
+BlinkMacSystemFont, Roboto, 'Helvetica Neue', Helvetica, Arial,
+'Hiragino Sans GB', 'Source Han Sans', 'Noto Sans CJK Sc',
+'Microsoft Jhenghei', sans-serif;
+
+/* 字体 微软雅黑
+-------------------------- */
+$font-family-w: Helvetica, 'PingFang SC', 'Microsoft YaHei', -apple-system,
+BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial,
+'Hiragino Sans GB', 'Source Han Sans', 'Noto Sans CJK Sc',
+'Microsoft Jhenghei', sans-serif;;
+
+
+/* 字号
+-------------------------- */
+
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+
+
+/* 字重 Font Weight
+常规体常用于正文阅读场景，请勿在正文场景大量使用中黑体及细体。
+-------------------------- */
+$font-weight-medium: 500; // 中等
+$font-weight-Regular: 400; // 常规
+$font-weight-Light: 300; // 细体
+
+
+/* Showdown
+-------------------------- */
+$ox-shadow-base: 0 2px 4px rgba(15, 8, 8, 0.12), 0 0 6px rgba(0, 0, 0, .04);
+$box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
+$dropdown-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12), 0 0 6px 0 rgba(0,0,0,0.04);
+
+$night-drag-showdown: #ccc;
+
+@mixin setThemes($type: background-color, $typeColor: 'bg-default', $alpha: 1) {
+  #{$type}: rgba($typeColor, $alpha) !important;
+}

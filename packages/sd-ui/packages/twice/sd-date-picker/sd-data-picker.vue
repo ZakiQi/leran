@@ -94,7 +94,7 @@ export default {
   line-height: 20px;
 }
 .el-picker-panel, .el-input__inner, .el-range-input{
-  background: $background-assist !important;
+  // background: $background-assist !important;
   border: 1px solid $secondary-background !important;
 }
 
