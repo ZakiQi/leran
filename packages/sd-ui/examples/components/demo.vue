@@ -7,7 +7,6 @@
       文字
     </sd-button> -->
 
-
     <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input>
 
     <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>

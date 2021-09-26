@@ -13,4 +13,3 @@ lerna publish
 ```
 主题需要在body上加 自定义属性 data-theme="linght-theme / dark-theme"
 ```
-
