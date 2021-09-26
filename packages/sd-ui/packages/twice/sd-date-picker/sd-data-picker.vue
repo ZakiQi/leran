@@ -95,7 +95,7 @@ export default {
 }
 .el-picker-panel, .el-input__inner, .el-range-input{
   // background: $background-assist !important;
-  border: 1px solid $secondary-background !important;
+  border: 1px solid $secondary-background;
 }
 
 .el-input--prefix .el-input__inner{
