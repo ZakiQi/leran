@@ -18,4 +18,11 @@ $dark-theme : (
   select-text: #fff,
   select-active: #202C44,
   border-style: 'solid', // 下拉框三角边框
+
+  
+  // Button
+  btn-text: #0077FF, // 按钮文字
+  btn-border: 1px solid  #0077FF, // 按钮边框
+  btn-bg: #fff, // 按钮背景
+  base-btn-border: 1px solid #ccc, // 默认边框
 );

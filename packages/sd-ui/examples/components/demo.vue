@@ -1,6 +1,7 @@
 <template>
   <div class="demo" style="height: 100%; width: 100%; border: 1px solid green; overflow: auto;">
     <el-button @click="themeChange">切换</el-button>
+    <sd-button>按钮</sd-button>
 
     <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
       文字
@@ -51,7 +52,9 @@
 </template>
 
 <script>
+import sdButton from '../../packages/custom-ui/sd-button/sd-button.vue'
 export default {
+  components: { sdButton },
   data () {
     return {
       sideDialogVisible: false,

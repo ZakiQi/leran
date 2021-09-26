@@ -19,5 +19,31 @@ $linght-theme : (
   select-triangle: transparent, // 三角
   select-hover: $--color-neutral-10, // 下拉框hover
   select-active: $--color-neutral-20, // 下拉框选中
-  border-style: 'unset' // 下拉框三角边框
+  border-style: 'unset', // 下拉框三角边框,
+  
+  // common
+  primary-color: $--color-general,
+  text-placeholder: $--color-neutral-50,
+
+  // Button
+  btn-text: #0077FF, // 按钮文字
+  btn-border: 1px solid  $--color-general, // 按钮边框
+  btn-bg: #fff, // 按钮背景
+  base-btn-border: 1px solid $--color-general, // 默认边框
+  btn-border-hover: $--color-general-20, // 按钮hover
+  btn-bg-hover: $--color-general-10, //按钮hover背景
+  btn-active: $--color-general-50, // 按钮active
+  btn-active-border: $--color-general-50, // 按钮边框active
+  btn-bg-disabled: $--color-neutral-00,
+  btn-border-disabled: $--color-neutral-40,
+  btn-primary-text: $--color-neutral-00,
+  btn-primary-border: 1px solid $--color-general,
+  btn-primary-hover-bg: $--color-general-30,
+  btn-primary-hover-border: $--color-general-30,
+  btn-primary-disabled-bg: $--color-neutral-50,
+  btn-primary-disabled-text: $--color-neutral-00,
+  btn-primary-disabled-border: $--color-neutral-50,
+  btn-text-type: $--color-general,
+  btn-text-hover: $--color-general-30,
+  btn-text-active: $--color-general-50
 );

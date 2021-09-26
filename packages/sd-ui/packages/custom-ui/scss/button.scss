@@ -1,0 +1,168 @@
+@import '../mixins/mixins.scss';
+@import './button-mixins.scss';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+@include b (button) {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  @include themeify {
+    background: themed('btn-bg');
+    border-color: themed('btn-border');
+    color: themed('btn-text');
+    border: themed('base-btn-border');
+  }
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: 400;
+  // @include utils-user-select(none);
+  & + & {
+    margin-left: 10px;
+  }
+
+  @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
+
+  &:hover,
+  &:focus {
+    @include themeify {
+      color: themed('primary-color');
+      background-color: themed('btn-bg-hover');
+      border-color: themed('btn-border-hover');
+    }
+  }
+
+  &:active {
+    @include themeify {
+      color: themed('btn-active');
+      border-color: themed('btn-active-border');
+    }
+    outline: none;
+  }
+
+  // loading
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255,255,255,.35);
+    }
+  }
+
+  // disabled
+  @include when(disabled) {
+     &,
+     &:hover,
+     &:focus {
+      @include themeify {
+        color: themed('text-placeholder');
+        background-color: themed('btn-bg-disabled');
+        border-color: themed('btn-border-disabled');
+      }
+      cursor: not-allowed;
+      background-image: none;
+    }
+
+    &.el-button--text {
+      background-color: transparent;
+    }
+  }
+
+  & [class*="el-icon-"] {
+    & + span {
+      margin-left: 5px;
+    }
+  }
+
+  // M
+
+  // primary
+  @include m(primary) {
+    @include themeify {
+      @include button-variant(
+        themed('btn-primary-text'), themed('primary-color'), themed('btn-primary-border')
+      );
+    }
+
+    &:hover,
+    &:focus {
+      @include themeify {
+        @include button-variant(
+          themed('btn-primary-text'), themed('btn-primary-hover-bg'), themed('btn-primary-hover-border')
+        );
+      }
+    }
+
+    &.is-disabled {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        @include themeify {
+          color: themed('btn-primary-disabled-text');
+          background: themed('btn-primary-disabled-bg');
+          border-color: themed('btn-primary-disabled-border');
+        }
+      }
+    }
+  }
+
+
+  // 大小
+  @include m(medium) {
+    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+  }
+  @include m(small) {
+    @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+  }
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+  }
+
+  // text
+  @include m(text) {
+    @include themeify {
+      border: none;
+      border-color: transparent;
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      color: themed('btn-text-type')
+    };
+
+    &:hover,
+    &:focus {
+      @include themeify {
+        color: themed('btn-text-hover');
+        border-color: transparent;
+        background-color: transparent;
+      }
+      
+    }
+    &:active {
+      color: themed('btn-text-active');
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      border-color: transparent;
+    }
+  }
+}
