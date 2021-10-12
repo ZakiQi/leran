@@ -2,7 +2,7 @@
  * @Author: YQ 
  * @Date: 2021-3-31
  * @Last Modified time: 2021-3-31 15:15:00 
- * @Description: sj-button组件,带显示title
+ * @Description: sd-select组件
  */
 <template>
   <el-select class="sd-select" :value.sync="value" placeholder="请选择"  v-bind="$attrs" v-on="$listeners">
