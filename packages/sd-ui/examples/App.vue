@@ -48,8 +48,6 @@
 </template>
 
 <script>
-// import SdButton from '../packages/sd-button/sd-button.vue'
-// import SdSideDialog from '../packages/sd-side-dialog/sd-side-dialog.vue'
 import demo from './components/demo.vue'
 export default {
   name: "App",
@@ -108,10 +106,6 @@ export default {
       }],
       cascadeTipData: [
         {
-          name: '电信00123',
-          msg: ['描述111111111111111', '描述222222222', '描述333333333333']
-        },
-        {
           name: '电信00232',
           msg: ['描述1', '描述2', '描述3']
         },
@@ -164,7 +158,7 @@ export default {
           msg: ['描述1', '描述2', '描述3']
         },
         {
-          name: '电信015撒测试的从是东方V大夫被覆盖把电饭锅把电饭锅',
+          name: '电信015撒测试的从是',
           msg: ['描述1', '描述2', '描述3']
         }
       ],
@@ -180,8 +174,6 @@ export default {
 
   components: {
     demo
-    // SdSideDialog,
-    // SdButton
   },
 
   methods: {
