@@ -14,6 +14,7 @@ $linght-theme : (
   input-bg: $--color-neutral-00, // input 背景
   text-color: $--color-neutral-60, //  文字颜色
   base-border: $--color-neutral-40, // 基础边框
+  border-color-light: $--color-neutral-30,
   input-placeholder: $--color-neutral-50, // input提示
   base-bg: $--color-neutral-00,
   select-triangle: transparent, // 三角
@@ -24,6 +25,8 @@ $linght-theme : (
   // common
   primary-color: $--color-general,
   text-placeholder: $--color-neutral-50,
+  text-secondary:  $--color-neutral-70,   // 正文文字。对应 T2 文字类型
+  text-first: $--color-neutral-80,   // 正文 对应 T1 
 
   // Button
   btn-text: #0077FF, // 按钮文字
@@ -45,5 +48,28 @@ $linght-theme : (
   btn-primary-disabled-border: $--color-neutral-50,
   btn-text-type: $--color-general,
   btn-text-hover: $--color-general-30,
-  btn-text-active: $--color-general-50
+  btn-text-active: $--color-general-50,
+
+  // Tabs
+  tabs-text-active: $--color-neutral-80,
+
+
+  // message
+  border-color-lighter: $--color-general-11,
+  message-background-color: $--color-general-10,
+  message-info-font-color: $--color-neutral-80,
+
+  color-success-lighter: $--color-success-10,
+  border-color-success: $--color-success-11,
+  message-success-font-color: $--color-success,
+
+  color-warning-lighter: $--color-amber-10,
+  border-color-warning: $--color-amber-11,
+  message-warning-font-color: $--color-amber,
+
+
+  color-error-lighter: $--color-danger-10,
+  border-color-error: $--color-danger-11,
+  message-error-font-color: $--color-danger,
+    
 );

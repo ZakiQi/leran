@@ -1,0 +1,220 @@
+@import '../mixins/mixins.scss';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+$--sdtooltip-color: rgba(0, 0, 0, 0.75) !default;
+$--tooltip-arrow-size: 6px !default;
+$--tooltip-distance: $--tooltip-arrow-size - 1px + 4px !default;
+$--tooltip-max-width: 250px !default;
+
+
+
+@include b(tooltip) {
+  position: absolute;
+  z-index: $--index-popper;
+  display: block;
+  visibility: visible;
+  font-size: $--tooltip-font-size;
+  line-height: 1.2;
+  min-width: 10px;
+  word-wrap: break-word;
+  &.hidden {
+    display: none;
+  }
+
+  @include e(arrow) {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  @include e(inner) {
+    max-width: $--tooltip-max-width;
+    padding: 8px 10px;
+    color: $--color-white;
+    text-align: left;
+    text-decoration: none;
+    background-color: $--sdtooltip-color;
+    border-radius: $--border-radius-base;
+    box-shadow: $--box-shadow-base;
+    // min-height: 34px;
+  }
+
+  // top
+
+  @include m((placement-top, placement-topleft, placement-topright)) {
+    padding: $--tooltip-arrow-size 0 $--tooltip-distance 0;
+    @include e(arrow) {
+      @extend .arrowTop;
+    }
+  }
+
+  @include m(placement-top) {
+    @include e(arrow) {
+      left: 50%;
+      margin-left: -$--tooltip-arrow-size;
+    }
+  }
+
+  @include m(placement-topleft) {
+    @include e(arrow) {
+      left: 16px;
+    }
+  }
+
+  @include m(placement-topright) {
+    @include e(arrow) {
+      right: 16px;
+    }
+  }
+  // top end
+
+  // right
+
+  @include m((placement-right, placement-righttop, placement-rightbottom)) {
+    padding: 0 $--tooltip-arrow-size 0 $--tooltip-distance;
+
+    @include e(arrow) {
+      @extend .arrowRight;
+    }
+  }
+
+  @include m(placement-right) {
+    @include e(arrow) {
+      top: 50%;
+      margin-top: -$--tooltip-arrow-size;
+    }
+  }
+  @include m(placement-righttop) {
+    @include e(arrow) {
+      top: 8px;
+    }
+  }
+  @include m(placement-rightbottom) {
+    @include e(arrow) {
+      bottom: 8px;
+    }
+  }
+
+  // right end
+
+  // bottom
+  @include m((placement-bottom, placement-bottomleft, placement-bottomright)) {
+    padding: $--tooltip-distance 0 $--tooltip-arrow-size;
+    @include e(arrow) {
+      @extend .arrowBottom;
+    }
+  }
+
+  @include m(placement-bottom) {
+    @include e(arrow) {
+      left: 50%;
+      margin-left: -$--tooltip-arrow-size;
+    }
+  }
+  @include m(placement-bottomleft) {
+    @include e(arrow) {
+      left: 16px;
+    }
+  }
+  @include m(placement-bottomright) {
+    @include e(arrow) {
+      right: 16px;
+    }
+  }
+  // bottom end
+
+  // left
+  @include m((placement-left, placement-lefttop, placement-leftbottom)) {
+    padding: 0 $--tooltip-distance 0 $--tooltip-arrow-size;
+
+    @include e(arrow) {
+      @extend .arrowLeft;
+    }
+  }
+  @include m(placement-left) {
+    @include e(arrow) {
+      top: 50%;
+      margin-top: -$--tooltip-arrow-size;
+    }
+  }
+  @include m(placement-lefttop) {
+    @include e(arrow) {
+      top: 8px;
+    }
+  }
+  @include m(placement-leftbottom) {
+    @include e(arrow) {
+      bottom: 8px;
+    }
+  }
+
+  // left end
+}
+
+.fade-enter-active {
+  animation-duration: 0.2s;
+  animation-name: antFadeIn;
+}
+.fade-leave-active {
+  animation-duration: 0.2s;
+  animation-name: antFadeOut;
+  pointer-events: none;
+}
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+  animation-timing-function: linear;
+}
+.fade-leave {
+  animation-timing-function: linear;
+}
+@keyframes antFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes antFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.arrowTop {
+  bottom: $--tooltip-distance - $--tooltip-arrow-size;
+  border-width: $--tooltip-arrow-size $--tooltip-arrow-size 0;
+  border-top-color: $--sdtooltip-color
+}
+
+.arrowRight {
+  left: $--tooltip-distance - $--tooltip-arrow-size;
+  border-width: $--tooltip-arrow-size $--tooltip-arrow-size $--tooltip-arrow-size 0;
+  border-right-color: $--sdtooltip-color;
+}
+
+.arrowBottom {
+  top: $--tooltip-distance - $--tooltip-arrow-size;
+  border-width: 0 $--tooltip-arrow-size $--tooltip-arrow-size;
+  border-bottom-color: $--sdtooltip-color;
+}
+
+.arrowLeft {
+  // right: $--tooltip-distance - $--tooltip-arrow-size;
+  // border-width: $--tooltip-arrow-size 0 $--tooltip-arrow-size $--tooltip-arrow-size;
+  // border-bottom-color: $--sdtooltip-color;
+
+  right: 0px;
+  border-bottom-color: $--sdtooltip-color;
+  border-top: $--tooltip-arrow-size solid transparent;
+  border-bottom: $--tooltip-arrow-size solid transparent;
+  border-left: $--tooltip-arrow-size solid $--sdtooltip-color;
+}

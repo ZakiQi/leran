@@ -7,9 +7,18 @@
       文字
     </sd-button> -->
 
-    <sd-input v-model="inputValue" style=" width: 100px;margin: 10px;" size="mini" placeholder="请输入内容"></sd-input>
+    <sd-input
+      v-model="inputValue"
+      style=" width: 100px;margin: 10px;"
+      size="mini"
+      placeholder="请输入内容"
+    ></sd-input>
 
     <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>
+
+    <demoTabs></demoTabs>
+    <demoTable></demoTable>
+    <demo-message></demo-message>
 
     <!-- <el-button size="mini" @click="sideDialogVisible = !sideDialogVisible">分享</el-button>
 
@@ -52,64 +61,82 @@
 
 <script>
 import sdButton from '../../packages/custom-ui/sd-button/sd-button.vue'
+import demoTabs from './demo-tabs'
+import demoTable from './demo-table'
+import demoMessage from './demo-message'
+
 export default {
-  components: { sdButton },
-  data () {
+  components: { sdButton, demoTabs, demoTable, demoMessage },
+  data() {
     return {
       sideDialogVisible: false,
       selectValue: '',
       inputValue: '',
-      selectOptions: [{
-        value: '从化',
-        label: '从化'
-      }, {
-        value: '天河',
-        label: '天河'
-      }, {
-        value: '黄埔',
-        label: '黄埔'
-      }, {
-        value: '海珠',
-        label: '海珠'
-      }, {
-        value: '越秀',
-        label: '越秀'
-      }, {
-        value: '南沙',
-        label: '南沙'
-      }, {
-        value: '荔湾',
-        label: '荔湾'
-      }, {
-        value: '白云',
-        label: '白云'
-      }, {
-        value: '增城',
-        label: '增城'
-      }, {
-        value: '东山',
-        label: '东山'
-      }, {
-        value: '花都',
-        label: '花都'
-      }, {
-        value: '番禺',
-        label: '番禺'
-      }, {
-        value: '其它',
-        label: '其它'
-      }],
+      selectOptions: [
+        {
+          value: '从化',
+          label: '从化'
+        },
+        {
+          value: '天河',
+          label: '天河'
+        },
+        {
+          value: '黄埔',
+          label: '黄埔'
+        },
+        {
+          value: '海珠',
+          label: '海珠'
+        },
+        {
+          value: '越秀',
+          label: '越秀'
+        },
+        {
+          value: '南沙',
+          label: '南沙'
+        },
+        {
+          value: '荔湾',
+          label: '荔湾'
+        },
+        {
+          value: '白云',
+          label: '白云'
+        },
+        {
+          value: '增城',
+          label: '增城'
+        },
+        {
+          value: '东山',
+          label: '东山'
+        },
+        {
+          value: '花都',
+          label: '花都'
+        },
+        {
+          value: '番禺',
+          label: '番禺'
+        },
+        {
+          value: '其它',
+          label: '其它'
+        }
+      ],
       endMonth: '',
       monthValue: '',
       value1: '',
       separator: '-',
       val: [],
-      val1: [],
+      val1: []
     }
   },
 
   methods: {
-    themeChange () {
+    themeChange() {
       this.$emit('themeChange')
     }
   }
@@ -118,7 +145,7 @@ export default {
 
 <style lang="scss">
 @include scrollBarStyle();
-.demo{
+.demo {
   @include setAttr('background', 'bg-color');
 }
 </style>

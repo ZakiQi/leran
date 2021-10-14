@@ -1,0 +1,121 @@
+@import '../mixins/mixins.scss';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+
+
+@include b(table) {
+  // position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1;
+
+  max-width: 100%;
+  // background-color: $--color-white;
+  font-size: $font-size-14;
+  font-weight: $font-weight-Regular;
+
+  & thead {
+   
+    & th {
+      // background: #fff;
+      padding: 6px 0;
+      box-sizing: border-box;
+      font-weight: $font-weight-Regular;
+      @include themeify {
+        color: themed('text-secondary');
+      }
+      font-size: $font-size-16;
+      font-family: PingFangSC-Regular, PingFang SC;
+    }
+  }
+
+  th,
+  td {
+    @include when(center) {
+      text-align: center;
+    }
+
+    @include when(right) {
+      text-align: right;
+    }
+  }
+
+  th,
+  td {
+    // padding: 0px 20px;
+    min-width: 0;
+    box-sizing: border-box;
+    // @include utils-ellipsis();
+    vertical-align: middle;
+    // position: relative;
+    text-align: left;
+    > .cell {
+      display: inline-block;
+      box-sizing: border-box;
+      position: relative;
+      vertical-align: middle;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      
+    }
+  }
+
+  @include e(header-wrapper) {
+    // margin-bottom: 4px;
+
+    & thead {
+      background-color: $--color-white;
+    }
+  }
+
+  @include e(body-wrapper) {
+    // border-spacing: 0px 4px;
+    & table {
+      border-spacing: 0px 4px;
+    }
+    & tbody {
+      & tr {
+        transition: background-color 0.25s ease;
+        background: $--color-white;
+        &:hover {
+          background: #f0f0f0;
+        }
+      }
+    }
+    & td {
+      height: 54px;
+      // line-height: 54px;
+      // padding: 0 20px;
+      box-sizing: border-box;
+      // background: $--color-white;
+    }
+
+    th,td { 
+    > .cell {
+      // display: inline-block;
+      font-size: $font-size-14;
+      font-weight: $font-weight-medium;
+
+      @include themeify {
+        color: themed('text-first');
+      }
+
+      font-family: PingFangSC-Medium, PingFang SC;
+       overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  }
+
+  @include e((header, body, footer)) {
+    table-layout: fixed;
+    border-collapse: separate;
+  }
+}

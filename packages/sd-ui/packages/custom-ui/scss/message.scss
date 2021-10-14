@@ -1,0 +1,165 @@
+@import '../mixins/mixins.scss';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+
+@include b(message) {
+  min-width: 211px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  @include themeify {
+    border-color: themed('border-color-lighter');
+    background-color: themed('message-background-color');
+  }
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  overflow: hidden;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+
+  @include e(content) {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+  }
+  
+
+  @include when(center) {
+    justify-content: center;
+  }
+
+  @include when(closable) {
+    .sd-message__content {
+      padding-right: 8px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  @include m(info) {
+    .sd-message__content {
+      @include themeify {
+        color: themed('message-info-font-color');
+      }
+    }
+    .sd-message__icon {
+      @include themeify {
+        color: themed('primary-color');
+      }
+    }
+  }
+
+  @include m(success) {
+
+    @include themeify {
+      background-color: themed('color-success-lighter');
+      border-color: themed('border-color-success');
+    }
+    
+
+    .sd-message__icon {
+      @include themeify {
+        color: themed('message-success-font-color');
+      }
+    }
+    
+  }
+
+  @include m(warning) {
+    @include themeify {
+      background-color: themed('color-warning-lighter');
+      border-color: themed('border-color-warning');
+    }
+    
+
+    .sd-message__icon {
+      @include themeify {
+        color: themed('message-warning-font-color');
+      }
+    }
+  }
+
+  @include m(error) {
+    @include themeify {
+      background-color: themed('color-error-lighter');
+      border-color: themed('border-color-error');
+    }
+    
+
+    .sd-message__icon {
+      @include themeify {
+        color: themed('message-error-font-color');
+      }
+    }
+  }
+
+  @include e(icon) {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+
+  @include e(content) {
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+  @include e(closeBtn) {
+    // position: absolute;
+    // top: 50%;
+    // right: 16px;
+    // transform: translateY(-50%);
+    cursor: pointer;
+    @include themeify {
+      color: themed('primary-color');
+    }
+    font-size: 18px;
+
+    &:focus {
+      outline-width: 0;
+    }
+    // &:hover {
+    //   color: $--message-close-hover-color;
+    // }
+
+    &.success {
+      @include themeify {
+        color: themed('message-success-font-color');
+      }
+    }
+
+    &.warning {
+      @include themeify {
+        color: themed('message-warning-font-color');
+      }
+    }
+    
+
+    &.error {
+      @include themeify {
+        color: themed('message-error-font-color');
+      }
+    }
+    
+  }
+
+  
+}
+
+.sd-message-fade-enter,
+.sd-message-fade-leave-active {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

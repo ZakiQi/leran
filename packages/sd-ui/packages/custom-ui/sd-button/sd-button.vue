@@ -13,10 +13,8 @@
       }
     ]"
   >
-
     <i :class="icon" v-if="icon"></i>
     <i class="el-icon-loading" v-if="loading"></i>
-    
     <span><slot></slot></span>
   </button>
 </template>
