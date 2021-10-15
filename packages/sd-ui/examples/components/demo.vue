@@ -1,7 +1,7 @@
 <template>
   <div class="demo" style="height: 100%; width: 100%; border: 1px solid green; overflow: auto;">
     <el-button @click="themeChange">切换</el-button>
-    <sd-button>按钮</sd-button>
+    <sd-button @click="handleClick">按钮</sd-button>
 
     <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
       文字
@@ -138,6 +138,9 @@ export default {
   methods: {
     themeChange() {
       this.$emit('themeChange')
+    },
+    handleClick () {
+      console.log(123123)
     }
   }
 }
