@@ -27,7 +27,7 @@
             <template v-else>
               <i class="iconfont sd-icon-selfolder-sel selfolder-sel"></i>
             </template>
-            <span v-tooltip.top.ellipsis="scope.row.name" class="text">{{ scope.row.name }}</span>
+            <span v-tooltip.top="scope.row.name" class="text">{{ scope.row.name }}</span>
           </div>
         </template>
       </sd-table-column>
@@ -87,7 +87,7 @@ export default {
           startTime: '2021/8/31 12:09:09',
           updateTime: '2021/9/7 12:09:09',
           name:
-            '套用模型省时省力，不用冥思苦想，但是，每一个需要设计的内容和体系应该是迥然不同的。数据人平台体系应该是迥然不同的。数据人平台'
+            '套用模型省时省力，不用冥思苦想，但是，每一个需要设计的内容和体系应该是迥然不同的。数据人平台'
         },
         {
           folder: true,

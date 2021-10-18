@@ -1,74 +1,69 @@
-// @import "function";
-// @import "../common/var";
+@import "function";
+@import "../common/var";
 
 /* Break-points
-//  -------------------------- */
-// @mixin res($key, $map: $--breakpoints) {
-//   // 循环断点Map，如果存在则返回
-//   @if map-has-key($map, $key) {
-//     @media only screen and #{inspect(map-get($map, $key))} {
-//       @content;
-//     }
-//   } @else {
-//     @warn "Undefeined points: `#{$map}`";
-//   }
-// }
+ -------------------------- */
+@mixin res($key, $map: $--breakpoints) {
+  // 循环断点Map，如果存在则返回
+  @if map-has-key($map, $key) {
+    @media only screen and #{inspect(map-get($map, $key))} {
+      @content;
+    }
+  } @else {
+    @warn "Undefeined points: `#{$map}`";
+  }
+}
 
 /* Scrollbar
  -------------------------- */
-// @mixin scroll-bar {
-//   $--scrollbar-thumb-background: #b4bccc;
-//   $--scrollbar-track-background: #fff;
+@mixin scroll-bar {
+  $--scrollbar-thumb-background: #b4bccc;
+  $--scrollbar-track-background: #fff;
 
-//   &::-webkit-scrollbar {
-//     z-index: 11;
-//     width: 6px;
+  &::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
 
-//     &:horizontal {
-//       height: 6px;
-//     }
+    &:horizontal {
+      height: 6px;
+    }
 
-//     &-thumb {
-//       border-radius: 5px;
-//       width: 6px;
-//       background: $--scrollbar-thumb-background;
-//     }
+    &-thumb {
+      border-radius: 5px;
+      width: 6px;
+      background: $--scrollbar-thumb-background;
+    }
 
-//     &-corner {
-//       background: $--scrollbar-track-background;
-//     }
+    &-corner {
+      background: $--scrollbar-track-background;
+    }
 
-//     &-track {
-//       background: $--scrollbar-track-background;
+    &-track {
+      background: $--scrollbar-track-background;
 
-//       &-piece {
-//         background: $--scrollbar-track-background;
-//         width: 6px;
-//       }
-//     }
-//   }
-// }
+      &-piece {
+        background: $--scrollbar-track-background;
+        width: 6px;
+      }
+    }
+  }
+}
 
 /* Placeholder
  -------------------------- */
-// @mixin placeholder {
-//   &::-webkit-input-placeholder {
-//     @content
-//   }
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
 
-//   &::-moz-placeholder {
-//     @content
-//   }
+  &::-moz-placeholder {
+    @content
+  }
 
-//   &:-ms-input-placeholder {
-//     @content
-//   }
-// }
-
-$namespace: 'sd';
-$element-separator: '__';
-$modifier-separator: '--';
-$state-prefix: 'is-';
+  &:-ms-input-placeholder {
+    @content
+  }
+}
 
 /* BEM
  -------------------------- */
@@ -109,64 +104,63 @@ $state-prefix: 'is-';
   $selector: &;
   $currentSelector: "";
   @each $unit in $modifier {
-    $currentSelector: #{ $currentSelector + & + $modifier-separator + $unit + ","};
+    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
   }
-  
+
   @at-root {
-    #{ $currentSelector } {
+    #{$currentSelector} {
       @content;
     }
   }
 }
 
-// @mixin configurable-m($modifier, $E-flag: false) {
-//   $selector: &;
-//   $interpolation: '';
+@mixin configurable-m($modifier, $E-flag: false) {
+  $selector: &;
+  $interpolation: '';
 
-//   @if $E-flag {
-//     $interpolation: $element-separator + $E-flag;
-//   }
+  @if $E-flag {
+    $interpolation: $element-separator + $E-flag;
+  }
 
-//   @at-root {
-//     #{$selector} {
-//       .#{$B+$interpolation+$modifier-separator+$modifier} {
-//         @content;
-//       }
-//     }
-//   }
-// }
+  @at-root {
+    #{$selector} {
+      .#{$B+$interpolation+$modifier-separator+$modifier} {
+        @content;
+      }
+    }
+  }
+}
 
-// @mixin spec-selector($specSelector: '', $element: $E, $modifier: false, $block: $B) {
-//   $modifierCombo: '';
+@mixin spec-selector($specSelector: '', $element: $E, $modifier: false, $block: $B) {
+  $modifierCombo: '';
 
-//   @if $modifier {
-//     $modifierCombo: $modifier-separator + $modifier;
-//   }
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
 
-//   @at-root {
-//     #{&}#{$specSelector}.#{$block+$element-separator+$element+$modifierCombo} {
-//       @content
-//     }
-//   }
-// }
+  @at-root {
+    #{&}#{$specSelector}.#{$block+$element-separator+$element+$modifierCombo} {
+      @content
+    }
+  }
+}
 
-// @mixin meb($modifier: false, $element: $E, $block: $B) {
-//   $selector: &;
-//   $modifierCombo: '';
+@mixin meb($modifier: false, $element: $E, $block: $B) {
+  $selector: &;
+  $modifierCombo: '';
 
-//   @if $modifier {
-//     $modifierCombo: $modifier-separator + $modifier;
-//   }
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
 
-//   @at-root {
-//     #{$selector} {
-//       .#{$block+$element-separator+$element+$modifierCombo} {
-//         @content
-//       }
-//     }
-//   }
-// }
-
+  @at-root {
+    #{$selector} {
+      .#{$block+$element-separator+$element+$modifierCombo} {
+        @content
+      }
+    }
+  }
+}
 
 @mixin when($state) {
   @at-root {
@@ -176,21 +170,21 @@ $state-prefix: 'is-';
   }
 }
 
-// @mixin extend-rule($name) {
-//   @extend #{'%shared-'+$name};
-// }
+@mixin extend-rule($name) {
+  @extend #{'%shared-'+$name};
+}
 
-// @mixin share-rule($name) {
-//   $rule-name: '%shared-'+$name;
+@mixin share-rule($name) {
+  $rule-name: '%shared-'+$name;
 
-//   @at-root #{$rule-name} {
-//     @content
-//   }
-// }
+  @at-root #{$rule-name} {
+    @content
+  }
+}
 
-// @mixin pseudo($pseudo) {
-//   @at-root #{&}#{':#{$pseudo}'} {
-//     @content
-//   }
-// }
+@mixin pseudo($pseudo) {
+  @at-root #{&}#{':#{$pseudo}'} {
+    @content
+  }
+}
 

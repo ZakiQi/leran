@@ -1,0 +1,458 @@
+@import '../mixins/mixins.scss';
+@import '../mixins/utils';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+
+// @mixin placeholder {
+//   &::-webkit-input-placeholder {
+//     @content
+//   }
+
+//   &::-moz-placeholder {
+//     @content
+//   }
+
+//   &:-ms-input-placeholder {
+//     @content
+//   }
+// }
+
+// input,
+// textarea {
+//   @include placeholder {
+//     color: #f00;
+//   }
+// }
+
+@include b(formInput) {
+  position: relative;
+  font-size: $--font-size-base;
+  display: inline-block;
+  width: 100%;
+  @include scroll-bar;
+
+
+
+  & .sd-formInput__clear {
+    @include themeify {
+      color: themed('text-placeholder');
+    }
+
+    font-size: $font-size-14;
+    cursor: pointer;
+    transition: $--color-transition-base;
+
+    &:hover {
+      color: $--input-clear-hover-color;
+    }
+  }
+
+  & .sd-formInput__count {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+
+    @include themeify {
+      color: themed('text-color');
+    }
+
+    font-size: 12px;
+
+    .sd-formInput__count-inner {
+      background: $--color-white;
+      line-height: initial;
+      display: inline-block;
+      padding: 0 5px;
+    }
+  }
+
+  @include e(inner) {
+    -webkit-appearance: none;
+    background-color: $--color-white;
+    background-image: none;
+    border-radius: $--input-border-radius;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: inherit;
+    height: $--input-height;
+    line-height: $--input-height;
+    outline: none;
+    padding: 0 8px;
+    transition: $--border-transition-base;
+    width: 100%;
+
+    // @include placeholder {
+    //   color: #f00;
+    // }
+
+    @include themeify {
+      color: themed('text-first');
+      border: 1px solid themed('base-border');
+    }
+
+
+
+    &::-ms-reveal {
+      display: none;
+    }
+
+
+    &::-webkit-input-placeholder {
+      @include themeify {
+        color: themed('text-placeholder') !important;
+      }
+    }
+
+
+
+    &:hover {
+      @include themeify {
+        border-color: themed('text-placeholder');
+      }
+
+      &::-webkit-input-placeholder {
+        @include themeify {
+          color: themed('text-color') !important;
+        }
+      }
+
+    }
+
+    &:focus {
+      outline: none;
+
+      @include themeify {
+        border-color: themed('primary-color');
+      }
+
+      &::-webkit-input-placeholder {
+        @include themeify {
+          color: themed('text-placeholder') !important;
+        }
+      }
+    }
+  }
+
+  @include e(suffix) {
+    position: absolute;
+    height: 100%;
+    right: 5px;
+    top: 0;
+    text-align: center;
+
+    // color: $--input-icon-color;
+    @include themeify {
+      color: themed('text-color');
+    }
+
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+
+  @include e(suffix-inner) {
+    pointer-events: all;
+  }
+
+  @include e(prefix) {
+    position: absolute;
+    height: 100%;
+    left: 5px;
+    top: 0;
+    text-align: center;
+    color: $--input-icon-color;
+    transition: all 0.3s;
+  }
+
+  @include e(icon) {
+    height: 100%;
+    width: 25px;
+    text-align: center;
+    transition: all 0.3s;
+    line-height: $--input-height;
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  @include e(validateIcon) {
+    pointer-events: none;
+  }
+
+  @include when(active) {
+    .sd-formInput__inner {
+      outline: none;
+      border-color: $--input-focus-border;
+    }
+  }
+
+  @include when(disabled) {
+    .sd-formInput__inner {
+      background-color: $--input-disabled-fill;
+      border-color: $--input-disabled-border;
+      color: $--input-disabled-color;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $--input-disabled-placeholder-color;
+      }
+    }
+
+    .sd-formInput__icon {
+      cursor: not-allowed;
+    }
+  }
+
+  @include when(exceed) {
+    .sd-formInput__inner {
+      // border-color: $--color-danger;
+      // @include themeify {
+      //   border-color: themed('message-error-font-color');
+      // }
+    }
+
+    .sd-formInput__suffix {
+      .sd-formInput__count {
+        @include themeify {
+          color: themed('message-error-font-color');
+        }
+      }
+    }
+  }
+
+  @include m(suffix) {
+    .sd-formInput__inner {
+      padding-right: 30px;
+    }
+  }
+
+  @include m(prefix) {
+    .sd-formInput__inner {
+      padding-left: 30px;
+    }
+  }
+
+  @include m(medium) {
+    font-size: $--input-medium-font-size;
+
+    @include e(inner) {
+      height: $--input-medium-height;
+      line-height: $--input-medium-height;
+    }
+
+    .sd-formInput__icon {
+      line-height: $--input-medium-height;
+    }
+  }
+
+  @include m(small) {
+    font-size: $--input-small-font-size;
+
+    @include e(inner) {
+      height: $--input-small-height;
+      line-height: $--input-small-height;
+    }
+
+    .sd-formInput__icon {
+      line-height: $--input-small-height;
+    }
+  }
+
+  @include m(mini) {
+    font-size: $--input-mini-font-size;
+
+    @include e(inner) {
+      height: $--input-mini-height;
+      line-height: $--input-mini-height;
+    }
+
+    .sd-formInput__icon {
+      line-height: $--input-mini-height;
+    }
+  }
+}
+
+
+@include b(textarea) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: $--font-size-base;
+
+  @include e(inner) {
+    display: block;
+    resize: vertical;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    color: $--input-font-color;
+    background-color: $--input-background-color;
+    background-image: none;
+    border: $--input-border;
+    border-radius: $--input-border-radius;
+    transition: $--border-transition-base;
+
+    @include themeify {
+      color: themed('text-first');
+    }
+
+    &::placeholder {
+      color: $--input-placeholder-color;
+    }
+
+    &:hover {
+      border-color: $--input-hover-border;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $--input-focus-border;
+    }
+  }
+
+  & .sd-formInput__count {
+    color: $--color-info;
+    background: $--color-white;
+    position: absolute;
+    font-size: 12px;
+    bottom: 5px;
+    right: 10px;
+  }
+
+  @include when(disabled) {
+    .sd-textarea__inner {
+      background-color: $--input-disabled-fill;
+      border-color: $--input-disabled-border;
+      color: $--input-disabled-color;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $--input-disabled-placeholder-color;
+      }
+    }
+  }
+
+  @include when(exceed) {
+    .sd-textarea__inner {
+      @include themeify {
+        border-color: themed('message-error-font-color');
+      }
+      // border-color: $--color-danger;
+    }
+
+    .sd-formInput__count {
+      @include themeify {
+        color: themed('message-error-font-color');
+      }
+      // color: $--color-danger;
+    }
+  }
+}
+
+
+@include b(input-group) {
+  line-height: normal;
+  display: inline-table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  >.sd-formInput__inner {
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  @include e((append, prepend)) {
+    background-color: $--background-color-base;
+    color: $--color-info;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    border: $--border-base;
+    border-radius: $--input-border-radius;
+    padding: 0 20px;
+    width: 1px;
+    white-space: nowrap;
+
+    &:focus {
+      outline: none;
+    }
+
+    .sd-select,
+    .sd-button {
+      display: inline-block;
+      margin: -10px -20px;
+    }
+
+    button.sd-button,
+    div.sd-select .sd-formInput__inner,
+    div.sd-select:hover .sd-formInput__inner {
+      border-color: transparent;
+      background-color: transparent;
+      color: inherit;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    .sd-button,
+    .sd-formInput {
+      font-size: inherit;
+    }
+  }
+
+  @include e(prepend) {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  @include e(append) {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @include m(prepend) {
+    .sd-formInput__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .sd-select .sd-formInput.is-focus .sd-formInput__inner {
+      border-color: transparent;
+    }
+  }
+
+  @include m(append) {
+    .sd-formInput__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .sd-select .sd-formInput.is-focus .sd-formInput__inner {
+      border-color: transparent;
+    }
+  }
+}
+
+
+
+
+
+// input::-webkit-input-placeholder,
+// textarea::-webkit-input-placeholder {
+//   color: red !important;
+// }
+
+// input:-moz-placeholder,
+// textarea:-moz-placeholder {
+//   color: red !important;
+// }

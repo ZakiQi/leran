@@ -5,7 +5,7 @@
 $--sdtooltip-color: rgba(0, 0, 0, 0.75) !default;
 $--tooltip-arrow-size: 6px !default;
 $--tooltip-distance: $--tooltip-arrow-size - 1px + 4px !default;
-$--tooltip-max-width: 250px !default;
+$--tooltip-max-width: 380px !default;
 
 
 
@@ -15,9 +15,11 @@ $--tooltip-max-width: 250px !default;
   display: block;
   visibility: visible;
   font-size: $--tooltip-font-size;
-  line-height: 1.2;
+  line-height: 1.5;
   min-width: 10px;
   word-wrap: break-word;
+  // font-size: $font-size-14;
+  box-sizing: border-box;
   &.hidden {
     display: none;
   }

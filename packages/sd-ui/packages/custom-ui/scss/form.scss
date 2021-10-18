@@ -1,0 +1,207 @@
+@import '../mixins/mixins.scss';
+@import '../mixins/utils';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+@include b(form) {
+  @include m(label-left) {
+    & .sd-form-item__label {
+      text-align: left;
+    }
+  }
+
+  @include m(label-top) {
+    & .sd-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 10px 0;
+    }
+  }
+
+  @include m(inline) {
+    & .sd-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    & .sd-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+
+    & .sd-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &.sd-form--label-top .sd-form-item__content {
+      display: block;
+    }
+  }
+}
+
+@include b(form-item) {
+  margin-bottom: 22px;
+  @include utils-clearfix;
+
+  & .sd-form-item {
+    margin-bottom: 0;
+  }
+
+
+  @include m(medium) {
+    .sd-form-item__label {
+      line-height: 36px;
+    }
+
+    .sd-form-item__content {
+      line-height: 36px;
+    }
+  }
+
+  @include m(small) {
+    .sd-form-item__label {
+      line-height: 32px;
+    }
+
+    .sd-form-item__content {
+      line-height: 32px;
+    }
+
+    &.sd-form-item {
+      margin-bottom: 18px;
+      &:last-child {
+        margin-bottom: 0px !important;
+      }
+    }
+    
+
+    .sd-form-item__error {
+      padding-top: 2px;
+    }
+  }
+
+  @include m(mini) {
+    .sd-form-item__label {
+      line-height: 28px;
+    }
+
+    .sd-form-item__content {
+      line-height: 28px;
+    }
+
+    &.sd-form-item {
+      margin-bottom: 18px;
+      &:last-child {
+        margin-bottom: 0px !important;
+      }
+    }
+
+    .sd-form-item__error {
+      padding-top: 1px;
+    }
+  }
+
+  @include e(label-wrap) {
+    float: left;
+
+    .sd-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    @include utils-fontStyle(14);
+    @include themeify {
+      color: themed('text-first');
+    }
+    line-height: 40px;
+    font-weight: 400;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+  }
+
+  @include e(content) {
+    line-height: 40px;
+    position: relative;
+    font-size: $font-size-14;
+    @include utils-clearfix;
+
+    .sd-formInput-group {
+      vertical-align: top;
+    }
+  }
+
+  @include e(error) {
+    @include themeify {
+      color: themed('message-error-font-color');
+    }
+    @include utils-fontStyle(12);
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+
+      &>.sd-form-item__label:before,
+      & .sd-form-item__label-wrap>.sd-form-item__label:before {
+        content: '*';
+         @include themeify {
+          color: themed('message-error-font-color');
+         }
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+
+    & .sd-formInput__inner,
+    & .sd-textarea__inner {
+
+      &,
+      &:focus {
+        @include themeify {
+          border-color: themed('message-error-font-color') !important;
+        }
+      }
+    }
+
+    & .sd-formInput-group__append,
+    & .sd-formInput-group__prepend {
+      & .sd-formInput__inner {
+        border-color: transparent;
+      }
+    }
+
+    .sd-formInput__validateIcon {
+      @include themeify {
+        color: themed('message-error-font-color');
+      }
+    }
+  }
+
+  @include m(feedback) {
+    .sd-formInput__validateIcon {
+      display: inline-block;
+    }
+  }
+}

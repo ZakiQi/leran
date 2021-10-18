@@ -38,3 +38,32 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*
+  字体大小
+  是否开始 字间距计算
+*/
+@mixin utils-fontStyle($size:16, $spacing: true) {
+ @if $size==14 {
+  line-height: 20px;
+ }
+
+ @else if $size==12 {
+  line-height: 16px;
+ }
+
+ @else {
+  line-height: #{$size + 8 }px;
+ }
+
+ font-size: #{$size}px;
+ $sizeBase: 16;
+ $base: 1;
+
+ $letterSpacing: ($size - $sizeBase) * 0.125 / 2;
+
+ @if $spacing==true {
+  letter-spacing: #{$base + $letterSpacing}px;
+ }
+   
+}

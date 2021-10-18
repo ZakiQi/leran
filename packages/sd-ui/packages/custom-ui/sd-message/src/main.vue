@@ -43,7 +43,7 @@ export default {
       onClose: null,
       showClose: true,
       closed: false,
-      verticalOffset: 64,
+      verticalOffset: 24,
       timer: null,
       dangerouslyUseHTMLString: false,
       center: false

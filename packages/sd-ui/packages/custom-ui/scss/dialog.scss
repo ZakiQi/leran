@@ -1,0 +1,146 @@
+@import '../mixins/mixins.scss';
+@import '../mixins/utils';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+@include b(dialog) {
+  position: relative;
+  margin: 0 auto 50px;
+  background: $--color-white;
+  border-radius: 4px;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+  width: 50%;
+  min-height: 172px;
+
+  @include when(fullscreen) {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    overflow: auto;
+  }
+
+  @include e(wrapper) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+  }
+
+  @include e(header) {
+    padding: 20px 20px 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    & .sd-icon-typeIcon {
+      font-size: $font-size-24;
+      vertical-align: bottom;
+      margin-right: 8px;
+    }
+  }
+
+  @include e(body) {
+    padding: 0 20px 48px 20px;
+    font-size: $font-size-14;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: $font-weight-Regular;
+    @include themeify {
+      color: themed('text-secondary');
+    }
+    word-break: break-all;
+  }
+
+  @include e(footer) {
+    padding: 0px 20px 20px;
+    // padding-top: 10px;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  @include m(default) {
+    @include themeify {
+      color: themed('primary-color');
+    }
+  }
+  @include m(success) {
+    @include themeify {
+      color: themed('message-success-font-color');
+    }
+  }
+  @include m(warning) {
+    @include themeify {
+      color: themed('message-warning-font-color');
+    }
+    
+  }
+
+  @include m(error) {
+    @include themeify {
+      color: themed('message-error-font-color');
+    }
+  }
+
+  @include e(title) {
+    // font-size: $font-size-16;
+
+    @include utils-fontStyle(16);
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: $font-weight-medium;
+    @include themeify {
+      color: themed('text-first');
+    }
+    line-height: 24px;
+    vertical-align: unset;
+  }
+
+  @include e(close) {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    @include themeify {
+      color: themed('text-color');
+    }
+  }
+}
+
+.dialog-fade-enter-active {
+  animation: dialog-fade-in 0.3s;
+}
+
+.dialog-fade-leave-active {
+  animation: dialog-fade-out 0.3s;
+}
+
+@keyframes dialog-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}

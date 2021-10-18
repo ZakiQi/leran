@@ -19,7 +19,8 @@
     <demoTabs></demoTabs>
     <demoTable></demoTable>
     <demo-message></demo-message>
-
+    <demo-dialog></demo-dialog>
+    <demo-form-dialog></demo-form-dialog>
     <!-- <el-button size="mini" @click="sideDialogVisible = !sideDialogVisible">分享</el-button>
 
     <sd-date-picker
@@ -64,9 +65,10 @@ import sdButton from '../../packages/custom-ui/sd-button/sd-button.vue'
 import demoTabs from './demo-tabs'
 import demoTable from './demo-table'
 import demoMessage from './demo-message'
-
+import demoDialog from './demo-dialog.vue'
+import demoFormDialog from './demo-form-dialog.vue'
 export default {
-  components: { sdButton, demoTabs, demoTable, demoMessage },
+  components: { sdButton, demoTabs, demoTable, demoMessage, demoDialog, demoFormDialog },
   data() {
     return {
       sideDialogVisible: false,
@@ -139,7 +141,7 @@ export default {
     themeChange() {
       this.$emit('themeChange')
     },
-    handleClick () {
+    handleClick() {
       console.log(123123)
     }
   }

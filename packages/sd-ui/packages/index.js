@@ -18,8 +18,12 @@ import sdDropdownMenu from './custom-ui/sd-dropdown-menu/index'
 import sdDropdownItem from './custom-ui/sd-dropdown-item/index'
 
 import sdTooltip from './custom-ui/sd-tooltip/index'
-
 import sdMessage from './custom-ui/sd-message/index'
+import sdDialog from './custom-ui/sd-dialog/index'
+
+import sdForm from './custom-ui/sd-form/index'
+import sdFormItem from './custom-ui/sd-form-item/index'
+import sdFormInput from './custom-ui/sd-form-input'
 
 // iconfont
 import '../assets/iconfont/iconfont.css'
@@ -38,7 +42,11 @@ const components = [
   sdTableColumn,
   sdDropdown,
   sdDropdownMenu,
-  sdDropdownItem
+  sdDropdownItem,
+  sdDialog,
+  sdForm,
+  sdFormItem,
+  sdFormInput
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
