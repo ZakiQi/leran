@@ -23,7 +23,7 @@
   font-weight: 400;
   // @include utils-user-select(none);
   & + & {
-    margin-left: 10px;
+    margin-left: 16px;
   }
 
   @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
@@ -43,6 +43,17 @@
       border-color: themed('btn-active-border');
     }
     outline: none;
+  }
+
+  & [class*="sd-icon-"] {
+    font-size: 16px;
+    display: inline-block;
+    // width: 16px;
+    // height: 16px;
+    vertical-align: text-top;
+    &+span {
+      margin-left: 4px;
+    }
   }
 
   // loading

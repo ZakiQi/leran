@@ -13,7 +13,7 @@
       }
     ]"
   >
-    <i :class="icon" v-if="icon"></i>
+    <i class="iconfont" :class="icon" v-if="icon"></i>
     <i class="el-icon-loading" v-if="loading"></i>
     <span><slot></slot></span>
   </button>
@@ -45,9 +45,8 @@ export default {
     circle: Boolean
   },
 
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
 
   computed: {
@@ -56,17 +55,17 @@ export default {
     },
     buttonSize() {
       return this.size
-    },
+    }
   },
 
   methods: {
-    handleClick (e) {
-      this.$emit('click', e);
+    handleClick(e) {
+      this.$emit('click', e)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/button.scss'
+@import '../scss/button.scss';
 </style>
