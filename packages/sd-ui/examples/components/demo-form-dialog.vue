@@ -27,8 +27,8 @@
         </sd-form-item>
       </sd-form>
       <span slot="footer" class="dialog-footer">
-        <sd-button size="medium" @click="dialogVisible = false">取消</sd-button>
-        <sd-button size="medium" type="primary" @click="dialogVisible = false">确定</sd-button>
+        <sd-button @click="dialogVisible = false">取消</sd-button>
+        <sd-button type="primary" @click="dialogVisible = false">确定</sd-button>
       </span>
     </sd-dialog>
   </div>

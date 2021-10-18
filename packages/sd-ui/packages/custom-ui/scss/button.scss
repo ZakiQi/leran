@@ -1,11 +1,11 @@
 @import '../mixins/mixins.scss';
 @import './button-mixins.scss';
+@import '../mixins/utils';
 @import '../../../assets/sass/theme/theme.scss';
 @import '../common/var.scss';
 
 @include b (button) {
   display: inline-block;
-  line-height: 1;
   white-space: nowrap;
   cursor: pointer;
   @include themeify {
