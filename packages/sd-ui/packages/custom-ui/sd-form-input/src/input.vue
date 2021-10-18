@@ -45,7 +45,7 @@
       <!-- 前置内容 -->
       <span class="sd-formInput__prefix" v-if="$slots.prefix || prefixIcon">
         <slot name="prefix"></slot>
-        <i class="sd-formInput__icon" v-if="prefixIcon" :class="prefixIcon"> </i>
+        <i class="iconfont sd-formInput__icon" v-if="prefixIcon" :class="prefixIcon"> </i>
       </span>
 
       <!-- 后置内容 -->
@@ -56,7 +56,7 @@
           </span>
           <template v-if="!showClear || !showPwdVisible || !isWordLimitVisible">
             <slot name="suffix"></slot>
-            <i class="sd-formInput__icon" v-if="suffixIcon" :class="suffixIcon"> </i>
+            <i class="iconfont sd-formInput__icon" v-if="suffixIcon" :class="suffixIcon"> </i>
           </template>
           <i
             v-if="showClear"

@@ -14,6 +14,7 @@
         :rules="rules"
         labelPosition="right"
         size="mini"
+        @submit.native.prevent
       >
         <sd-form-item label="名称：" prop="age">
           <sd-form-input
@@ -38,15 +39,8 @@
         </sd-form-item> -->
       </sd-form>
       <span slot="footer" class="dialog-footer">
-        <sd-button
-          icon="iconfont sd-icon-folderfolder-3"
-          type="primary"
-          @click="dialogVisible = false"
-          >新建文件夹</sd-button
-        >
-        <sd-button icon="iconfont sd-icon-add" type="primary" @click="dialogVisible = false"
-          >新建看板</sd-button
-        >
+        <sd-button @click="dialogVisible = false">取消</sd-button>
+        <sd-button type="primary" @click="dialogVisible = false">确定</sd-button>
       </span>
     </sd-dialog>
   </div>

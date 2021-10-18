@@ -157,10 +157,12 @@
   @include e(prefix) {
     position: absolute;
     height: 100%;
-    left: 5px;
+    left: 8px;
     top: 0;
     text-align: center;
-    color: $--input-icon-color;
+    @include themeify {
+      color: themed('text-placeholder') !important;
+    }
     transition: all 0.3s;
   }
 
@@ -227,13 +229,13 @@
 
   @include m(suffix) {
     .sd-formInput__inner {
-      padding-right: 30px;
+      padding-right: 28px;
     }
   }
 
   @include m(prefix) {
     .sd-formInput__inner {
-      padding-left: 30px;
+      padding-left: 28px;
     }
   }
 
