@@ -1,13 +1,7 @@
-/* istanbul ignore next */
-// Tooltip.install = function (Vue) {
-//   Vue.component(Tooltip.name, Tooltip)
-// }
+import sdTooltip from './src/tooltip.js'
 
-import directive from './src/directive'
-
-export default {
-  install(Vue) {
-    Vue.use(directive)
-  },
-  directive,
+sdTooltip.install = function(Vue) {
+  Vue.component(sdTooltip.name, sdTooltip)
 }
+
+export default sdTooltip

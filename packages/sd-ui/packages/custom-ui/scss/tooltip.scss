@@ -1,6 +1,7 @@
 @import '../mixins/mixins.scss';
 @import '../../../assets/sass/theme/theme.scss';
 @import '../common/var.scss';
+@import '../mixins/utils';
 
 $--sdtooltip-color: rgba(0, 0, 0, 0.75) !default;
 $--tooltip-arrow-size: 6px !default;
@@ -34,19 +35,21 @@ $--tooltip-max-width: 380px !default;
 
   @include e(inner) {
     max-width: $--tooltip-max-width;
-    padding: 8px 10px;
+    padding: 4px 12px;
     color: $--color-white;
     text-align: left;
     text-decoration: none;
     background-color: $--sdtooltip-color;
     border-radius: $--border-radius-base;
-    box-shadow: $--box-shadow-base;
+    // box-shadow: $--box-shadow-base;
     // min-height: 34px;
+    @include utils-fontStyle(14);
+    font-weight: 400;
   }
 
   // top
 
-  @include m((placement-top, placement-topleft, placement-topright)) {
+  @include m((placement-top, placement-topleft, placement-top-end)) {
     padding: $--tooltip-arrow-size 0 $--tooltip-distance 0;
     @include e(arrow) {
       @extend .arrowTop;
@@ -66,7 +69,7 @@ $--tooltip-max-width: 380px !default;
     }
   }
 
-  @include m(placement-topright) {
+  @include m(placement-top-end) {
     @include e(arrow) {
       right: 16px;
     }
@@ -103,7 +106,7 @@ $--tooltip-max-width: 380px !default;
   // right end
 
   // bottom
-  @include m((placement-bottom, placement-bottomleft, placement-bottomright)) {
+  @include m((placement-bottom, placement-bottomleft, placement-bottom-end)) {
     padding: $--tooltip-distance 0 $--tooltip-arrow-size;
     @include e(arrow) {
       @extend .arrowBottom;
@@ -121,7 +124,7 @@ $--tooltip-max-width: 380px !default;
       left: 16px;
     }
   }
-  @include m(placement-bottomright) {
+  @include m(placement-bottom-end) {
     @include e(arrow) {
       right: 16px;
     }

@@ -17,6 +17,7 @@ import sdDropdown from './custom-ui/sd-dropdown/index'
 import sdDropdownMenu from './custom-ui/sd-dropdown-menu/index'
 import sdDropdownItem from './custom-ui/sd-dropdown-item/index'
 
+import tooltipDirective from './custom-ui/sd-tooltip/directive'
 import sdTooltip from './custom-ui/sd-tooltip/index'
 import sdMessage from './custom-ui/sd-message/index'
 import sdDialog from './custom-ui/sd-dialog/index'
@@ -25,7 +26,7 @@ import sdForm from './custom-ui/sd-form/index'
 import sdFormItem from './custom-ui/sd-form-item/index'
 import sdFormInput from './custom-ui/sd-form-input'
 
-import sdBadge from './custom-ui/sd-badge/index'
+// import sdBadge from './custom-ui/sd-badge/index'
 
 // iconfont
 import '../assets/iconfont/iconfont.css'
@@ -49,8 +50,11 @@ const components = [
   sdForm,
   sdFormItem,
   sdFormInput,
-  sdBadge
+  sdBadge,
+  sdTooltip
 ]
+
+console.log('sdTooltip', sdTooltip)
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {
@@ -61,7 +65,7 @@ const install = function(Vue) {
     Vue.component(component.name, component)
   })
 
-  Vue.use(sdTooltip.directive)
+  Vue.use(tooltipDirective.directive)
 
   Vue.prototype.$sdMessage = sdMessage
 }
