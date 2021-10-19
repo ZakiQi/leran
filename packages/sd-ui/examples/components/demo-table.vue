@@ -57,7 +57,7 @@
                   v-tooltip.top="'更多操作'"
                 ></i>
 
-                <sd-dropdown-menu slot="dropdown" placement="top-start">
+                <sd-dropdown-menu slot="dropdown" placement="top-start" offset="140">
                   <sd-dropdown-item icon="sd-icon-copy" command="copy">复制看板</sd-dropdown-item>
                   <sd-dropdown-item icon="sd-icon-move" command="move">移动到</sd-dropdown-item>
                   <sd-dropdown-item icon="sd-icon-a-01-nor">刷新缓存</sd-dropdown-item>
