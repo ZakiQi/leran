@@ -213,7 +213,6 @@ export default {
       const popperJS = this.popperJS
       if (popperJS) {
         popperJS.update(() => {
-          // console.log('222222222222222222222222')
         })
         if (popperJS._popper) {
           popperJS._popper.style.zIndex = PopupManager.nextZIndex()

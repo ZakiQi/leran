@@ -22,8 +22,6 @@ class Element {
   }
 
   isElement(element) {
-    console.log(element, 'element')
-    console.log(element instanceof Element,  '-=-=-==--')
     return element instanceof Element || element instanceof HTMLDocument; 
   }
 }

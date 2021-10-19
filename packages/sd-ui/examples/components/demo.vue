@@ -142,7 +142,6 @@ export default {
       this.$emit('themeChange')
     },
     handleClick() {
-      console.log(123123)
     }
   }
 }

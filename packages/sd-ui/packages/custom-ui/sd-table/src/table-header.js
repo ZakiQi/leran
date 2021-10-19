@@ -103,17 +103,11 @@ export default {
       }
       const after = start + columns[index].colSpan - 1
       if (this.fixed === true || this.fixed === 'left') {
-        console.log('1', after >= this.leftFixedLeafCount)
         return after >= this.leftFixedLeafCount
       } else if (this.fixed === 'right') {
-        console.log('2', after >= start < this.columnsCount - this.rightFixedLeafCount)
 
         return start < this.columnsCount - this.rightFixedLeafCount
       } else {
-        console.log(
-          '3',
-          after < this.leftFixedLeafCount || start >= this.columnsCount - this.rightFixedLeafCount
-        )
         return (
           after < this.leftFixedLeafCount || start >= this.columnsCount - this.rightFixedLeafCount
         )

@@ -59,7 +59,6 @@ TipDirective.install = (Vue) => {
   function openTooltip(el, binding) {
     if (!el) return
     // let show = true
-    // console.log('binding.a', !binding.a)
     // if (!binding.a) {
     //   show = false
     // }
@@ -71,7 +70,6 @@ TipDirective.install = (Vue) => {
         parseFloat(window.getComputedStyle(el).width) &&
         String(el.bindingValue).pxWidth('normal 14px Robot') > parseFloat(window.getComputedStyle(el).width)
       )
-    // console.log('show', show)
     if (show) {
       return
     }
@@ -114,12 +112,6 @@ TipDirective.install = (Vue) => {
       let top = offset.top
       const tooltipHeight = el.vm.$el.offsetHeight
       const tooltipWidth = el.vm.$el.offsetWidth
-
-      // console.log('el', el)
-      // console.log('gggggg', el.vm.$el)
-      // console.log('offset', offset)
-      // console.log('tooltipHeight', tooltipHeight)
-      // console.log('tooltipWidth', tooltipWidth)
 
       switch (binding.place.toUpperCase()) {
         case 'TOP':
@@ -197,7 +189,6 @@ TipDirective.install = (Vue) => {
 
       // const modifiers = ['controlled', 'a']
       // Object.keys(binding.modifiers).forEach((v) => {
-      //   console.log('v', v)
       //   // modifiers[v] === v && (binding.place = 'top')
       //   // binding.place = v
       //   // modifiers.includes(v) && (binding.place = 'top')

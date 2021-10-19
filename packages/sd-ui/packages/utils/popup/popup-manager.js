@@ -67,8 +67,6 @@ const PopupManager = {
   },
 
   openModal: function (id, zIndex, dom, modalClass, modalFade) {
-    console.log('id,', id)
-    console.log('dom', dom)
     if (Vue.prototype.$isServer) return
     if (!id || zIndex === undefined) return
     this.modalFade = modalFade
@@ -88,7 +86,6 @@ const PopupManager = {
     if (this.modalFade && !hasModal) {
       addClass(modalDom, 'v-modal-enter')
     }
-    console.log('fffff', modalClass)
     if (modalClass) {
       let classArr = modalClass.trim().split(/\s+/)
       classArr.forEach((item) => addClass(modalDom, item))
