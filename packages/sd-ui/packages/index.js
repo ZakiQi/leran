@@ -26,8 +26,6 @@ import sdForm from './custom-ui/sd-form/index'
 import sdFormItem from './custom-ui/sd-form-item/index'
 import sdFormInput from './custom-ui/sd-form-input'
 
-// import sdBadge from './custom-ui/sd-badge/index'
-
 // iconfont
 import '../assets/iconfont/iconfont.css'
 import '../assets/iconfont/iconfont.js'
@@ -50,7 +48,6 @@ const components = [
   sdForm,
   sdFormItem,
   sdFormInput,
-  sdBadge,
   sdTooltip
 ]
 
