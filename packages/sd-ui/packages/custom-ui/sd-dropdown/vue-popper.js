@@ -136,74 +136,74 @@ export default {
       }
       this.popperJS._popper.style.zIndex = PopupManager.nextZIndex()
 
-      this.popperJS.onUpdate((c) => {
-        const { _reference, _popper } = c.instance
+      // this.popperJS.onUpdate((c) => {
+      //   const { _reference, _popper } = c.instance
 
-        const offset = getOffset(_reference)
-        // 需要被弹出节点元素
-        const eleWidth = _reference.offsetWidth
-        const eleHeight = _reference.offsetHeight
-        let left = offset.left
-        let top = offset.top
+      //   const offset = getOffset(_reference)
+      //   // 需要被弹出节点元素
+      //   const eleWidth = _reference.offsetWidth
+      //   const eleHeight = _reference.offsetHeight
+      //   let left = offset.left
+      //   let top = offset.top
 
-        // 弹出的元素
-        const tooltipHeight = _popper.offsetHeight
-        const tooltipWidth = _popper.offsetWidth
+      //   // 弹出的元素
+      //   const tooltipHeight = _popper.offsetHeight
+      //   const tooltipWidth = _popper.offsetWidth
 
-        // console.log('tooltipHeight', tooltipHeight)
-        // console.log('tooltipWidth', tooltipWidth)
-        // console.log('offset', offset)
-        // console.log('eleWidth', eleWidth)
+      //   // console.log('tooltipHeight', tooltipHeight)
+      //   // console.log('tooltipWidth', tooltipWidth)
+      //   // console.log('offset', offset)
+      //   // console.log('eleWidth', eleWidth)
 
-        // const documentHeight = document.documentElement.clientHeight
-        // console.log('currentPlacement', this.currentPlacement)
-        // if (this.placement === 'top-start') {
-        //   console.log(' offset.top', offset.top)
-        //   console.log('documentHeight', documentHeight)
-        //   console.log('tooltipHeight', tooltipHeight)
-        //   if (documentHeight - offset.top < tooltipHeight) {
-        //     this.currentPlacement = 'bottom-start'
-        //   }
-        // }
+      //   // const documentHeight = document.documentElement.clientHeight
+      //   // console.log('currentPlacement', this.currentPlacement)
+      //   // if (this.placement === 'top-start') {
+      //   //   console.log(' offset.top', offset.top)
+      //   //   console.log('documentHeight', documentHeight)
+      //   //   console.log('tooltipHeight', tooltipHeight)
+      //   //   if (documentHeight - offset.top < tooltipHeight) {
+      //   //     this.currentPlacement = 'bottom-start'
+      //   //   }
+      //   // }
 
-        switch (this.placement) {
-          case 'top':
-            top = offset.top - tooltipHeight
-            left = offset.left + eleWidth / 2 - tooltipWidth / 2
-            break
-          case 'top-start':
-            top = offset.top - tooltipHeight
-            left = offset.left - tooltipWidth
-            break
-          case 'top-end':
-            top = offset.top - tooltipHeight
-            left = offset.left + eleWidth
-            break
+      //   switch (this.placement) {
+      //     case 'top':
+      //       top = offset.top - tooltipHeight
+      //       left = offset.left + eleWidth / 2 - tooltipWidth / 2
+      //       break
+      //     case 'top-start':
+      //       top = offset.top - tooltipHeight
+      //       left = offset.left - tooltipWidth
+      //       break
+      //     case 'top-end':
+      //       top = offset.top - tooltipHeight
+      //       left = offset.left + eleWidth
+      //       break
 
-          case 'bottom':
-            top = offset.top + eleHeight
-            left = offset.left + eleWidth / 2 - tooltipWidth / 2
-            break
+      //     case 'bottom':
+      //       top = offset.top + eleHeight
+      //       left = offset.left + eleWidth / 2 - tooltipWidth / 2
+      //       break
 
-          case 'bottom-start':
-            top = offset.top + eleHeight
-            left = offset.left - tooltipWidth
-            break
+      //     case 'bottom-start':
+      //       top = offset.top + eleHeight
+      //       left = offset.left - tooltipWidth
+      //       break
 
-          case 'bottom-end':
-            top = offset.top + eleHeight
-            left = offset.left + eleWidth
-            break
+      //     case 'bottom-end':
+      //       top = offset.top + eleHeight
+      //       left = offset.left + eleWidth
+      //       break
 
-          default:
-            break
-        }
+      //     default:
+      //       break
+      //   }
 
-        // options.offset = [`${c.boundaries.right}px`, `${c.boundaries.top}px`]
-        this.popperJS._popper.style.left = `${left}px`
-        this.popperJS._popper.style.top = `${top}px`
-        // this.currentPlacement = ''
-      })
+      //   // options.offset = [`${c.boundaries.right}px`, `${c.boundaries.top}px`]
+      //   this.popperJS._popper.style.left = `${left}px`
+      //   this.popperJS._popper.style.top = `${top}px`
+      //   // this.currentPlacement = ''
+      // })
       this.popperElm.addEventListener('click', stop)
     },
 
