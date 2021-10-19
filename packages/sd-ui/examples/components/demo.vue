@@ -6,7 +6,6 @@
     <!-- <sd-button :type="'primary'" :title="'文字'" size="small">
       文字
     </sd-button> -->
-
     <sd-input
       v-model="inputValue"
       style=" width: 100px;margin: 10px;"
@@ -15,7 +14,6 @@
     ></sd-input>
 
     <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>
-
     <demoTabs></demoTabs>
     <demoTable></demoTable>
     <demo-message></demo-message>
