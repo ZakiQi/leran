@@ -159,10 +159,6 @@ export default {
     // 注册 watcher
     this.registerNormalWatchers()
     this.registerComplexWatchers()
-
-    // console.log('parent', parent)
-    // console.log('isSubColumn', this.isSubColumn)
-    // console.log('columnId', this.columnId)
   },
 
   destroyed() {

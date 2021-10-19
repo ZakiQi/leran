@@ -133,7 +133,6 @@ export default {
       rowKey: this.rowKey
     })
     const layout = new TableLayout({ table: this, store, fit: this.fit })
-    console.log('layoutlayout', layout)
     return {
       store,
       layout,
@@ -157,7 +156,6 @@ export default {
     }
   },
   created() {
-    console.log('table created')
     this.tableId = `sd-table_${tableIdSeed}`
     tableIdSeed += 1
     // 提供给table-store的TableStore.prototype.scheduleLayout使用

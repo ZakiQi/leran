@@ -240,7 +240,6 @@ export default {
     showDownStyle () {
       let ph = this.$refs.scrollWrap?.offsetHeight || 290
       let ch = this.$refs.tagContents?.offsetHeight || 0
-      console.log(ph, ch)
 
       this.showDown = ph < ch
     }

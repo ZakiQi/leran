@@ -209,7 +209,6 @@ export default {
       return this.sdForm ? this.sdForm.statusIcon : false
     },
     inputSize() {
-      console.log('fffff', this._elFormItemSize)
       return this.size || this._elFormItemSize || (this.$JYELEMENT || {}).size
     },
     inputDisabled() {
