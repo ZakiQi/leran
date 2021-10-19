@@ -24,6 +24,9 @@ $linght-theme : (
   
   // common
   primary-color: $--color-general,
+  warning-color: $--color-amber,
+  success-color: $--color-success,
+  error-color: $--color-danger,
   text-placeholder: $--color-neutral-50,
   text-secondary:  $--color-neutral-70,   // 正文文字。对应 T2 文字类型
   text-first: $--color-neutral-80,   // 正文 对应 T1 
