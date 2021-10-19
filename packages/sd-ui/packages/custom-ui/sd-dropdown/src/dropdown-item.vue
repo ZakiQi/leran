@@ -14,11 +14,11 @@
   </li>
 </template>
 <script>
-import Emitter from 'element-ui/src/mixins/emitter'
+import emitter from 'packages/utils/mixins/emitter'
 export default {
   name: 'sdDropdownItem',
 
-  mixins: [Emitter],
+  mixins: [emitter],
 
   props: {
     command: {},

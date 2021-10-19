@@ -149,6 +149,7 @@ export default {
       }
     },
     handleMenuItemClick(command, instance) {
+      console.log(1111111111111111111)
       if (this.hideOnClick) {
         this.visible = false
       }
