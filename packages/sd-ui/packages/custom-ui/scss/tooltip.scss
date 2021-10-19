@@ -49,7 +49,7 @@ $--tooltip-max-width: 380px !default;
 
   // top
 
-  @include m((placement-top, placement-topleft, placement-top-end)) {
+  @include m((placement-top, placement-top-start, placement-top-end)) {
     padding: $--tooltip-arrow-size 0 $--tooltip-distance 0;
     @include e(arrow) {
       @extend .arrowTop;
@@ -63,7 +63,7 @@ $--tooltip-max-width: 380px !default;
     }
   }
 
-  @include m(placement-topleft) {
+  @include m(placement-top-start) {
     @include e(arrow) {
       left: 16px;
     }
@@ -78,7 +78,7 @@ $--tooltip-max-width: 380px !default;
 
   // right
 
-  @include m((placement-right, placement-righttop, placement-rightbottom)) {
+  @include m((placement-right, placement-right-start, placement-right-end)) {
     padding: 0 $--tooltip-arrow-size 0 $--tooltip-distance;
 
     @include e(arrow) {
@@ -92,12 +92,12 @@ $--tooltip-max-width: 380px !default;
       margin-top: -$--tooltip-arrow-size;
     }
   }
-  @include m(placement-righttop) {
+  @include m(placement-right-start) {
     @include e(arrow) {
       top: 8px;
     }
   }
-  @include m(placement-rightbottom) {
+  @include m(placement-right-end) {
     @include e(arrow) {
       bottom: 8px;
     }
@@ -106,7 +106,7 @@ $--tooltip-max-width: 380px !default;
   // right end
 
   // bottom
-  @include m((placement-bottom, placement-bottomleft, placement-bottom-end)) {
+  @include m((placement-bottom, placement-bottom-start, placement-bottom-end)) {
     padding: $--tooltip-distance 0 $--tooltip-arrow-size;
     @include e(arrow) {
       @extend .arrowBottom;
@@ -119,7 +119,7 @@ $--tooltip-max-width: 380px !default;
       margin-left: -$--tooltip-arrow-size;
     }
   }
-  @include m(placement-bottomleft) {
+  @include m(placement-bottom-start) {
     @include e(arrow) {
       left: 16px;
     }
@@ -132,7 +132,7 @@ $--tooltip-max-width: 380px !default;
   // bottom end
 
   // left
-  @include m((placement-left, placement-lefttop, placement-leftbottom)) {
+  @include m((placement-left, placement-left-start, placement-left-end)) {
     padding: 0 $--tooltip-distance 0 $--tooltip-arrow-size;
 
     @include e(arrow) {
@@ -145,12 +145,12 @@ $--tooltip-max-width: 380px !default;
       margin-top: -$--tooltip-arrow-size;
     }
   }
-  @include m(placement-lefttop) {
+  @include m(placement-left-start) {
     @include e(arrow) {
       top: 8px;
     }
   }
-  @include m(placement-leftbottom) {
+  @include m(placement-left-end) {
     @include e(arrow) {
       bottom: 8px;
     }

@@ -197,11 +197,14 @@ export default {
     },
 
     addTooltipClass(prev) {
+      console.log('prev', prev)
       // if (!prev) {
       //   return 'sd-tooltip'
       // } else {
       //   return 'sd-tooltip ' + prev.replace('sd-tooltip', '')
       // }
+      // return 'sd-tooltip ' + prev.replace('sd-tooltip', '')
+      return prev
     },
 
     handleShowPopper() {
