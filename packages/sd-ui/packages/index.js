@@ -25,6 +25,8 @@ import sdForm from './custom-ui/sd-form/index'
 import sdFormItem from './custom-ui/sd-form-item/index'
 import sdFormInput from './custom-ui/sd-form-input'
 
+import sdBadge from './custom-ui/sd-badge/index'
+
 // iconfont
 import '../assets/iconfont/iconfont.css'
 import '../assets/iconfont/iconfont.js'
@@ -46,7 +48,8 @@ const components = [
   sdDialog,
   sdForm,
   sdFormItem,
-  sdFormInput
+  sdFormInput,
+  sdBadge
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册

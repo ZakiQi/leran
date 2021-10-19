@@ -34,6 +34,7 @@ export default {
   }
 
   /deep/ .el-input__inner{
+    padding: 0 12px;
     @include themeify {
       border: 1px solid themed('base-border') !important;
     }

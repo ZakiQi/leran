@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import SdButton from '../packages/custom-ui/sd-button/sd-button.vue'
+// import SdButton from '../packages/custom-ui/sd-button/sd-button.vue'
 // import SdButton from '../packages/sd-button/sd-button.vue'
 // import SdSideDialog from '../packages/sd-side-dialog/sd-side-dialog.vue'
 import demo from './components/demo.vue'
