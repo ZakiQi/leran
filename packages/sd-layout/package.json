@@ -26,5 +26,8 @@
   },
   "bugs": {
     "url": "https://github.com/ZakiQi/leran/issues"
+  },
+  "dependencies": {
+    "terser-webpack-plugin": "^5.2.4"
   }
 }
