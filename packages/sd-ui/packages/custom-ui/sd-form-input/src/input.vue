@@ -348,11 +348,6 @@ export default {
 
     handleCompositionEnd(event) {
       this.handleInput(event)
-
-      // if (this.isComposing) {
-      //   this.isComposing = false
-      //   this.handleInput(event)
-      // }
     },
 
     // 监听输入
