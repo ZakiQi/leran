@@ -1,6 +1,8 @@
 const path = require('path')
 const resolve = (folder) => path.resolve(__dirname, folder)
 
+const TerserPlugin = require('terser-webpack-plugin')
+
 const NODE_ENV = process.env.NODE_ENV
 
 /**
@@ -34,6 +36,20 @@ const vueConfig = {
       .set('@', resolve('examples'))
       .set('assets', resolve('@/assets'))
       .set('packages', resolve('./packages'))
+  },
+
+  configureWebpack: {
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: true
+            }
+          }
+        })
+      ]
+    }
   }
 }
 

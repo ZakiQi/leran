@@ -45,17 +45,26 @@
         <template slot-scope="scope">
           <div class="handle-wrap">
             <template v-if="!scope.row.folder">
-              <i class="iconfont  handle-item" v-tooltip.topright="'编辑'">&#xe658;</i>
+              <i class="iconfont  handle-item" v-tooltip.topend="'编辑'">&#xe658;</i>
               <i class="iconfont  handle-item" v-tooltip.top="'分享'" @click="drawerVisible = true"
                 >&#xe624;</i
               >
               <sd-dropdown trigger="click" style="margin-left: 15px">
                 <!-- <span class="sd-dropdown-link"> 下拉菜单<i class="sd-icon-arrow-down sd-icon--right"></i> </span> -->
-                <i
+                <!-- <i
                   style="padding: 0; margin-right: 0"
                   class="iconfont sd-icon-normore-smal handle-item"
                   v-tooltip.top="'更多操作'"
-                ></i>
+                ></i> -->
+
+                <sd-tooltip content="更多操作" placement="top-end" offset="-15">
+                  <!-- <i style="padding: 0; margin-right: 0" class="iconfont sd-icon-normore-smal handle-item"></i> -->
+
+                  <i
+                    style="padding: 0; margin-right: 0"
+                    class="iconfont sd-icon-normore-smal handle-item"
+                  ></i>
+                </sd-tooltip>
 
                 <sd-dropdown-menu slot="dropdown" placement="top-start" offset="140">
                   <sd-dropdown-item icon="sd-icon-copy" command="copy">复制看板</sd-dropdown-item>
@@ -67,8 +76,8 @@
             </template>
 
             <template v-else>
-              <i class="iconfont  handle-item" v-tooltip.topright="'编辑'">&#xe65a;</i>
-              <i class="iconfont  handle-item" v-tooltip.topright="'删除'">&#xe65b;</i>
+              <i class="iconfont  handle-item" v-tooltip.top-end="'编辑'">&#xe65a;</i>
+              <i class="iconfont  handle-item" v-tooltip.top-end="'删除'">&#xe65b;</i>
             </template>
           </div>
         </template>
