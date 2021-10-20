@@ -357,10 +357,6 @@ export default {
 
     // 监听输入
     handleInput(event) {
-      console.log('asdasdasd')
-
-      // should not emit input during composition
-      // see: https://github.com/ElemeFE/element/issues/10516
       if (this.isComposing) return
 
       // hack for https://github.com/ElemeFE/element/issues/8548
