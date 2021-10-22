@@ -25,9 +25,14 @@
               </div>
             </template>
             <template v-else>
-              <i class="iconfont sd-icon-selfolder-sel selfolder-sel"></i>
+              <!-- <i class="iconfont sd-icon-selfolder-sel selfolder-sel"></i> -->
+              <icon-svg
+                icon-class="sd-icon-selfolder-sel"
+                style="height: 46px;
+                flex: 0 0 46px;"
+              />
             </template>
-            <span v-tooltip.top="scope.row.name" class="text">{{ scope.row.name }}</span>
+            <span v-tooltip.top.ellipsis="scope.row.name" class="text">{{ scope.row.name }}</span>
           </div>
         </template>
       </sd-table-column>
@@ -39,17 +44,49 @@
         <template slot="header">
           <div class="header-header">
             <span>操作</span>
-            <i class="iconfont sd-icon-a-1-nor1 handle-item"></i>
+
+            <sd-dropdown trigger="click">
+              <!-- <span class="sd-dropdown-link"> 下拉菜单<i class="sd-icon-arrow-down sd-icon--right"></i> </span> -->
+              <!-- <i
+                  style="padding: 0; margin-right: 0"
+                  class="iconfont sd-icon-normore-smal handle-item"
+                  v-tooltip.top="'更多操作'"
+                ></i> -->
+
+              <sd-tooltip content="更多操作" placement="top-end" offset="-15">
+                <!-- <i style="padding: 0; margin-right: 0" class="iconfont sd-icon-normore-smal handle-item"></i> -->
+
+                <i class="iconfont sd-icon-a-1-nor1 handle-item handleColor"></i>
+              </sd-tooltip>
+
+              <sd-dropdown-menu slot="dropdown" placement="left-end" offset="-125">
+                <!-- sd-icon-select -->
+                <sd-dropdown-item command="copy"
+                  ><i class="iconfont sd-icon-select"></i> 全部</sd-dropdown-item
+                >
+                <sd-dropdown-item command="move">移动到</sd-dropdown-item>
+                <sd-dropdown-item>刷新缓存</sd-dropdown-item>
+                <sd-dropdown-item command="delete">删除</sd-dropdown-item>
+              </sd-dropdown-menu>
+            </sd-dropdown>
           </div>
         </template>
         <template slot-scope="scope">
           <div class="handle-wrap">
             <template v-if="!scope.row.folder">
-              <i class="iconfont  handle-item" v-tooltip.topend="'编辑'">&#xe658;</i>
-              <i class="iconfont  handle-item" v-tooltip.top="'分享'" @click="drawerVisible = true"
-                >&#xe624;</i
-              >
-              <sd-dropdown trigger="click" style="margin-left: 15px">
+              <sd-tooltip content="编辑" placement="top" offset="7">
+                <i class="iconfont handleColor  handle-item handleColor">&#xe658;</i>
+              </sd-tooltip>
+
+              <sd-tooltip content="分享" placement="top">
+                <i
+                  class="iconfont handleColor handle-item handleColor"
+                  @click="drawerVisible = true"
+                  >&#xe624;</i
+                >
+              </sd-tooltip>
+
+              <el-dropdown trigger="click" style="margin-left: 15px">
                 <!-- <span class="sd-dropdown-link"> 下拉菜单<i class="sd-icon-arrow-down sd-icon--right"></i> </span> -->
                 <!-- <i
                   style="padding: 0; margin-right: 0"
@@ -62,22 +99,26 @@
 
                   <i
                     style="padding: 0; margin-right: 0"
-                    class="iconfont sd-icon-normore-smal handle-item"
+                    class="iconfont sd-icon-normore-smal handle-item handleColor"
                   ></i>
                 </sd-tooltip>
 
-                <sd-dropdown-menu slot="dropdown" placement="top-start" offset="140">
-                  <sd-dropdown-item icon="sd-icon-copy" command="copy">复制看板</sd-dropdown-item>
-                  <sd-dropdown-item icon="sd-icon-move" command="move">移动到</sd-dropdown-item>
-                  <sd-dropdown-item icon="sd-icon-a-01-nor">刷新缓存</sd-dropdown-item>
-                  <sd-dropdown-item icon="sd-icon-a-1-nor3" command="delete">删除</sd-dropdown-item>
-                </sd-dropdown-menu>
-              </sd-dropdown>
+                <el-dropdown-menu slot="dropdown" placement="bottom" offset="-3000">
+                  <el-dropdown-item icon="sd-icon-copy" command="copy">复制看板</el-dropdown-item>
+                  <el-dropdown-item icon="sd-icon-move" command="move">移动到</el-dropdown-item>
+                  <el-dropdown-item icon="sd-icon-a-01-nor">刷新缓存</el-dropdown-item>
+                  <el-dropdown-item icon="sd-icon-a-1-nor3" command="delete">删除</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
             </template>
 
             <template v-else>
-              <i class="iconfont  handle-item" v-tooltip.top-end="'编辑'">&#xe65a;</i>
-              <i class="iconfont  handle-item" v-tooltip.top-end="'删除'">&#xe65b;</i>
+              <sd-tooltip content="编辑" placement="top" offset="7">
+                <i class="iconfont  handle-item handleColor">&#xe65a;</i>
+              </sd-tooltip>
+              <sd-tooltip content="删除" placement="top" offset="0">
+                <i class="iconfont  handle-item handleColor">&#xe65b;</i>
+              </sd-tooltip>
             </template>
           </div>
         </template>

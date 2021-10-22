@@ -55,7 +55,8 @@ export default {
       default() {
         return {
           gpuAcceleration: false,
-          eventsEnabled: true
+          eventsEnabled: true,
+          enabled: true
         }
       }
     }
@@ -212,8 +213,7 @@ export default {
     updatePopper() {
       const popperJS = this.popperJS
       if (popperJS) {
-        popperJS.update(() => {
-        })
+        popperJS.update(() => {})
         if (popperJS._popper) {
           popperJS._popper.style.zIndex = PopupManager.nextZIndex()
         }

@@ -4,26 +4,7 @@
 @import '../common/var.scss';
 
 
-// @mixin placeholder {
-//   &::-webkit-input-placeholder {
-//     @content
-//   }
 
-//   &::-moz-placeholder {
-//     @content
-//   }
-
-//   &:-ms-input-placeholder {
-//     @content
-//   }
-// }
-
-// input,
-// textarea {
-//   @include placeholder {
-//     color: #f00;
-//   }
-// }
 
 @include b(formInput) {
   position: relative;
@@ -344,9 +325,9 @@
 
   @include when(exceed) {
     .sd-textarea__inner {
-      @include themeify {
-        border-color: themed('message-error-font-color');
-      }
+      // @include themeify {
+      //   border-color: themed('message-error-font-color');
+      // }
       // border-color: $--color-danger;
     }
 

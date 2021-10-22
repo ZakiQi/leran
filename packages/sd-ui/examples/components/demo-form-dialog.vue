@@ -16,16 +16,34 @@
         size="mini"
         @submit.native.prevent
       >
-        <sd-form-item label="名称：" prop="age">
+        <sd-form-item label="名称：" prop="name">
           <sd-form-input
             type="text"
-            v-model="form.age"
+            v-model="form.name"
             maxlength="10"
             show-word-limit
             clearable
             placeholder="文本输入框"
           ></sd-form-input>
         </sd-form-item>
+
+        <sd-form-item label="说明：" prop="name1">
+          <sd-form-input
+            class="share-drawer__declare"
+            maxlength="10"
+            show-word-limit
+            type="textarea"
+            :rows="7"
+            resize="none"
+            placeholder="请输入内容"
+            v-model="form.name1"
+          >
+          </sd-form-input>
+        </sd-form-item>
+
+        <div class="share-drawer__share">
+          说明:
+        </div>
 
         <!-- <sd-form-item label="名称：" prop="age">
           <sd-form-input
