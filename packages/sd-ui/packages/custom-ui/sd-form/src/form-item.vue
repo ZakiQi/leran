@@ -44,7 +44,10 @@
                   : (sdForm && sdForm.inlineMessage) || false
             }"
           >
-            <i class="iconfont sd-icon-error-filled1" style="margin-right: 4px;"></i>
+            <i
+              class="iconfont sd-icon-error-filled1"
+              style="margin-right: 4px;width: 16px;height: 16px;"
+            ></i>
             {{ validateMessage }}
           </div>
         </slot>
@@ -250,6 +253,7 @@ export default {
     validate(trigger, callback = noop) {
       this.validateDisabled = false
       const rules = this.getFilteredRule(trigger)
+      console.log('1111', rules)
 
       if ((!rules || rules.length === 0) && this.required === undefined) {
         callback()

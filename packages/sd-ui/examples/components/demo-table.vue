@@ -26,11 +26,11 @@
             </template>
             <template v-else>
               <!-- <i class="iconfont sd-icon-selfolder-sel selfolder-sel"></i> -->
-              <icon-svg
+              <!-- <icon-svg
                 icon-class="sd-icon-selfolder-sel"
                 style="height: 46px;
                 flex: 0 0 46px;"
-              />
+              /> -->
             </template>
             <span v-tooltip.top.ellipsis="scope.row.name" class="text">{{ scope.row.name }}</span>
           </div>
@@ -86,7 +86,7 @@
                 >
               </sd-tooltip>
 
-              <el-dropdown trigger="click" style="margin-left: 15px">
+              <sd-dropdown trigger="click" style="margin-left: 15px">
                 <!-- <span class="sd-dropdown-link"> 下拉菜单<i class="sd-icon-arrow-down sd-icon--right"></i> </span> -->
                 <!-- <i
                   style="padding: 0; margin-right: 0"
@@ -103,13 +103,13 @@
                   ></i>
                 </sd-tooltip>
 
-                <el-dropdown-menu slot="dropdown" placement="bottom" offset="-3000">
-                  <el-dropdown-item icon="sd-icon-copy" command="copy">复制看板</el-dropdown-item>
-                  <el-dropdown-item icon="sd-icon-move" command="move">移动到</el-dropdown-item>
-                  <el-dropdown-item icon="sd-icon-a-01-nor">刷新缓存</el-dropdown-item>
-                  <el-dropdown-item icon="sd-icon-a-1-nor3" command="delete">删除</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
+                <sd-dropdown-menu slot="dropdown" placement="bottom" offset="-3000">
+                  <sd-dropdown-item icon="sd-icon-copy" command="copy">复制看板</sd-dropdown-item>
+                  <sd-dropdown-item icon="sd-icon-move" command="move">移动到</sd-dropdown-item>
+                  <sd-dropdown-item icon="sd-icon-a-01-nor">刷新缓存</sd-dropdown-item>
+                  <sd-dropdown-item icon="sd-icon-a-1-nor3" command="delete">删除</sd-dropdown-item>
+                </sd-dropdown-menu>
+              </sd-dropdown>
             </template>
 
             <template v-else>

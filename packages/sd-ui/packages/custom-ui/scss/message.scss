@@ -1,4 +1,5 @@
 @import '../mixins/mixins.scss';
+@import '../mixins/utils';
 @import '../../../assets/sass/theme/theme.scss';
 @import '../common/var.scss';
 
@@ -25,9 +26,9 @@
   align-items: center;
 
   @include e(content) {
-    font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
+    @include utils-fontStyle(14);
   }
   
 
@@ -119,7 +120,7 @@
   @include e(closeBtn) {
     // position: absolute;
     // top: 50%;
-    // right: 16px;
+    right: 15px;
     // transform: translateY(-50%);
     cursor: pointer;
     @include themeify {

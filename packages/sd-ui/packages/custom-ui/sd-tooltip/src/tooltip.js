@@ -128,7 +128,6 @@ export default {
 
   mounted() {
     this.referenceElm = this.$el
-    console.log(this.referenceElm)
     if (this.$el.nodeType === 1) {
       this.$el.setAttribute('tabindex', this.tabindex)
 
@@ -197,7 +196,7 @@ export default {
     },
 
     addTooltipClass(prev) {
-      console.log('prev', prev)
+      // console.log('prev', prev)
       // if (!prev) {
       //   return 'sd-tooltip'
       // } else {
