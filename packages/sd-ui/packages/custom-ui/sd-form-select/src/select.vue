@@ -76,9 +76,11 @@ import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/re
 import scrollIntoView from 'element-ui/src/utils/scroll-into-view'
 import { getValueByPath, valueEquals, isIE, isEdge } from 'element-ui/src/utils/util'
 import { isKorean } from 'element-ui/src/utils/shared'
+import NavigationMixin from './navigation-mixin'
+
 export default {
   name: 'sdFormSelect',
-  mixins: [emitter, Locale, Focus('reference')],
+  mixins: [emitter, Locale, Focus('reference'), NavigationMixin],
 
   name: 'sdFormSelect',
 
@@ -625,6 +627,16 @@ export default {
         if (this.visible) {
           console.log('9')
           ;(this.$refs.input || this.$refs.reference).focus()
+        }
+      }
+    },
+
+    selectOption() {
+      if (!this.visible) {
+        this.toggleMenu()
+      } else {
+        if (this.options[this.hoverIndex]) {
+          this.handleOptionSelect(this.options[this.hoverIndex])
         }
       }
     },
