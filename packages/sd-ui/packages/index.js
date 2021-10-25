@@ -25,6 +25,8 @@ import sdDialog from './custom-ui/sd-dialog/index'
 import sdForm from './custom-ui/sd-form/index'
 import sdFormItem from './custom-ui/sd-form-item/index'
 import sdFormInput from './custom-ui/sd-form-input'
+import sdFormSelect from './custom-ui/sd-form-select/index'
+import sdOption from './custom-ui/sd-option/index'
 
 import sdBadge from './custom-ui/sd-badge/index'
 
@@ -51,6 +53,8 @@ const components = [
   sdFormItem,
   sdFormInput,
   sdTooltip,
+  sdFormSelect,
+  sdOption,
   sdBadge
 ]
 

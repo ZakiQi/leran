@@ -14,6 +14,8 @@
     ></sd-input>
 
     <sd-select v-model="selectValue" size="mini" :options="selectOptions"></sd-select>
+    <demo-form-select></demo-form-select>
+
     <demoTabs></demoTabs>
     <demoTable></demoTable>
     <demo-message></demo-message>
@@ -67,8 +69,18 @@ import demoMessage from './demo-message'
 import demoDialog from './demo-dialog.vue'
 import demoFormDialog from './demo-form-dialog.vue'
 import demoBadge from './demo-badge.vue'
+import demoFormSelect from './demo-form-select'
 export default {
-  components: { sdButton, demoTabs, demoTable, demoMessage, demoDialog, demoFormDialog , demoBadge},
+  components: {
+    sdButton,
+    demoTabs,
+    demoTable,
+    demoMessage,
+    demoDialog,
+    demoFormDialog,
+    demoBadge,
+    demoFormSelect
+  },
   data() {
     return {
       sideDialogVisible: false,
@@ -141,8 +153,7 @@ export default {
     themeChange() {
       this.$emit('themeChange')
     },
-    handleClick() {
-    }
+    handleClick() {}
   }
 }
 </script>

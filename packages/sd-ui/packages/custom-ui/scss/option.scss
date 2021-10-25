@@ -1,0 +1,52 @@
+@import '../mixins/mixins.scss';
+@import '../mixins/utils';
+@import '../../../assets/sass/theme/theme.scss';
+@import '../common/var.scss';
+
+
+@include b(select-dropdown) {
+  @include e(item) {
+    font-size: $--select-font-size;
+    padding: 0 8px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $--select-option-color;
+    height: 28px;
+    box-sizing: border-box;
+    cursor: pointer;
+    @include utils-fontStyle(14);
+    line-height: 28px;
+    font-weight: 400;
+    @include themeify {
+      color: themed('text-first');
+    }
+
+    @include when(disabled) {
+      color: $--select-option-disabled-color;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: $--color-white;
+      }
+    }
+
+    &.hover,
+    &:hover {
+      @include themeify {
+        background-color: themed('select-hover');
+      }
+    }
+
+    &.selectedItem {
+      i {
+         @include themeify {
+           color: themed('primary-color');
+         }
+      }
+      // color: $--select-option-selected-font-color;
+      // font-weight: bold;
+    }
+  }
+}

@@ -240,7 +240,10 @@ export default {
     inputChange(a, b) {
       console.log('a', a)
       console.log('b', b)
-      this.$refs['ruleForm'].$emit('sd.form.blur', a)
+      // this.$refs['ruleForm'].$emit('sd.form.blur', a)
+      setTimeout(() => {
+        this.$refs['ruleForm'].fields[1].validateState = 'success'
+      }, 10)
       // this.dispatch('sdFormItem', 'sd.form.blur', [a])
     }
   },

@@ -44,10 +44,10 @@
                   : (sdForm && sdForm.inlineMessage) || false
             }"
           >
-            <i
+            <!-- <i
               class="iconfont sd-icon-error-filled1"
               style="margin-right: 4px;width: 16px;height: 16px;"
-            ></i>
+            ></i> -->
             {{ validateMessage }}
           </div>
         </slot>

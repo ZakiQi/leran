@@ -35,14 +35,47 @@ import {
   Progress,
   Footer,
   Loading,
-  Message
+  Message,
+  Scrollbar
 } from 'element-ui'
 
 const elementPlugin = [
-  Icon, Pagination,  Dialog,  Dropdown,  Menu,  Input,  Radio,  RadioGroup,  RadioButton,  Checkbox,  Switch,  Select,  Option,  OptionGroup,  Button,  TableColumn,  DatePicker,  TimeSelect,  TimePicker,  Popover,  Tooltip,  Form,  FormItem,  Tabs,  TabPane,  Tag,  Tree,  Alert,  Upload,  Progress,  Footer,  Loading
+  Icon,
+  Pagination,
+  Dialog,
+  Dropdown,
+  Menu,
+  Input,
+  Radio,
+  RadioGroup,
+  RadioButton,
+  Checkbox,
+  Switch,
+  Select,
+  Option,
+  OptionGroup,
+  Button,
+  TableColumn,
+  DatePicker,
+  TimeSelect,
+  TimePicker,
+  Popover,
+  Tooltip,
+  Form,
+  FormItem,
+  Tabs,
+  TabPane,
+  Tag,
+  Tree,
+  Alert,
+  Upload,
+  Progress,
+  Footer,
+  Loading,
+  Scrollbar
 ]
 
-elementPlugin.forEach(e => {
+elementPlugin.forEach((e) => {
   Vue.use(e)
 })
 

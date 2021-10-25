@@ -192,7 +192,7 @@ export default {
   watch: {},
 
   components: {
-    demo,
+    demo
     // SdSideDialog,
     // SdButton
   },
@@ -237,6 +237,10 @@ body {
   button {
     font-family: $font-family;
   }
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 #app {
   height: 100%;
