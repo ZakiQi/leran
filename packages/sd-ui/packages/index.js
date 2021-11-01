@@ -30,6 +30,12 @@ import sdOption from './custom-ui/sd-option/index'
 
 import sdBadge from './custom-ui/sd-badge/index'
 
+import sdFormRadio from './custom-ui/sd-form-radio/index'
+
+import sdFormRadioGroup from './custom-ui/sd-radio-group/index'
+import sdFormCheckbox from './custom-ui/sd-form-checkbox/index'
+import sdFormCheckboxGroup from './custom-ui/sd-form-checkbox-group/index'
+
 // iconfont
 import '../assets/iconfont/iconfont.css'
 import '../assets/iconfont/iconfont.js'
@@ -55,7 +61,11 @@ const components = [
   sdTooltip,
   sdFormSelect,
   sdOption,
-  sdBadge
+  sdBadge,
+  sdFormRadio,
+  sdFormRadioGroup,
+  sdFormCheckbox,
+  sdFormCheckboxGroup
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册

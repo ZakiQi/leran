@@ -22,6 +22,8 @@
     <demo-dialog></demo-dialog>
     <demo-form-dialog></demo-form-dialog>
     <demo-badge></demo-badge>
+    <demo-radio></demo-radio>
+    <demo-checkbox></demo-checkbox>
     <!-- <el-button size="mini" @click="sideDialogVisible = !sideDialogVisible">分享</el-button>
 
     <sd-date-picker
@@ -70,6 +72,8 @@ import demoDialog from './demo-dialog.vue'
 import demoFormDialog from './demo-form-dialog.vue'
 import demoBadge from './demo-badge.vue'
 import demoFormSelect from './demo-form-select'
+import demoRadio from './demo-radio'
+import demoCheckbox from './demo-checkbox'
 export default {
   components: {
     sdButton,
@@ -79,7 +83,9 @@ export default {
     demoDialog,
     demoFormDialog,
     demoBadge,
-    demoFormSelect
+    demoFormSelect,
+    demoRadio,
+    demoCheckbox
   },
   data() {
     return {
